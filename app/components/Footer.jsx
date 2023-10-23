@@ -37,19 +37,40 @@ const Footer = () => {
         </Link>
       </div>
       <div className="flex justify-center items-center space-y-5 flex-col max-sm:flex-row max-sm:space-x-2">
-        <Link href="wa.link/bkf0fy"><Image src={WppIcon}
+        <Link
+          href="wa.link/bkf0fy"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="firulais whatsapp"
+        >
+          <Image
+            src={WppIcon}
             alt="Whatsapp Firulais"
             className="max-sm:mt-5"
             width={30}
-            quality={100}></Image></Link>
-        <Link href="https://twitter.com/firulaisVR"><Image src={Xicon}
+            quality={100}
+          ></Image>
+        </Link>
+        <Link href="https://twitter.com/firulaisVR" target="_blank"
+          rel="noreferrer"
+          aria-label="firulais twitter x">
+          <Image
+            src={Xicon}
             alt="Twitter Firulais"
             width={30}
-            quality={100}></Image></Link>
-        <Link href="mailto:firulaisvr@gmail.com"><Image src={EmailIcon}
+            quality={100}
+          ></Image>
+        </Link>
+        <Link href="mailto:firulaisvr@gmail.com" target="_blank"
+          rel="noreferrer"
+          aria-label="firulais email">
+          <Image
+            src={EmailIcon}
             alt="Email Firulais"
             width={30}
-            quality={100}></Image></Link>
+            quality={100}
+          ></Image>
+        </Link>
       </div>
     </div>
   );
