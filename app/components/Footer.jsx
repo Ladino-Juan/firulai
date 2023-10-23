@@ -37,16 +37,16 @@ const Footer = () => {
         </Link>
       </div>
       <div className="flex justify-center items-center space-y-5 flex-col max-sm:flex-row max-sm:space-x-2">
-        <Link href="/"><Image src={WppIcon}
+        <Link href="wa.link/bkf0fy"><Image src={WppIcon}
             alt="Whatsapp Firulais"
             className="max-sm:mt-5"
             width={30}
             quality={100}></Image></Link>
-        <Link href="/"><Image src={Xicon}
+        <Link href="https://twitter.com/firulaisVR"><Image src={Xicon}
             alt="Twitter Firulais"
             width={30}
             quality={100}></Image></Link>
-        <Link href="/"><Image src={EmailIcon}
+        <Link href="mailto:firulaisvr@gmail.com"><Image src={EmailIcon}
             alt="Email Firulais"
             width={30}
             quality={100}></Image></Link>
