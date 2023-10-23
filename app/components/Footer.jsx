@@ -38,7 +38,7 @@ const Footer = () => {
       </div>
       <div className="flex justify-center items-center space-y-5 flex-col max-sm:flex-row max-sm:space-x-2">
         <Link
-          href="wa.link/bkf0fy"
+          href="https://wa.me/573205279852"
           target="_blank"
           rel="noreferrer"
           aria-label="firulais whatsapp"
@@ -51,9 +51,12 @@ const Footer = () => {
             quality={100}
           ></Image>
         </Link>
-        <Link href="https://twitter.com/firulaisVR" target="_blank"
+        <Link
+          href="https://twitter.com/firulaisVR"
+          target="_blank"
           rel="noreferrer"
-          aria-label="firulais twitter x">
+          aria-label="firulais twitter x"
+        >
           <Image
             src={Xicon}
             alt="Twitter Firulais"
@@ -61,16 +64,7 @@ const Footer = () => {
             quality={100}
           ></Image>
         </Link>
-        <Link href="mailto:firulaisvr@gmail.com" target="_blank"
-          rel="noreferrer"
-          aria-label="firulais email">
-          <Image
-            src={EmailIcon}
-            alt="Email Firulais"
-            width={30}
-            quality={100}
-          ></Image>
-        </Link>
+      
       </div>
     </div>
   );
