@@ -28,7 +28,8 @@ module.exports = {
         'circle-fast': 'circle_fast 10s linear infinite'
       },
       fontFamily: {
-        solaris: ['SOLARIS', 'cursive']
+        solaris: ['SOLARIS', 'cursive'],
+        california: ['CALIFORNIA', 'cursive']
       },
       colors: {
         main: "#FFD6AC",

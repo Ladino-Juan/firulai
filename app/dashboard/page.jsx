@@ -1,11 +1,11 @@
 import React from 'react'
+import Game from '../components/Game'
 
 const DashboardPage = () => {
   return (
-    <>
-        <h1 className="text-2xl font-bold mb-5">Thanks for being here!</h1>
-        <p className="mb-5">We're working in our game prototype right now, please come back later</p>
-    </>
+    <div className="w-[98vw] h-screen overflow-y-hidden">
+        <Game/>
+    </div>
   )
 }
 

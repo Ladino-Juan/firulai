@@ -51,7 +51,7 @@ export default function Home() {
   ];
   return (
     <>
-      <div className="flex justify-around items-center overflow-hidden h-[80vh] max-sm:flex-col">
+      <div className="flex justify-around items-center overflow-hidden h-[80vh] max-sm:flex-col mt-20">
         <div className="flex flex-col w-2/5 max-sm:w-[80vw] max-sm:text-center space-y-4">
           <h1 className="font-solaris text-7xl text-main text-left max-sm:text-4xl max-sm:text-center">
             fIrulaiS

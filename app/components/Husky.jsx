@@ -5,15 +5,21 @@
 
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
+import { useCharacterStore } from "../Store";
 
 const Husky = (props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("./models/Husky.gltf");
-  const { actions, names } = useAnimations(animations, group);
+  const { actions } = useAnimations(animations, group);
+
+  const characterState = useCharacterStore((state) => state.characterState);
 
   useEffect(() => {
-    actions[names[5]].reset().fadeIn(0.5).play()
-  }, [])
+    actions[characterState].reset().fadeIn(0.2).play();
+    return () => {
+      actions[characterState].fadeOut(0.2);
+    };
+  }, [characterState]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

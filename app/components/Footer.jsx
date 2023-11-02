@@ -3,7 +3,6 @@ import Link from "next/link";
 import FirulaisLogo from "../../public/assets/firulaisLogo.webp";
 import WppIcon from "../../public/icons/whatsapp-icon.svg";
 import Xicon from "../../public/icons/twitter-icon.svg";
-import EmailIcon from "../../public/icons/email-icon.svg";
 
 const Footer = () => {
   return (

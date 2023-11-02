@@ -25,12 +25,11 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={`bg-darkGray text-blanco ${poppins.className}`}>
           <Header />
-          <main className="container">
+          <main>
             <div className="flex items-start justify-center min-h-screen">
-              <div className="mt-20">{children}</div>
+              <div>{children}</div>
             </div>
           </main>
-          <Footer />
         </body>
       </html>
     </ClerkProvider>
