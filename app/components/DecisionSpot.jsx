@@ -1,35 +1,64 @@
 import { Center, Cylinder, Text3D, Html, Text } from "@react-three/drei";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
-import { useGameStore, useSensorStore } from "../Store";
+import { useGameStore, useSensorStore, playAudio } from "../Store";
+import { thingsToDo } from "../constants";
 import { Crate } from "./Crate";
-import { useState } from "react";
 
-
+import { useState, useEffect } from "react";
+import { useThree } from "@react-three/fiber";
 export const DecisionSpot = () => {
+  /*responsive size */
+  const { viewport } = useThree();
+
+  const isMobile = window.innerWidth < 768;
+  const responsiveRatio = viewport.width / 12;
+  const farmScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
+
   const { isSensor, setSensor } = useSensorStore();
-  const { generateRandomDecisions, finalDecision } = useGameStore((state) => ({
-    generateRandomDecisions: state.generateRandomDecisions,
+  const { generateDecisions, finalDecision } = useGameStore((state) => ({
+    generateDecisions: state.generateDecisions,
     finalDecision: state.finalDecision,
   }));
-  const [decision, setDecision] = useState('');
+
+  const [animate, setAnimate] = useState(false);
+
+  const handleAnimationEnd = () => {
+    setAnimate(false); // Restablece animate a false cuando se completa la animación
+  };
+  const [decisionsData, setDecisionsData] = useState([]);
+
+  useEffect(() => {
+    // Generate decisions when the component mounts
+    setDecisionsData(generateDecisions());
+  }, [generateDecisions]);
+  const handleCollisionEnter = (dec) => {
+    finalDecision(dec);
+    setSensor(true);
+    setAnimate(true);
+    // Generate new questions when the player collides
+    setDecisionsData(generateDecisions());
+  };
+
+  let decIdx = null;
   return (
     <>
-      {generateRandomDecisions().map((dec, index) => (
+      {decisionsData.map((dec, index) => (
         <group
-          key={dec.idx}
-          rotation-y={(index / generateRandomDecisions().length) * Math.PI * 2}
+          key={index}
+          rotation-y={(index / decisionsData.length) * Math.PI * 2}
         >
- 
+          {(decIdx = dec.idx - 1)}
 
-          <group position-x={3.5} position-z={-3.5}>
+          <group
+            position-x={isMobile ? 2.4 : 3.5}
+            position-z={isMobile ? 2.4 : -3.5}
+            position-y={isMobile ? -0.5 : 0}
+            scale={[farmScaleRatio, farmScaleRatio, farmScaleRatio]}
+          >
             <RigidBody
               colliders={false}
               type="fixed"
-              onCollisionEnter={() => {
-                finalDecision(dec);
-                setSensor(true);
-                setDecision(dec.description);
-              }}
+              onCollisionEnter={() => handleCollisionEnter(dec)}
               name="void"
             >
               <CylinderCollider args={[0.25 / 2, 1]} sensor={isSensor} />
@@ -44,30 +73,34 @@ export const DecisionSpot = () => {
               <Text3D
                 font={"./fonts/Poppins.json"}
                 size={0.82}
-                rotation-y={
-                  -(index / generateRandomDecisions().length) * Math.PI * 2
-                }
+                rotation-y={-(index / decisionsData.length) * Math.PI * 2}
               >
                 {index + 1}
                 <meshStandardMaterial color="white" toneMapped={false} />
               </Text3D>
             </Center>
-         
-           
           </group>
         </group>
       ))}
 
-      {console.log(decision)}
-   <Html position={[-15, 3, -5]}>
-        <div className="space-y-2 w-80 h-96 flex justify-center rounded-xl flex-col font-california">
-          <h1 className="text-3xl  text-white ml-10">Decisions</h1>
-          <h1>{decision}</h1>
-          <button>NO</button>
-          <button>YES</button>
+      <Html position={isMobile ? [-1.2, 5.5, 0] : [-15, 4, -5]}>
+        <div
+          className={`space-y-2 w-[30vw] h-[70vh] flex justify-center flex-col font-california max-sm:h-[30vh] max-sm:w-[80vw] max-sm:space-y-1 ${
+            animate ? "animate-slide-in" : ""
+          } ${animate && isMobile ? "animate-slide-in-mobile" : ""}`}
+          onAnimationEnd={handleAnimationEnd}
+        >
+          <h1 className="text-sm md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-lg mb-4 background-image">
+            {thingsToDo[decIdx]}
+          </h1>
+          {decisionsData.map((dec, index) => (
+            <h1
+              className={`text-sm md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-md background-image`}
+              key={index}
+            >{`${index + 1}: ${dec.description}`}</h1>
+          ))}
         </div>
       </Html>
-      
     </>
   );
 };

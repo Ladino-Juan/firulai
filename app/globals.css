@@ -11,6 +11,10 @@
     src: url("../public/fonts/California.otf");
   }
 
+  .background-image {
+    background-image: url('../public/assets/woodenBg.webp'); /* Ruta relativa desde el directorio público */
+  }
+
   .menu,
   .scores {
     position: fixed;

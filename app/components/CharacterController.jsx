@@ -3,36 +3,52 @@ import { useFrame } from "@react-three/fiber";
 import { CapsuleCollider, RigidBody, vec3 } from "@react-three/rapier";
 import { useRef } from "react";
 import { Controls } from "./Game";
-import { gameStates, useGameStore, useCharacterStore, useSensorStore } from "../Store";
+import {
+  gameStates,
+  useGameStore,
+  useCharacterStore,
+  useSensorStore,
+  playAudio,
+  useMobileController
+} from "../Store";
 import Husky from "./Husky";
 
 import * as THREE from "three";
+/* responsive size for the pet model */
+const isMobile = window.innerWidth < 768;
 
-const JUMP_FORCE = 0.5;
+
+const JUMP_FORCE = 0.65;
 const MOVEMENT_SPEED = 0.1;
-const MAX_VEL = 3;
+const MAX_VEL = isMobile ? 2 : 3;
 const RUN_VEL = 1.5;
+
+
 
 export const CharacterController = () => {
   const { setSensor } = useSensorStore();
-  const { characterState, setCharacterState} = useCharacterStore()
-  const {  gameState } = useGameStore(
-    (state) => ({
-      gameState: state.gameState,
-    })
-  );
+  const { characterState, setCharacterState } = useCharacterStore();
+  const { gameState } = useGameStore((state) => ({
+    gameState: state.gameState,
+  }));
   const jumpPressed = useKeyboardControls((state) => state[Controls.jump]);
-  const leftPressed = useKeyboardControls((state) => state[Controls.left]);
-  const rightPressed = useKeyboardControls((state) => state[Controls.right]);
-  const backPressed = useKeyboardControls((state) => state[Controls.back]);
+  const leftPressed = useKeyboardControls((state) => state[Controls.left])  || useMobileController.getState().isMovingLeft;
+  const rightPressed = useKeyboardControls((state) => state[Controls.right])  || useMobileController.getState().isMovingRight;
+  const backPressed = useKeyboardControls((state) => state[Controls.back])  || useMobileController.getState().isMovingBackward;
   const forwardPressed = useKeyboardControls(
     (state) => state[Controls.forward]
-  );
+  )  || useMobileController.getState().isMovingForward;
   const rigidbody = useRef();
   const isOnFloor = useRef(true);
 
+
+
   useFrame((state, delta) => {
     const impulse = { x: 0, y: 0, z: 0 };
+
+
+
+
     if (jumpPressed && isOnFloor.current) {
       impulse.y += JUMP_FORCE;
       isOnFloor.current = false;
@@ -57,6 +73,7 @@ export const CharacterController = () => {
       changeRotation = true;
     }
 
+
     rigidbody.current.applyImpulse(impulse, true);
 
     if (Math.abs(linvel.x) > RUN_VEL || Math.abs(linvel.z) > RUN_VEL) {
@@ -68,10 +85,9 @@ export const CharacterController = () => {
         setCharacterState("Idle");
       }
     }
-    if(jumpPressed){
-      setCharacterState("Jump_ToIdle")
+    if (jumpPressed) {
+      setCharacterState("Jump_ToIdle");
     }
-  
 
     if (changeRotation) {
       const angle = Math.atan2(linvel.x, linvel.z);
@@ -124,10 +140,8 @@ export const CharacterController = () => {
     rigidbody.current.setTranslation(vec3({ x: 0, y: 0, z: 0 }));
     rigidbody.current.setLinvel(vec3({ x: 0, y: 0, z: 0 }));
     setSensor(false);
-
   };
 
-  
   return (
     <group>
       <RigidBody
@@ -141,12 +155,15 @@ export const CharacterController = () => {
         onIntersectionEnter={({ other }) => {
           if (other.rigidBodyObject.name === "void") {
             resetPosition();
+            playAudio("fall", () => {
+              playAudio("bark");
+            });
           }
         }}
       >
-        <CapsuleCollider args={[0.8, 0.4]} position={[0, 1.2, 0]}/>
+        <CapsuleCollider args={[0.8, 0.4]} position={[0, 1.2, 0]} />
         <group ref={character}>
-          <Husky />
+          <Husky scale={isMobile ? 0.7 : 1}/>
         </group>
       </RigidBody>
     </group>

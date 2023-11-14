@@ -1,136 +1,396 @@
+export const thingsToDo = [
+  "What should you feed your dog?",
+  "How would you like to spend time with your dog?",
+  "What should you do when your dog is hungry?",
+  "How do you plan to groom your dog?",
+  "How should you handle your dog's social interactions?",
+  "How will you bathe your dog?",
+  "What kind of activities would you like to do with your dog?",
+  "Your dog needs a vet visit",
+  "How will you entertain your dog with toys?",
+  "How will you spend time with your dog today?"
+];
 
 export const decisions = [
+  // Decision array for question 1
+  [
     {
-        idx: 1,
-        description: "Feed the dog",
-        happinessLevel: +5,
-        healthLevel: +10,
-        moneyChange: -2
-      },
-      {
-        idx: 2,
-        description: "Give the dog a chicken bone",
-        happinessLevel: +10,
-        healthLevel: -30,
-        moneyChange: -5
-      },
-      {
-        idx: 3,
-        description: "Take the dog for a walk in the park",
-        happinessLevel: +15,
-        healthLevel: +5,
-        moneyChange: -3
-      },
-      {
-        idx: 4,
-        description: "Let the dog play with other dogs",
-        happinessLevel: +8,
-        healthLevel: +12,
-        moneyChange: 0
-      },
-      {
-        idx: 5,
-        description: "Pick up the dog's poop",
-        happinessLevel: +2,
-        healthLevel: +2,
-        moneyChange: 1
-      },
-      {
-        idx: 6,
-        description: "Take the dog off the leash",
-        happinessLevel: +10,
-        healthLevel: -5,
-        moneyChange: +0
-      },
-      {
-        idx: 7,
-        description: "Play with the dog in the garden",
-        happinessLevel: +12,
-        healthLevel: +8,
-        moneyChange: +0
-      },
-      {
-        idx: 8,
-        description: "Take the dog to the vet",
-        happinessLevel: -5,
-        healthLevel: +20,
-        moneyChange: -20
-      },
-      {
-        idx: 9,
-        description: "Buy toys for the dog",
-        happinessLevel: +8,
-        healthLevel: +0,
-        moneyChange: -10
-      },
-      {
-        idx: 10,
-        description: "Ignore the dog",
-        happinessLevel: -10,
-        healthLevel: +0,
-        moneyChange: +0
-      },
-      {
-        idx: 11,
-        description: "Give the dog a bath",
-        happinessLevel: +5,
-        healthLevel: +10,
-        moneyChange: -3
-      },
-      {
-        idx: 12,
-        description: "Take the dog to an agility competition",
-        happinessLevel: +15,
-        healthLevel: +10,
-        moneyChange: -15
-      },
-      {
-        idx: 13,
-        description: "Buy high-quality food for the dog",
-        happinessLevel: +10,
-        healthLevel: +5,
-        moneyChange: -8
-      },
-      {
-        idx: 14,
-        description: "Leave the dog alone at home all day",
-        happinessLevel: -15,
-        healthLevel: -5,
-        moneyChange: +0
-      },
-      {
-        idx: 15,
-        description: "Give the dog cuddles and affection",
-        happinessLevel: +10,
-        healthLevel: +5,
-        moneyChange: +0
-      },
-      {
-        idx: 16,
-        description: "Let the dog sleep in the bed",
-        happinessLevel: +12,
-        healthLevel: +2,
-        moneyChange: +0
-      },
-      {
-        idx: 17,
-        description: "Exercise with the dog",
-        happinessLevel: +10,
-        healthLevel: +10,
-        moneyChange: +0
-      },
-      {
-        idx: 18,
-        description: "Let the dog on the couch",
-        happinessLevel: +5,
-        healthLevel: +0,
-        moneyChange: +0
-      },
-      {
-        idx: 19,
-        description: "Feed the dog junk food",
-        happinessLevel: +0,
-        healthLevel: -20,
-        moneyChange: -3
-      },
-  ];
+      idx: 1,
+      description: "Buy high-quality food for the dog",
+      happinessLevel: +10,
+      healthLevel: +5,
+      money: -15,
+    },
+    {
+      idx: 1,
+      description: "Give the dog a chicken bone",
+      happinessLevel: +10,
+      healthLevel: -30,
+      money: -5,
+    },
+    {
+      idx: 1,
+      description: "Feed the dog junk food",
+      happinessLevel: +0,
+      healthLevel: -20,
+      money: -3,
+    },
+    {
+      idx: 1,
+      description: "Cook a homemade meal for the dog",
+      happinessLevel: +12,
+      healthLevel: +8,
+      money: -10,
+    },
+    {
+      idx: 1,
+      description: "Let the dog eat whatever it finds",
+      happinessLevel: -5,
+      healthLevel: -10,
+      money: -2,
+    },
+  ],
+  // Decision array for question 2
+  [
+    {
+      idx: 2,
+      description: "Take the dog for a walk in the park",
+      happinessLevel: +15,
+      healthLevel: +5,
+      money: -3,
+    },
+    {
+      idx: 2,
+      description: "Let the dog sleep in the bed",
+      happinessLevel: +12,
+      healthLevel: +2,
+      money: +0,
+    },
+    {
+      idx: 2,
+      description: "Exercise with the dog",
+      happinessLevel: +10,
+      healthLevel: +10,
+      money: +0,
+    },
+    {
+      idx: 2,
+      description: "Play fetch with the dog",
+      happinessLevel: +18,
+      healthLevel: +12,
+      money: -5,
+    },
+    {
+      idx: 2,
+      description: "Visit the dog park for socializing",
+      happinessLevel: +20,
+      healthLevel: +5,
+      money: -10,
+    },
+  ],
+  // Decision array for question 3
+  [
+    {
+      idx: 3,
+      description: "Feed the dog a healthy meal",
+      happinessLevel: +8,
+      healthLevel: +10,
+      money: -5,
+    },
+    {
+      idx: 3,
+      description: "Let the dog eat from the trash",
+      happinessLevel: -5,
+      healthLevel: -20,
+      money: -2,
+    },
+    {
+      idx: 3,
+      description: "Ignore the dog's hunger",
+      happinessLevel: -5,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 3,
+      description: "Prepare a special doggy dinner",
+      happinessLevel: +10,
+      healthLevel: +15,
+      money: -8,
+    },
+    {
+      idx: 3,
+      description: "Order fast food for the dog",
+      happinessLevel: +5,
+      healthLevel: -10,
+      money: -5,
+    },
+  ],
+  // Decision array for question 4
+  [
+    {
+      idx: 4,
+      description: "Give the dog a relaxing bath",
+      happinessLevel: +8,
+      healthLevel: +10,
+      money: -5,
+    },
+    {
+      idx: 4,
+      description: "Use ice-cold water for the bath",
+      happinessLevel: -5,
+      healthLevel: -20,
+      money: -2,
+    },
+    {
+      idx: 4,
+      description: "Skip the bath and let the dog be dirty",
+      happinessLevel: -5,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 4,
+      description: "Take the dog to a professional groomer",
+      happinessLevel: +10,
+      healthLevel: +15,
+      money: -15,
+    },
+    {
+      idx: 4,
+      description: "Let the dog roll in the mud for fun",
+      happinessLevel: +12,
+      healthLevel: -5,
+      money: 0,
+    },
+  ],
+  // Decision array for question 5
+  [
+    {
+      idx: 5,
+      description: "Let the dog play with other friendly dogs",
+      happinessLevel: +15,
+      healthLevel: +10,
+      money: -5,
+    },
+    {
+      idx: 5,
+      description: "Keep the dog away from other dogs",
+      happinessLevel: -10,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 5,
+      description: "Introduce the dog to aggressive dogs",
+      happinessLevel: -20,
+      healthLevel: -30,
+      money: -10,
+    },
+    {
+      idx: 5,
+      description: "Arrange a doggy playdate with friends",
+      happinessLevel: +20,
+      healthLevel: +15,
+      money: -5,
+    },
+    {
+      idx: 5,
+      description: "Visit the dog park for socializing",
+      happinessLevel: +20,
+      healthLevel: +5,
+      money: -10,
+    },
+  ],
+  // Decision array for question 6
+  [
+    {
+      idx: 6,
+      description: "Give the dog a bath",
+      happinessLevel: +5,
+      healthLevel: +10,
+      money: -3,
+    },
+    {
+      idx: 6,
+      description: "Take the dog to a professional groomer",
+      happinessLevel: +10,
+      healthLevel: +5,
+      money: -15,
+    },
+    {
+      idx: 6,
+      description: "Let the dog bathe in the rain",
+      happinessLevel: +8,
+      healthLevel: +8,
+      money: 0,
+    },
+    {
+      idx: 6,
+      description: "Bathe the dog in the bathtub",
+      happinessLevel: +12,
+      healthLevel: +8,
+      money: -5,
+    },
+    {
+      idx: 6,
+      description: "Hire a mobile dog grooming service",
+      happinessLevel: +15,
+      healthLevel: +12,
+      money: -20,
+    },
+  ],
+  // Decision array for question 7
+  [
+    {
+      idx: 7,
+      description: "Take the dog to an agility competition",
+      happinessLevel: +15,
+      healthLevel: +12,
+      money: -15,
+    },
+    {
+      idx: 7,
+      description: "Train the dog for agility at home",
+      happinessLevel: +10,
+      healthLevel: +10,
+      money: -5,
+    },
+    {
+      idx: 7,
+      description: "Skip the agility competition",
+      happinessLevel: -5,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 7,
+      description: "Watch an agility competition on TV",
+      happinessLevel: +5,
+      healthLevel: +5,
+      money: -5,
+    },
+    {
+      idx: 7,
+      description: "Enroll the dog in an obedience class",
+      happinessLevel: +12,
+      healthLevel: +8,
+      money: -10,
+    },
+  ],
+  // Decision array for question 8
+  [
+    {
+      idx: 8,
+      description: "Visit the vet for a checkup",
+      happinessLevel: -5,
+      healthLevel: +20,
+      money: -20,
+    },
+    {
+      idx: 8,
+      description: "Reschedule the vet appointment",
+      happinessLevel: -10,
+      healthLevel: +5,
+      money: -5,
+    },
+    {
+      idx: 8,
+      description: "Get a second opinion from another vet",
+      happinessLevel: +5,
+      healthLevel: +15,
+      money: -10,
+    },
+    {
+      idx: 8,
+      description: "Let the dog skip the vet visit",
+      happinessLevel: +10,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 8,
+      description: "Invest in pet insurance",
+      happinessLevel: +8,
+      healthLevel: +8,
+      money: -15,
+    },
+  ],
+  // Decision array for question 9
+  [
+    {
+      idx: 9,
+      description: "Buy toys for the dog",
+      happinessLevel: +10,
+      healthLevel: +5,
+      money: -10,
+    },
+    {
+      idx: 9,
+      description: "Order toys online for the dog",
+      happinessLevel: +8,
+      healthLevel: +8,
+      money: -12,
+    },
+    {
+      idx: 9,
+      description: "Make DIY toys for the dog",
+      happinessLevel: +12,
+      healthLevel: +10,
+      money: -5,
+    },
+    {
+      idx: 9,
+      description: "Ignore the need for toys",
+      happinessLevel: -5,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 9,
+      description: "Get a subscription box for dog toys",
+      happinessLevel: +15,
+      healthLevel: +12,
+      money: -20,
+    },
+  ],
+  // Decision array for question 10
+  [
+    {
+      idx: 10,
+      description: "Ignore the dog",
+      happinessLevel: -10,
+      healthLevel: -5,
+      money: 0,
+    },
+    {
+      idx: 10,
+      description: "Spend quality time with the dog",
+      happinessLevel: +10,
+      healthLevel: +5,
+      money: -5,
+    },
+    {
+      idx: 10,
+      description: "Take the dog for a long walk",
+      happinessLevel: +12,
+      healthLevel: +10,
+      money: -5,
+    },
+    {
+      idx: 10,
+      description: "Play catch with the dog",
+      happinessLevel: +8,
+      healthLevel: +5,
+      money: -5,
+    },
+    {
+      idx: 10,
+      description: "Have a relaxing day with the dog",
+      happinessLevel: +15,
+      healthLevel: +8,
+      money: -10,
+    },
+  ],
+
+];
