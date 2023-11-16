@@ -39,7 +39,7 @@ module.exports = {
       },
       fontFamily: {
         solaris: ['SOLARIS', 'cursive'],
-        california: ['CALIFORNIA', 'cursive']
+        spiegel: ['SPIEGEL', 'cursive']
       },
       colors: {
         main: "#FFD6AC",

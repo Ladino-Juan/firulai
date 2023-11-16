@@ -20,7 +20,7 @@ const isMobile = window.innerWidth < 768;
 
 const JUMP_FORCE = 0.65;
 const MOVEMENT_SPEED = 0.1;
-const MAX_VEL = isMobile ? 2 : 3;
+const MAX_VEL = 2.5;
 const RUN_VEL = 1.5;
 
 
@@ -163,7 +163,7 @@ export const CharacterController = () => {
       >
         <CapsuleCollider args={[0.8, 0.4]} position={[0, 1.2, 0]} />
         <group ref={character}>
-          <Husky scale={isMobile ? 0.7 : 1}/>
+          <Husky scale={isMobile ? 0.9 : 1}/>
         </group>
       </RigidBody>
     </group>

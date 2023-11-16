@@ -1,18 +1,13 @@
 import { Center, Cylinder, Text3D, Html, Text } from "@react-three/drei";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
-import { useGameStore, useSensorStore, playAudio } from "../Store";
+import { useGameStore, useSensorStore } from "../Store";
 import { thingsToDo } from "../constants";
 import { Crate } from "./Crate";
 
 import { useState, useEffect } from "react";
-import { useThree } from "@react-three/fiber";
 export const DecisionSpot = () => {
-  /*responsive size */
-  const { viewport } = useThree();
 
   const isMobile = window.innerWidth < 768;
-  const responsiveRatio = viewport.width / 12;
-  const farmScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
 
   const { isSensor, setSensor } = useSensorStore();
   const { generateDecisions, finalDecision } = useGameStore((state) => ({
@@ -50,10 +45,9 @@ export const DecisionSpot = () => {
           {(decIdx = dec.idx - 1)}
 
           <group
-            position-x={isMobile ? 2.4 : 3.5}
-            position-z={isMobile ? 2.4 : -3.5}
-            position-y={isMobile ? -0.5 : 0}
-            scale={[farmScaleRatio, farmScaleRatio, farmScaleRatio]}
+            position-x={3.5}
+            position-z={-3.5}
+            scale={isMobile ? 0.8 : 0.9}
           >
             <RigidBody
               colliders={false}
@@ -83,14 +77,14 @@ export const DecisionSpot = () => {
         </group>
       ))}
 
-      <Html position={isMobile ? [-1.2, 5.5, 0] : [-15, 4, -5]}>
+      <Html position={isMobile ? [-1.2, 5, 0] : [-15, 4, -5]}>
         <div
-          className={`space-y-2 w-[30vw] h-[70vh] flex justify-center flex-col font-california max-sm:h-[30vh] max-sm:w-[80vw] max-sm:space-y-1 ${
+          className={`space-y-2 w-[30vw] h-[70vh] flex justify-center flex-col font-spiegel max-sm:h-[30vh] max-sm:w-[80vw] max-sm:space-y-1 ${
             animate ? "animate-slide-in" : ""
           } ${animate && isMobile ? "animate-slide-in-mobile" : ""}`}
           onAnimationEnd={handleAnimationEnd}
         >
-          <h1 className="text-sm md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-lg mb-4 background-image">
+          <h1 className="text-sm  md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-lg mb-4 background-image">
             {thingsToDo[decIdx]}
           </h1>
           {decisionsData.map((dec, index) => (

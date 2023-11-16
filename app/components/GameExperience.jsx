@@ -14,12 +14,8 @@ import { useThree } from "@react-three/fiber";
 
 const GameExperience = () => {
 
-  /* responsive size */
-  const { viewport } = useThree();
 
-  const isMobile = window.innerWidth < 768;
-  const responsiveRatio = viewport.width / 12;
-  const farmScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9));
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const { timeLeft } = useGameStore((state) => ({ timeLeft: state.timeLeft }));
 
@@ -35,7 +31,7 @@ const GameExperience = () => {
       />
 
       <Text
-        position={[0, isMobile ? -1.5 : -0.92, 0]}
+        position={[0, -0.92, 0]}
         fontSize={isMobile ? 1.2 : 1.84}
         rotation-x={-Math.PI / 2}
         font="./fonts/Poppins-Regular.ttf"
@@ -61,8 +57,7 @@ const GameExperience = () => {
         {/* STAGE */}
         <FarmStage
           position-y={-1.4}
-          position-z={isMobile ? 1.6 : 2}
-          scale={[farmScaleRatio, farmScaleRatio, farmScaleRatio]}
+          position-z={2}
         />
         <RigidBody
           colliders={false}
@@ -70,7 +65,7 @@ const GameExperience = () => {
           position-y={-0.5}
           friction={2}
         >
-          <CylinderCollider args={[isMobile ? 0.1 : 0.2, isMobile ? 3 : 4.5]}/>
+          <CylinderCollider args={[isMobile ? 0.35 : 0.3, 5]}/>
         </RigidBody>
 
         {/* CHARACTER */}

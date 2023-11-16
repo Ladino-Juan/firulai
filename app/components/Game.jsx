@@ -48,6 +48,7 @@ const Game = () => {
     ],
     []
   );
+
   const [joystickDirection, setJoystickDirection] = useState(null);
 
   // UseEffect to handle joystick direction changes
@@ -98,7 +99,7 @@ const Game = () => {
       </Canvas>
       <Loader />
       {!isMobile ? (
-        <div className="absolute inset-0 flex items-center justify-end space-x-5 mr-14 font-california">
+        <div className="absolute inset-0 flex items-center justify-end space-x-5 mr-14 font-spiegel">
           <div className="flex flex-col items-center space-y-2">
             <Image
               src={DogHealthIcon}
@@ -155,8 +156,8 @@ const Game = () => {
       
             <Joystick
               size={100}
-              baseColor="#000d1f"
-              stickColor="#0c58c2"
+              baseColor="#374151"
+              stickColor="#FFDA77"
               move={handleMove}
               stop={handleStop}
             ></Joystick>
@@ -170,7 +171,7 @@ const Game = () => {
               ></Image>
               <div className="w-36 bg-gray-200 rounded-full dark:bg-gray-700">
                 <div
-                  className="bg-blue-600 text-xs font-light text-blue-100 text-center p-0.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
+                  className="bg-[#FFDA77] text-xs font-light text-blue-100 text-center p-0.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
                   style={{ width: `${healthLevel}%` }}
                 >
                   {`${healthLevel}%`}
@@ -186,7 +187,7 @@ const Game = () => {
               ></Image>
               <div className="w-36 bg-gray-200 rounded-full dark:bg-gray-700">
                 <div
-                  className="bg-blue-600 text-xs font-light text-blue-100 text-center p-0.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
+                  className="bg-[#FFDA77] text-xs font-light text-blue-100 text-center p-0.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
                   style={{ width: `${happinessLevel}%` }}
                 >
                   {`${happinessLevel}%`}
@@ -203,7 +204,7 @@ const Game = () => {
               ></Image>
               <div className="w-36 bg-gray-200 rounded-full dark:bg-gray-700">
                 <div
-                  className="bg-blue-600 text-xs font-light text-blue-100 text-center p-0.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
+                  className="bg-[#FFDA77] text-xs font-light text-blue-100 text-center p-0.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
                   style={{ width: `${money}%` }}
                 >
                   {`${money}%`}
