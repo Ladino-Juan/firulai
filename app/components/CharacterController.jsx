@@ -15,7 +15,7 @@ import Husky from "./Husky";
 
 import * as THREE from "three";
 /* responsive size for the pet model */
-const isMobile = window.innerWidth < 768;
+const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
 
 const JUMP_FORCE = 0.65;

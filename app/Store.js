@@ -8,8 +8,6 @@ export const gameStates = {
   WIN: "WIN",
 };
 
-
-
 export const useMobileController = create((set) => ({
   isMovingForward: false,
   isMovingBackward: false,
@@ -35,8 +33,7 @@ export const useMobileController = create((set) => ({
         break;
     }
   },
-
-}))
+}));
 
 export const useCharacterStore = create((set) => ({
   characterState: "Idle",
@@ -75,7 +72,7 @@ let currentAudioInstance = null;
 
 let gameTimer = null;
 let startTime = null;
-const gameDuration = 30000; 
+const gameDuration = 30000;
 
 export const useGameStore = create((set) => ({
   gameState: gameStates.MENU,
@@ -128,12 +125,12 @@ export const useGameStore = create((set) => ({
 
     useGameStore.getState().startGameTimer(() => {
       set({ gameState: gameStates.GAME_OVER });
+      currentAudioInstance.stop();
     });
 
     return useGameStore.getState().generateRandomDecisions();
   },
   gameOver: () => {
-  
     set({ gameState: gameStates.GAME_OVER });
   },
   finalDecision: (decision) => {
@@ -157,6 +154,7 @@ export const useGameStore = create((set) => ({
       set({
         gameState: gameStates.GAME_OVER,
       });
+      currentAudioInstance.stop();
     } else if (healthLevel > 100 && happinessLevel > 100) {
       set({
         gameState: gameStates.WIN,
@@ -165,21 +163,16 @@ export const useGameStore = create((set) => ({
       const newDecisions = useGameStore.getState().generateDecisions();
       set({ gameState: gameStates.GAME, ...newDecisions });
     }
-    if(happinessLevel < 30 ){
+    if (happinessLevel < 30) {
       playAudio("stray", null, false, 0.3);
     }
-    if(happinessLevel > 80 ){
+    if (happinessLevel > 80) {
       playAudio("panting", null, false, 0.3);
     }
   },
   goToMenu: () => {
-    if (currentAudioInstance) {
-      currentAudioInstance.stop();
-    }
     set({
       gameState: gameStates.MENU,
     });
   },
 }));
-
-

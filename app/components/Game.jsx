@@ -155,16 +155,7 @@ const Game = () => {
             className="absolute inset-0 flex items-end justify-around m-5"
           >
             <div className="flex items-center">
-      
-              <Joystick
-                size={70}
-                baseColor="#374151"
-                stickColor="#FFDA77"
-                move={handleMove}
-                stop={handleStop}
-              />
-            
-            <div className="flex flex-col space-y-2 ml-4">
+            <div className="flex flex-col space-y-2 mr-4">
               <div className="flex items-center space-x-2">
                 <Image
                   src={DogHealthIcon}
@@ -215,6 +206,14 @@ const Game = () => {
                 </div>
               </div>
             </div>
+            <Joystick
+                size={70}
+                baseColor="#374151"
+                stickColor="#FFDA77"
+                move={handleMove}
+                stop={handleStop}
+              />
+            
           </div>
           </div>
         </>
