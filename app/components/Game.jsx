@@ -71,21 +71,6 @@ const Game = () => {
     }
   }, [joystickDirection]);
 
-
-  const [joystickPosition, setJoystickPosition] = useState({ x: 0, y: 0 });
-  const [showJoystick, setShowJoystick] = useState(false);
-
-  // Función para manejar el inicio del toque
-  const handleTouchStart = (event) => {
-    setShowJoystick(true);
-
-    // Obtener las coordenadas del toque en relación con la ventana
-    const touchX = event.touches[0].clientX;
-    const touchY = event.touches[0].clientY;
-
-    // Establecer la posición del joystick usando las coordenadas del toque
-    setJoystickPosition({ x: touchX, y: touchY });
-  };
   const handleMove = (e) => {
     const direction = e.direction;
     setJoystickDirection(direction);
@@ -167,23 +152,19 @@ const Game = () => {
       ) : (
         <>
           <div
-            className="absolute inset-0 flex md:flex-col items-end justify-around md:justify-end m-5 md:m-0 md:mr-5"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+            className="absolute inset-0 flex items-end justify-around m-5"
           >
-            {showJoystick && (
+            <div className="flex items-center">
+      
               <Joystick
-                size={100}
+                size={70}
                 baseColor="#374151"
-                sticky={false}
                 stickColor="#FFDA77"
                 move={handleMove}
                 stop={handleStop}
-                style={{ position: 'absolute', left: joystickPosition.x, top: joystickPosition.y }}
-              ></Joystick>
-            )}
-
-            <div className={isMobile ? "flex flex-col space-y-2" : ""}>
+              />
+            
+            <div className="flex flex-col space-y-2 ml-4">
               <div className="flex items-center space-x-2">
                 <Image
                   src={DogHealthIcon}
@@ -191,7 +172,7 @@ const Game = () => {
                   width={30}
                   quality={100}
                 ></Image>
-                <div className="w-[80vw] bg-gray-200 rounded-full dark:bg-gray-700">
+                <div className="w-[60vw] bg-gray-200 rounded-full dark:bg-gray-700">
                   <div
                     className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
                     style={{ width: `${healthLevel}%` }}
@@ -207,7 +188,7 @@ const Game = () => {
                   width={30}
                   quality={100}
                 ></Image>
-                <div className="w-[80vw] bg-gray-200 rounded-full dark:bg-gray-700">
+                <div className="w-[60vw] bg-gray-200 rounded-full dark:bg-gray-700">
                   <div
                     className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
                     style={{ width: `${happinessLevel}%` }}
@@ -224,7 +205,7 @@ const Game = () => {
                   width={30}
                   quality={100}
                 ></Image>
-                <div className="w-[80vw] bg-gray-200 rounded-full dark:bg-gray-700">
+                <div className="w-[60vw] bg-gray-200 rounded-full dark:bg-gray-700">
                   <div
                     className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
                     style={{ width: `${money}%` }}
@@ -234,6 +215,7 @@ const Game = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </>
       )}

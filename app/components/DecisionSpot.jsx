@@ -6,7 +6,7 @@ import { Crate } from "./Crate";
 
 import { useState, useEffect } from "react";
 export const DecisionSpot = () => {
-  const isMobile = window.innerWidth < 768;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const { isSensor, setSensor } = useSensorStore();
   const { generateDecisions, finalDecision } = useGameStore((state) => ({
@@ -77,7 +77,7 @@ export const DecisionSpot = () => {
       ))}
 
       {!isMobile && (
-        <Html position={[isMobile ? -2.7 : -3.3, isMobile ? 8.5 : 5, 0]}>
+        <Html position={[isMobile ? -2.7 : -3.3, isMobile ? 8.6 : 5, 0]}>
           <h1 className="text-sm text-center md:text-2xl text-white w-[30vw] p-2 md:p-5 rounded-lg mb-4 background-image max-sm:w-[70vw] font-spiegel">
             {thingsToDo[decIdx]}
           </h1>

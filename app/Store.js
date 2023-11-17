@@ -8,6 +8,8 @@ export const gameStates = {
   WIN: "WIN",
 };
 
+
+
 export const useMobileController = create((set) => ({
   isMovingForward: false,
   isMovingBackward: false,
@@ -44,7 +46,7 @@ export const useCharacterStore = create((set) => ({
     }),
 }));
 
-export const playAudio = (path, callback, loop = false) => {
+export const playAudio = (path, callback, loop = false, volume) => {
   const audio = new Audio(`./sounds/${path}.mp3`);
 
   if (callback) {
@@ -54,7 +56,7 @@ export const playAudio = (path, callback, loop = false) => {
   if (loop) {
     audio.loop = true;
   }
-
+  audio.volume = volume; // Establecer el volumen al 50%
   audio.play();
 
   return {
@@ -106,9 +108,7 @@ export const useGameStore = create((set) => ({
       clearInterval(intervalId);
     }, initialDuration);
   },
-  gameOver: () => {
-    set({ gameState: gameStates.GAME_OVER });
-  },
+
   generateDecisions: () => {
     const randomIndex = Math.floor(Math.random() * decisions.length);
     return decisions[randomIndex];
@@ -118,7 +118,7 @@ export const useGameStore = create((set) => ({
       currentAudioInstance.stop();
     }
 
-    currentAudioInstance = playAudio("start", null, true);
+    currentAudioInstance = playAudio("start", null, true, 0.1);
     set({
       gameState: gameStates.GAME,
       healthLevel: 40,
@@ -132,11 +132,15 @@ export const useGameStore = create((set) => ({
 
     return useGameStore.getState().generateRandomDecisions();
   },
+  gameOver: () => {
+  
+    set({ gameState: gameStates.GAME_OVER });
+  },
   finalDecision: (decision) => {
     useGameStore.getState().startGameTimer(() => {
       set({ gameState: gameStates.GAME_OVER });
     }, gameDuration);
-    playAudio("woodSmash");
+    playAudio("woodSmash", null, false, 0.2);
 
     set((state) => ({
       healthLevel: Math.min(101, state.healthLevel + decision.healthLevel),
@@ -161,6 +165,12 @@ export const useGameStore = create((set) => ({
       const newDecisions = useGameStore.getState().generateDecisions();
       set({ gameState: gameStates.GAME, ...newDecisions });
     }
+    if(happinessLevel < 30 ){
+      playAudio("stray", null, false, 0.3);
+    }
+    if(happinessLevel > 80 ){
+      playAudio("panting", null, false, 0.3);
+    }
   },
   goToMenu: () => {
     if (currentAudioInstance) {
@@ -171,3 +181,5 @@ export const useGameStore = create((set) => ({
     });
   },
 }));
+
+

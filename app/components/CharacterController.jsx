@@ -156,8 +156,8 @@ export const CharacterController = () => {
           if (other.rigidBodyObject.name === "void") {
             resetPosition();
             playAudio("fall", () => {
-              playAudio("bark");
-            });
+              playAudio("bark", null, false, 0.2);
+            }, false, 0.3);
           }
         }}
       >
