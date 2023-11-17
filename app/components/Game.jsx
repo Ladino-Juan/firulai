@@ -71,14 +71,20 @@ const Game = () => {
     }
   }, [joystickDirection]);
 
+
+  const [joystickPosition, setJoystickPosition] = useState({ x: 0, y: 0 });
   const [showJoystick, setShowJoystick] = useState(false);
 
-  const handleTouchStart = () => {
+  // Función para manejar el inicio del toque
+  const handleTouchStart = (event) => {
     setShowJoystick(true);
-  };
 
-  const handleTouchEnd = () => {
-    setShowJoystick(false);
+    // Obtener las coordenadas del toque en relación con la ventana
+    const touchX = event.touches[0].clientX;
+    const touchY = event.touches[0].clientY;
+
+    // Establecer la posición del joystick usando las coordenadas del toque
+    setJoystickPosition({ x: touchX, y: touchY });
   };
   const handleMove = (e) => {
     const direction = e.direction;
@@ -173,6 +179,7 @@ const Game = () => {
                 stickColor="#FFDA77"
                 move={handleMove}
                 stop={handleStop}
+                style={{ position: 'absolute', left: joystickPosition.x, top: joystickPosition.y }}
               ></Joystick>
             )}
 
