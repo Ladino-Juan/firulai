@@ -6,7 +6,6 @@ import { Crate } from "./Crate";
 
 import { useState, useEffect } from "react";
 export const DecisionSpot = () => {
-
   const isMobile = window.innerWidth < 768;
 
   const { isSensor, setSensor } = useSensorStore();
@@ -77,16 +76,23 @@ export const DecisionSpot = () => {
         </group>
       ))}
 
-      <Html position={isMobile ? [-1.2, 5, 0] : [-15, 4, -5]}>
+      {!isMobile && (
+        <Html position={[isMobile ? -2.7 : -3.3, isMobile ? 8.5 : 5, 0]}>
+          <h1 className="text-sm text-center md:text-2xl text-white w-[30vw] p-2 md:p-5 rounded-lg mb-4 background-image max-sm:w-[70vw] font-spiegel">
+            {thingsToDo[decIdx]}
+          </h1>
+        </Html>
+      )}
+      <Html position={isMobile ? [-2.5, isMobile ? 8 : 6, 0] : [-15, 4, -5]}>
+        <h1 className="text-sm text-white max-w-[80%] p-2 rounded-lg background-image md:hidden animate-none text-center w-[80vw] font-spiegel">
+          {thingsToDo[decIdx]}
+        </h1>
         <div
-          className={`space-y-2 w-[30vw] h-[70vh] flex justify-center flex-col font-spiegel max-sm:h-[30vh] max-sm:w-[80vw] max-sm:space-y-1 ${
+          className={`space-y-2 w-[30vw] max-sm:mt-7 h-[70vh] flex justify-center flex-col font-spiegel max-sm:h-[20vh] max-sm:w-[80vw] max-sm:space-y-1 ${
             animate ? "animate-slide-in" : ""
           } ${animate && isMobile ? "animate-slide-in-mobile" : ""}`}
           onAnimationEnd={handleAnimationEnd}
         >
-          <h1 className="text-sm  md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-lg mb-4 background-image">
-            {thingsToDo[decIdx]}
-          </h1>
           {decisionsData.map((dec, index) => (
             <h1
               className={`text-sm md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-md background-image`}

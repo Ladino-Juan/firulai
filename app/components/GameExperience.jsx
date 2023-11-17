@@ -10,7 +10,6 @@ import { CharacterController } from "./CharacterController";
 import { DecisionSpot } from "./DecisionSpot";
 import { FarmStage } from "./FarmStage";
 import { useGameStore } from "../Store";
-import { useThree } from "@react-three/fiber";
 
 const GameExperience = () => {
 
@@ -32,7 +31,7 @@ const GameExperience = () => {
 
       <Text
         position={[0, -0.92, 0]}
-        fontSize={isMobile ? 1.2 : 1.84}
+        fontSize={1.84}
         rotation-x={-Math.PI / 2}
         font="./fonts/Poppins-Regular.ttf"
       >
@@ -43,7 +42,7 @@ const GameExperience = () => {
       <group position-y={-1}>
         {/* FLOOR */}
         <RigidBody colliders={false} type="fixed" name="void">
-          <CuboidCollider position={[0, -3.5, 0]} args={[50, 0.1, 50]} sensor />
+          <CuboidCollider position={[0, -3.5, 0]} args={[100, 0.1, 100]} sensor />
         </RigidBody>
         <ContactShadows
           frames={1}
