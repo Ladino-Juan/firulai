@@ -2,8 +2,8 @@ import React from "react";
 import { auth, UserButton } from "@clerk/nextjs";
 import BurguerMenu from "./BurguerMenu";
 
-const Header = () => {
-  const { userId } = auth();
+const Header = async () => {
+  const { userId } = await auth();
 
   return (
     <>
