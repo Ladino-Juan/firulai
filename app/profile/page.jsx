@@ -1,11 +1,7 @@
 import { UserProfile } from "@clerk/nextjs";
 
 const ProfilePage = () => {
-  return (
-    <>
-      <UserProfile />
-    </>
-  );
+  return <UserProfile />
 };
 
 export default ProfilePage;

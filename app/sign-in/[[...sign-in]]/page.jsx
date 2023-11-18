@@ -2,10 +2,11 @@ import { SignIn } from "@clerk/nextjs"
 
 const SignInPage = () => {
   return (
-    <>
-    <SignIn />
-    </>
-  )
+    <div className="w-full h-screen flex justify-center items-center">
+      <SignIn />
+    </div>
+  );
+
 }
 
 export default SignInPage

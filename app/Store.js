@@ -169,6 +169,9 @@ export const useGameStore = create((set) => ({
     if (happinessLevel > 80) {
       playAudio("panting", null, false, 0.3);
     }
+    if (money < 10 ){
+      playAudio("cry", null, false, 0.3);
+    }
   },
   goToMenu: () => {
     set({
