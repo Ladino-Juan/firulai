@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DogAi from "../public/assets/dogAI.webp";
 import CatShader from "../public/assets/catShader.webp";
-import Rocky from '../public/assets/rockyReal.webp';
+import Rocky from "../public/assets/rockyReal.webp";
 import CatAi from "../public/assets/catAI.webp";
 import Planet1 from "../public/assets/planet1.svg";
 import Planet2 from "../public/assets/planet2.svg";
@@ -84,40 +84,37 @@ export default function Home() {
               PLAY WITH YOUR VIRTUAL FRIEND
             </h1>
           </div>
-
+          {/*
           <div className="w-[30vw] h-[40vh] bg-lightGray rounded-xl max-sm:h-[50vh] max-sm:w-[80vw]">
             <Experience />
-          </div>
+          </div>*/}
           <div className="w-[40vw] h-[40vh] l max-sm:h-[50vh] max-sm:w-[80%] grid grid-cols-3 gap-5 max-sm:grid-cols-2 max-sm:col-span-2 max-sm:mt-10">
-            <div className="bg-lightGray rounded-xl flex items-center justify-center"><Image
-              src={FrogHat}
-              alt="Firulais App"
-              className="w-full"
-            ></Image></div>
-             <div className="bg-lightGray rounded-xl flex items-center justify-center"><Image
-              src={FoxHat}
-              alt="Firulais App"
-              className="w-full"
-            ></Image></div>
-             <div className="bg-lightGray rounded-xl flex items-center justify-center"><Image
-              src={PixelGlasses}
-              alt="Firulais App"
-              className="w-full"
-            ></Image></div>
-             <div className="bg-lightGray rounded-xl flex items-center justify-center"><Image
-              src={TennisBall}
-              alt="Firulais App"
-            ></Image></div>
-             <div className="bg-lightGray rounded-xl flex items-center justify-center"><Image
-              src={Bear}
-              alt="Firulais App"
-              className="w-full"
-            ></Image></div>
-             <div className="bg-lightGray rounded-xl flex items-center justify-center"><Image
-              src={Skate}
-              alt="Firulais App"
-              className="w-full"
-            ></Image></div>
+            <div className="bg-lightGray rounded-xl flex items-center justify-center">
+              <Image
+                src={FrogHat}
+                alt="Firulais App"
+                className="w-full"
+              ></Image>
+            </div>
+            <div className="bg-lightGray rounded-xl flex items-center justify-center">
+              <Image src={FoxHat} alt="Firulais App" className="w-full"></Image>
+            </div>
+            <div className="bg-lightGray rounded-xl flex items-center justify-center">
+              <Image
+                src={PixelGlasses}
+                alt="Firulais App"
+                className="w-full"
+              ></Image>
+            </div>
+            <div className="bg-lightGray rounded-xl flex items-center justify-center">
+              <Image src={TennisBall} alt="Firulais App"></Image>
+            </div>
+            <div className="bg-lightGray rounded-xl flex items-center justify-center">
+              <Image src={Bear} alt="Firulais App" className="w-full"></Image>
+            </div>
+            <div className="bg-lightGray rounded-xl flex items-center justify-center">
+              <Image src={Skate} alt="Firulais App" className="w-full"></Image>
+            </div>
           </div>
           <Link href="/dashboard">
             <button
@@ -180,13 +177,22 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full h-[70vh] flex justify-around items-center text-center max-sm:flex-col-reverse">
-        <Image src={Rocky}
-            alt="Firulais App"
-            className="w-[300px] max-sm:w-[250px] rounded-xl"
-            quality={100}></Image>
+        <Image
+          src={Rocky}
+          alt="Firulais App"
+          className="w-[300px] max-sm:w-[250px] rounded-xl"
+          quality={100}
+        ></Image>
         <div className="w-1/3 max-sm:w-[80vw]">
-          <h1 className="text-main text-3xl max-sm:text-xl">BEYOND ENTERTAINMENT</h1>
-          <p className="text-lg max-sm:text-sm mt-4">It's about making a difference in the lives of rescued pets. Every purchase you make in the game directly supports these animals, providing them with the love, care, and attention they truly deserve.</p>
+          <h1 className="text-main text-3xl max-sm:text-xl">
+            BEYOND ENTERTAINMENT
+          </h1>
+          <p className="text-lg max-sm:text-sm mt-4">
+            It's about making a difference in the lives of rescued pets. Every
+            purchase you make in the game directly supports these animals,
+            providing them with the love, care, and attention they truly
+            deserve.
+          </p>
         </div>
       </div>
     </>
