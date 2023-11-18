@@ -77,7 +77,7 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className="w-full h-screen flex justify-center items-center max-sm:mt-[20vh]">
+      <div className="w-full max-h[160vh] flex justify-center items-center max-sm:mt-[20vh]">
         <div className="w-[90%] h-[80%] rounded-xl grid grid-cols-2 max-sm:grid-cols-1 content-center justify-items-center">
           <div className="col-span-2 w-[80%] mb-5">
             <h1 className="text-lg text-main sm:text-2xl max-sm:text-center">
@@ -129,7 +129,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div className="h-screen w-full flex justify-center items-center max-sm:flex-col">
+      <div className="h-screen w-full flex justify-center mt-20 items-center max-sm:flex-col">
         <div>
           <div className="flex items-center max-sm:justify-center">
             <h2 className="w-2/3 max-sm:text-sm">

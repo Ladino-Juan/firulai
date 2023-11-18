@@ -67,23 +67,21 @@ const NavBar = (props) => {
         </Link>
         {props.isLogged ? (
           <div className="text-gray-300 flex flex-col space-y-3 text-sm">
-            <button className="hover:text-blanco outline-1 rounded-lg border p-2 hover:bg-main transition-all duration-300">
-              <Link
-                href="/sign-in"
-                onClick={() => setNav(!nav)}
-              >
-                Sign In
-              </Link>
-            </button>
-            <button className="hover:text-blanco outline-1 rounded-lg border p-2 hover:bg-main transition-all duration-300">
-              <Link
-                href="/sign-up"
-                onClick={() => setNav(!nav)}
-      
-              >
-                Sign Up
-              </Link>
-            </button>
+            <Link
+              href="/sign-in"
+              onClick={() => setNav(!nav)}
+              className="hover:text-blanco outline-1 text-center rounded-lg border p-2 hover:bg-main transition-all duration-300"
+            >
+              Sign In
+            </Link>
+
+            <Link
+              href="/sign-up"
+              onClick={() => setNav(!nav)}
+              className="hover:text-blanco text-center outline-1 rounded-lg border p-2 hover:bg-main transition-all duration-300"
+            >
+              Sign Up
+            </Link>
           </div>
         ) : null}
       </div>
