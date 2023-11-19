@@ -19,9 +19,6 @@ import Bear from "../public/assets/store/bear.webp";
 import Skate from "../public/assets/store/skate.webp";
 
 import Link from "next/link";
-import Experience from "./components/Experience";
-import Loading from "./loading";
-import { Suspense } from "react";
 
 export default function Home() {
   const planets = [
@@ -88,9 +85,7 @@ export default function Home() {
           </div>
 
           <div className="w-[30vw] h-[40vh] bg-lightGray rounded-xl max-sm:h-[50vh] max-sm:w-[80vw]">
-          <Suspense fallback={<Loading />}>
-            <Experience />
-            </Suspense>
+        
           </div>
           <div className="w-[40vw] h-[40vh] l max-sm:h-[50vh] max-sm:w-[80%] grid grid-cols-3 gap-5 max-sm:grid-cols-2 max-sm:col-span-2 max-sm:mt-10">
             <div className="bg-lightGray rounded-xl flex items-center justify-center">

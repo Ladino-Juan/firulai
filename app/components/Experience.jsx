@@ -2,7 +2,7 @@
 
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Crate } from "./Crate";
+import { Husky } from "./Husky";
 
 const Experience = () => {
   return (
@@ -18,7 +18,7 @@ const Experience = () => {
         />
         <group position={[0, -1, 0]}>
 
-          <Crate />
+          <Husky />
         </group>
       </Canvas>
     </>
