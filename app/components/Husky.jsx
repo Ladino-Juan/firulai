@@ -1,13 +1,10 @@
 "use client";
 
-
-
-
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useCharacterStore } from "../Store";
 
-const Husky = (props) => {
+export function Husky(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("./models/Husky.gltf");
   const { actions } = useAnimations(animations, group);
@@ -15,9 +12,9 @@ const Husky = (props) => {
   const characterState = useCharacterStore((state) => state.characterState);
 
   useEffect(() => {
-    actions[characterState].reset().fadeIn(0.2).play();
+    actions[characterState].reset().fadeIn(0.5).play();
     return () => {
-      actions[characterState].fadeOut(0.2);
+      actions[characterState].fadeOut(0.5);
     };
   }, [characterState]);
   return (
@@ -72,5 +69,4 @@ const Husky = (props) => {
   );
 };
 
-export default Husky;
 useGLTF.preload("./models/Husky.gltf");

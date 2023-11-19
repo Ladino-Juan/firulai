@@ -209,7 +209,7 @@ const Game = () => {
             <Joystick
                 size={70}
                 baseColor="#374151"
-                stickColor="#FFDA77"
+                stickColor="#F59E0B"
                 move={handleMove}
                 stop={handleStop}
               />

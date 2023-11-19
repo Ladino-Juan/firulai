@@ -11,9 +11,9 @@ import {
   playAudio,
   useMobileController
 } from "../Store";
-import Husky from "./Husky";
 
 import * as THREE from "three";
+import { Husky } from "./Husky";
 /* responsive size for the pet model */
 const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 

@@ -2,9 +2,7 @@
 
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Husky from "./Husky";
-import { Suspense } from "react";
-import Loading from "../loading";
+import { Husky } from "./Husky";
 
 const Experience = () => {
   return (
@@ -19,9 +17,8 @@ const Experience = () => {
           shadow-mapSize-height={1024}
         />
         <group position={[0, -1, 0]}>
-          <Suspense fallback={<Loading />}>
-            <Husky />
-          </Suspense>
+
+          <Husky />
         </group>
       </Canvas>
     </>
