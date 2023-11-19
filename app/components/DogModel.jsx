@@ -10,6 +10,7 @@ export function DogModel(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('./models/DogModel.glb')
   const { actions } = useAnimations(animations, group)
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Root_Scene">
