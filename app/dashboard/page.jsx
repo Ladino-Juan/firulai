@@ -3,7 +3,7 @@ import Game from '../components/Game'
 
 const DashboardPage = () => {
   return (
-    <div className="w-[98vw] h-screen overflow-y-hidden">
+    <div className="w-screen h-screen overflow-y-hidden">
         <Game/>
     </div>
   )

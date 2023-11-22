@@ -12,7 +12,7 @@ import { Physics } from "@react-three/rapier";
 import { Suspense, useMemo, useState, useEffect } from "react";
 import GameExperience from "./GameExperience";
 import { Menu } from "./Menu";
-import { useGameStore, useMobileController } from "../Store";
+import { useGameStore, useMobileController, gameStates } from "../Store";
 import DogHappinessIcon from "../../public/icons/dogHappiness.svg";
 import DogHealthIcon from "../../public/icons/dogHealth.svg";
 import CoinIcon from "../../public/icons/coin.svg";
@@ -30,10 +30,11 @@ export const Controls = {
 const Game = () => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-  const { healthLevel, happinessLevel, money } = useGameStore((state) => ({
+  const { healthLevel, happinessLevel, money, gameState } = useGameStore((state) => ({
     healthLevel: state.healthLevel,
     happinessLevel: state.happinessLevel,
     money: state.money,
+    gameState: state.gameState
   }));
 
   useFont.preload("./fonts/Poppins.json");
@@ -98,7 +99,7 @@ const Game = () => {
       </Canvas>
       <Loader />
       {!isMobile ? (
-        <div className="absolute inset-0 flex items-center justify-end space-x-5 mr-14 font-spiegel">
+        <div className={`absolute inset-0 flex items-center justify-end space-x-5 mr-14 font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""}`}>
           <div className="flex flex-col items-center space-y-2">
             <Image
               src={DogHealthIcon}
@@ -108,7 +109,7 @@ const Game = () => {
             ></Image>
             <div className="h-[75vh] w-20 bg-gray-200 rounded-full dark:bg-gray-700 relative">
               <div
-                className="bg-amber-500 text-2xl font-light text-blue-100 pt-5 leading-none rounded-full  flex justify-center items-start transition-height duration-[1000ms] ease-in-out absolute bottom-0"
+                className="bg-amber-500 text-2xl font-light text-blue-100 pt-5 leading-none rounded-full  flex justify-center items-start transition-height duration-[3000ms] ease-in-out absolute bottom-0"
                 style={{ height: `${healthLevel}%`, width: "100%" }}
               >
                 {`${healthLevel}%`}
@@ -124,7 +125,7 @@ const Game = () => {
             ></Image>
             <div className="h-[75vh] w-20 bg-gray-200 rounded-full dark:bg-gray-700 relative">
               <div
-                className="bg-amber-500 text-2xl font-light text-blue-100 pt-5 leading-none rounded-full  flex justify-center items-start transition-height duration-[1000ms] ease-in-out absolute bottom-0"
+                className="bg-amber-500 text-2xl font-light text-blue-100 pt-5 leading-none rounded-full  flex justify-center items-start transition-height duration-[3000ms] ease-in-out absolute bottom-0"
                 style={{ height: `${happinessLevel}%`, width: "100%" }}
               >
                 {`${happinessLevel}%`}
@@ -141,7 +142,7 @@ const Game = () => {
             ></Image>
             <div className="h-[75vh] w-20 bg-gray-200 rounded-full dark:bg-gray-700 relative">
               <div
-                className="bg-amber-500 text-2xl font-light text-blue-100 pt-5 leading-none rounded-full flex justify-center items-start transition-height duration-[1000ms] ease-in-out absolute bottom-0"
+                className="bg-amber-500 text-2xl font-light text-blue-100 pt-5 leading-none rounded-full flex justify-center items-start transition-height duration-[3000ms] ease-in-out absolute bottom-0"
                 style={{ height: `${money}%`, width: "100%" }}
               >
                 {`${money}%`}
@@ -152,7 +153,7 @@ const Game = () => {
       ) : (
         <>
           <div
-            className="absolute inset-0 flex items-end justify-around m-5"
+            className={`absolute inset-0 flex items-end justify-around m-5 ${gameState != gameStates.GAME  ? "hidden" : ""}`}
           >
             <div className="flex items-center">
             <div className="flex flex-col space-y-2 mr-4">
@@ -165,7 +166,7 @@ const Game = () => {
                 ></Image>
                 <div className="w-[60vw] bg-gray-200 rounded-full dark:bg-gray-700">
                   <div
-                    className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
+                    className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[3000ms] ease-in-out"
                     style={{ width: `${healthLevel}%` }}
                   >
                     {`${healthLevel}%`}
@@ -181,7 +182,7 @@ const Game = () => {
                 ></Image>
                 <div className="w-[60vw] bg-gray-200 rounded-full dark:bg-gray-700">
                   <div
-                    className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
+                    className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[3000ms] ease-in-out"
                     style={{ width: `${happinessLevel}%` }}
                   >
                     {`${happinessLevel}%`}
@@ -198,7 +199,7 @@ const Game = () => {
                 ></Image>
                 <div className="w-[60vw] bg-gray-200 rounded-full dark:bg-gray-700">
                   <div
-                    className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[1000ms] ease-in-out"
+                    className="bg-amber-500 text-xs font-light text-blue-100 text-center p-2.5 leading-none rounded-full transition-width duration-[3000ms] ease-in-out"
                     style={{ width: `${money}%` }}
                   >
                     {`${money}%`}

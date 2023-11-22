@@ -1,14 +1,14 @@
 export const thingsToDo = [
-  "What should you feed your dog?",
-  "How would you like to spend time with your dog?",
-  "What should you do when your dog is hungry?",
-  "How do you plan to groom your dog?",
-  "How should you handle your dog's social interactions?",
-  "How will you bathe your dog?",
-  "What kind of activities would you like to do with your dog?",
-  "Your dog needs a vet visit",
-  "How will you entertain your dog with toys?",
-  "How will you spend time with your dog today?"
+  "Rocky muestra signos de malestar. ¿Cómo decides abordar la situación?",
+  "Es hora de alimentar a tu perro, ¿cómo decides hacerlo?",
+  "Rocky muestra signos de malestar leve. ¿Cómo decides abordar la situación?",
+  "Rocky parece inquieto, ¿cómo lo tranquilizas?",
+  "Rocky se ha comportado muy bien últimamente ¿Cómo lo recompensamos?",
+  "Parece que se acerca una tormenta. ¿Qué deberías hacer?",
+  "Rocky necesita hacer ejercicio. ¿Qué piensas hacer al respecto?",
+  "Rocky quiere un juguete nuevo. ¿Qué piensas hacer al respecto?",
+  "Es hora del baño. ¿Cuál opción es la mejor?",
+  "Rocky debe quedarse solo en casa por un día. ¿Cuál sería la mejor opción?",
 ];
 
 export const decisions = [
@@ -16,381 +16,381 @@ export const decisions = [
   [
     {
       idx: 1,
-      description: "Buy high-quality food for the dog",
-      happinessLevel: +10,
-      healthLevel: +5,
-      money: -15,
+      description: "Llevar al perro inmediatamente al veterinario para un chequeo completo",
+      happinessLevel: +3,
+      healthLevel: +15,
+      money: -20,
     },
     {
       idx: 1,
-      description: "Give the dog a chicken bone",
-      happinessLevel: +10,
-      healthLevel: -30,
-      money: -5,
-    },
-    {
-      idx: 1,
-      description: "Feed the dog junk food",
-      happinessLevel: +0,
-      healthLevel: -20,
-      money: -3,
-    },
-    {
-      idx: 1,
-      description: "Cook a homemade meal for the dog",
-      happinessLevel: +12,
+      description: "Investigar los síntomas en línea y tratar de diagnosticar el problema por tu cuenta en casa.",
+      happinessLevel: +3,
       healthLevel: +8,
-      money: -10,
+      money: +0,
     },
     {
       idx: 1,
-      description: "Let the dog eat whatever it finds",
-      happinessLevel: -5,
-      healthLevel: -10,
-      money: -2,
+      description: "Suministrar medicamento recomendado por tu amigo",
+      happinessLevel: +0,
+      healthLevel: -12,
+      money: -7,
+    },
+    {
+      idx: 1,
+      description: "Esperar un poco para ver si los síntomas mejoran por sí solos.",
+      happinessLevel: +5,
+      healthLevel: -20,
+      money: +10,
+    },
+    {
+      idx: 1,
+      description: "Comprar medicamentos de venta libre y administrarlos a Rocky sin una opinión profesional.",
+      happinessLevel: -0,
+      healthLevel: -12,
+      money: -10,
     },
   ],
   // Decision array for question 2
   [
     {
       idx: 2,
-      description: "Take the dog for a walk in the park",
+      description: "Prepararle un plato con comida balanceada",
+      happinessLevel: +4,
+      healthLevel: +15,
+      money: -10
+    },
+    {
+      idx: 2,
+      description: "Darle una comida especial fuera de la dieta por su buen comportamiento",
       happinessLevel: +15,
-      healthLevel: +5,
-      money: -3,
+      healthLevel: -5,
+      money: -10
     },
     {
       idx: 2,
-      description: "Let the dog sleep in the bed",
-      happinessLevel: +12,
-      healthLevel: +2,
-      money: +0,
+      description: "Compartir tu comida con él",
+      happinessLevel: +15,
+      healthLevel: -9,
+      money: +0
     },
     {
       idx: 2,
-      description: "Exercise with the dog",
+      description: "Dejarlo sin comer esta vez",
+      happinessLevel: -10,
+      healthLevel: -10,
+      money: +10
+    },
+    {
+      idx: 2,
+      description: "Comprar un alimento premium para Rocky",
       happinessLevel: +10,
       healthLevel: +10,
-      money: +0,
-    },
-    {
-      idx: 2,
-      description: "Play fetch with the dog",
-      happinessLevel: +18,
-      healthLevel: +12,
-      money: -5,
-    },
-    {
-      idx: 2,
-      description: "Visit the dog park for socializing",
-      happinessLevel: +20,
-      healthLevel: +5,
-      money: -10,
-    },
+      money: -15
+    }
   ],
   // Decision array for question 3
   [
     {
       idx: 3,
-      description: "Feed the dog a healthy meal",
-      happinessLevel: +8,
-      healthLevel: +10,
-      money: -5,
-    },
-    {
-      idx: 3,
-      description: "Let the dog eat from the trash",
-      happinessLevel: -5,
-      healthLevel: -20,
-      money: -2,
-    },
-    {
-      idx: 3,
-      description: "Ignore the dog's hunger",
-      happinessLevel: -5,
-      healthLevel: -5,
-      money: 0,
-    },
-    {
-      idx: 3,
-      description: "Prepare a special doggy dinner",
-      happinessLevel: +10,
+      description: "Llevar a Rocky inmediatamente al veterinario para un chequeo completo",
+      happinessLevel: +0,
       healthLevel: +15,
-      money: -8,
+      money: -20
     },
     {
       idx: 3,
-      description: "Order fast food for the dog",
-      happinessLevel: +5,
-      healthLevel: -10,
-      money: -5,
+      description: "Investigar los síntomas en línea y tratar de diagnosticar el problema por tu cuenta",
+      happinessLevel: +3,
+      healthLevel: -8,
+      money: +0
     },
+    {
+      idx: 3,
+      description: "Suministrar medicamento recomendado por un amigo",
+      happinessLevel: +0,
+      healthLevel: +11,
+      money: -8
+    },
+    {
+      idx: 3,
+      description: "Esperar un poco para ver si los síntomas mejoran por sí solos",
+      happinessLevel: +5,
+      healthLevel: +0,
+      money: +0
+    },
+    {
+      idx: 3,
+      description: "Comprar medicamentos de venta libre y administrarlos a Rocky sin una opinión profesional",
+      happinessLevel: -2,
+      healthLevel: -14,
+      money: -10
+    }
   ],
   // Decision array for question 4
   [
     {
       idx: 4,
-      description: "Give the dog a relaxing bath",
-      happinessLevel: +8,
-      healthLevel: +10,
-      money: -5,
+      description: "Jugar con él usando su juguete favorito",
+      happinessLevel: +5,
+      healthLevel: +0,
+      money: +0
     },
     {
       idx: 4,
-      description: "Use ice-cold water for the bath",
-      happinessLevel: -5,
-      healthLevel: -20,
-      money: -2,
-    },
-    {
-      idx: 4,
-      description: "Skip the bath and let the dog be dirty",
-      happinessLevel: -5,
-      healthLevel: -5,
-      money: 0,
-    },
-    {
-      idx: 4,
-      description: "Take the dog to a professional groomer",
+      description: "Llevarlo a un paseo corto en coche",
       happinessLevel: +10,
-      healthLevel: +15,
-      money: -15,
+      healthLevel: -5,
+      money: -9
     },
     {
       idx: 4,
-      description: "Let the dog roll in the mud for fun",
-      happinessLevel: +12,
-      healthLevel: -5,
-      money: 0,
+      description: "Darle un masaje relajante",
+      happinessLevel: +4,
+      healthLevel: -8,
+      money: -5
     },
+    {
+      idx: 4,
+      description: "Ignorar su inquietud por el momento",
+      happinessLevel: -8,
+      healthLevel: -13,
+      money: +11
+    },
+    {
+      idx: 4,
+      description: "Acariciarlo y abrazarlo para calmarlo",
+      happinessLevel: +10,
+      healthLevel: -5,
+      money: +0
+    }
   ],
   // Decision array for question 5
   [
     {
       idx: 5,
-      description: "Let the dog play with other friendly dogs",
-      happinessLevel: +15,
-      healthLevel: +10,
-      money: -5,
+      description: "Darle pollo como recompensa",
+      happinessLevel: +9,
+      healthLevel: -15,
+      money: -3
     },
     {
       idx: 5,
-      description: "Keep the dog away from other dogs",
-      happinessLevel: -10,
+      description: "Darle un paseo al parque",
+      happinessLevel: +9,
       healthLevel: -5,
-      money: 0,
+      money: -4
     },
     {
       idx: 5,
-      description: "Introduce the dog to aggressive dogs",
-      happinessLevel: -20,
-      healthLevel: -30,
-      money: -10,
+      description: "Darle croquetas como recompensa",
+      happinessLevel: +5,
+      healthLevel: -10,
+      money: -5
     },
     {
       idx: 5,
-      description: "Arrange a doggy playdate with friends",
-      happinessLevel: +20,
-      healthLevel: +15,
-      money: -5,
+      description: "Obsequiarle un rascador",
+      happinessLevel: -4,
+      healthLevel: +0,
+      money: -10
     },
     {
       idx: 5,
-      description: "Visit the dog park for socializing",
-      happinessLevel: +20,
-      healthLevel: +5,
-      money: -10,
-    },
+      description: "Darle un paseo al río",
+      happinessLevel: -7,
+      healthLevel: +0,
+      money: -2
+    }
   ],
   // Decision array for question 6
   [
     {
       idx: 6,
-      description: "Give the dog a bath",
-      happinessLevel: +5,
-      healthLevel: +10,
-      money: -3,
-    },
-    {
-      idx: 6,
-      description: "Take the dog to a professional groomer",
+      description: "Crear un refugio seguro para Rocky en casa",
       happinessLevel: +10,
-      healthLevel: +5,
-      money: -15,
+      healthLevel: +0,
+      money: -5
     },
     {
       idx: 6,
-      description: "Let the dog bathe in the rain",
+      description: "Utilizar música suave o ruido ambiental para distraer a Rocky",
       happinessLevel: +8,
-      healthLevel: +8,
-      money: 0,
+      healthLevel: +0,
+      money: +0
     },
     {
       idx: 6,
-      description: "Bathe the dog in the bathtub",
-      happinessLevel: +12,
-      healthLevel: +8,
-      money: -5,
+      description: "Dejarlo dormir en tú cama",
+      happinessLevel: +7,
+      healthLevel: -8,
+      money: -3
     },
     {
       idx: 6,
-      description: "Hire a mobile dog grooming service",
-      happinessLevel: +15,
-      healthLevel: +12,
-      money: -20,
+      description: "Consultar a un adiestrador profesional o experto en comportamiento canino",
+      happinessLevel: +5,
+      healthLevel: +0,
+      money: -10
     },
+    {
+      idx: 6,
+      description: "darle afecto y caricias a Rocky durante la tormenta",
+      happinessLevel: +9,
+      healthLevel: +0,
+      money: +0
+    }
   ],
   // Decision array for question 7
   [
     {
       idx: 7,
-      description: "Take the dog to an agility competition",
-      happinessLevel: +15,
-      healthLevel: +12,
-      money: -15,
-    },
-    {
-      idx: 7,
-      description: "Train the dog for agility at home",
-      happinessLevel: +10,
-      healthLevel: +10,
-      money: -5,
-    },
-    {
-      idx: 7,
-      description: "Skip the agility competition",
+      description: "Dejar a Rocky en casa",
       happinessLevel: -5,
-      healthLevel: -5,
-      money: 0,
+      healthLevel: -12,
+      money: +0
     },
     {
       idx: 7,
-      description: "Watch an agility competition on TV",
-      happinessLevel: +5,
-      healthLevel: +5,
-      money: -5,
+      description: "Contratar a un entrenador personal para Rocky",
+      happinessLevel: +6,
+      healthLevel: +13,
+      money: -15
     },
     {
       idx: 7,
-      description: "Enroll the dog in an obedience class",
-      happinessLevel: +12,
+      description: "Crear circuito de obstáculos en casa",
+      happinessLevel: +8,
+      healthLevel: +10,
+      money: -3
+    },
+    {
+      idx: 7,
+      description: "Inscribir a Rocky en un programa de clases grupales de entrenamiento canino",
+      happinessLevel: -15,
+      healthLevel: +6,
+      money: -15
+    },
+    {
+      idx: 7,
+      description: "Dedicar tiempo personal para entrenar a Rocky",
+      happinessLevel: +6,
       healthLevel: +8,
-      money: -10,
-    },
+      money: +0
+    }
   ],
   // Decision array for question 8
   [
     {
       idx: 8,
-      description: "Visit the vet for a checkup",
-      happinessLevel: -5,
-      healthLevel: +20,
-      money: -20,
-    },
-    {
-      idx: 8,
-      description: "Reschedule the vet appointment",
-      happinessLevel: -10,
-      healthLevel: +5,
-      money: -5,
-    },
-    {
-      idx: 8,
-      description: "Get a second opinion from another vet",
-      happinessLevel: +5,
-      healthLevel: +15,
-      money: -10,
-    },
-    {
-      idx: 8,
-      description: "Let the dog skip the vet visit",
-      happinessLevel: +10,
-      healthLevel: -5,
-      money: 0,
-    },
-    {
-      idx: 8,
-      description: "Invest in pet insurance",
+      description: "Comprar un juguete nuevo que salió al mercado",
       happinessLevel: +8,
-      healthLevel: +8,
-      money: -15,
+      healthLevel: +0,
+      money: -15
     },
+    {
+      idx: 8,
+      description: "Fabricar un juguete casero para Rocky",
+      happinessLevel: +7,
+      healthLevel: +0,
+      money: -5
+    },
+    {
+      idx: 8,
+      description: "Consultar con un experto en mascotas",
+      happinessLevel: +0,
+      healthLevel: +0,
+      money: -12
+    },
+    {
+      idx: 8,
+      description: "Reutilizar y modificar un juguete antiguo de Rocky",
+      happinessLevel: +10,
+      healthLevel: +3,
+      money: -3
+    },
+    {
+      idx: 8,
+      description: "No hacer nada al respecto",
+      happinessLevel: -13,
+      healthLevel: -13,
+      money: +5
+    }
   ],
   // Decision array for question 9
   [
     {
       idx: 9,
-      description: "Buy toys for the dog",
+      description: "Baño en casa con champú suave y abundante agua",
+      happinessLevel: -12,
+      healthLevel: +12,
+      money: -5
+    },
+    {
+      idx: 9,
+      description: "Visitar una peluquería canina para un baño profesional",
+      happinessLevel: -7,
+      healthLevel: +5,
+      money: -15
+    },
+    {
+      idx: 9,
+      description: "No bañar a Rocky",
+      happinessLevel: +3,
+      healthLevel: -15,
+      money: +0
+    },
+    {
+      idx: 9,
+      description: "Usar toallitas húmedas para mascotas y un spray de limpieza en seco",
       happinessLevel: +10,
       healthLevel: +5,
-      money: -10,
+      money: -5
     },
     {
       idx: 9,
-      description: "Order toys online for the dog",
-      happinessLevel: +8,
-      healthLevel: +8,
-      money: -12,
-    },
-    {
-      idx: 9,
-      description: "Make DIY toys for the dog",
-      happinessLevel: +12,
-      healthLevel: +10,
-      money: -5,
-    },
-    {
-      idx: 9,
-      description: "Ignore the need for toys",
-      happinessLevel: -5,
-      healthLevel: -5,
-      money: 0,
-    },
-    {
-      idx: 9,
-      description: "Get a subscription box for dog toys",
-      happinessLevel: +15,
-      healthLevel: +12,
-      money: -20,
-    },
+      description: "Bañar a Rocky afuera usando una manguera",
+      happinessLevel: -20,
+      healthLevel: +5,
+      money: +3
+    }
   ],
   // Decision array for question 10
   [
     {
       idx: 10,
-      description: "Ignore the dog",
-      happinessLevel: -10,
-      healthLevel: -5,
-      money: 0,
+      description: "Instalar cámaras de seguridad para monitorear a Rocky",
+      happinessLevel: +3,
+      healthLevel: +10,
+      money: -15
     },
     {
       idx: 10,
-      description: "Spend quality time with the dog",
+      description: "Contratar a un cuidador de mascotas para que cuide a Rocky",
       happinessLevel: +10,
       healthLevel: +5,
-      money: -5,
+      money: -9
     },
     {
       idx: 10,
-      description: "Take the dog for a long walk",
-      happinessLevel: +12,
-      healthLevel: +10,
-      money: -5,
+      description: "Instalar dispensadores de comida para mantener a Rocky ocupado durante el día",
+      happinessLevel: +10,
+      healthLevel: +4,
+      money: -4
     },
     {
       idx: 10,
-      description: "Play catch with the dog",
-      happinessLevel: +8,
-      healthLevel: +5,
-      money: -5,
+      description: "No hacer nada",
+      happinessLevel: -10,
+      healthLevel: -10,
+      money: +5
     },
     {
       idx: 10,
-      description: "Have a relaxing day with the dog",
-      happinessLevel: +15,
+      description: "Utilizar música relajante y dejar juguetes para Rocky",
+      happinessLevel: -2,
       healthLevel: +8,
-      money: -10,
-    },
-  ],
+      money: +0
+    }
+  ]
 
 ];

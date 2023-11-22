@@ -1,6 +1,6 @@
-import { Center, Cylinder, Text3D, Html, Text } from "@react-three/drei";
+import { Center, Cylinder, Text3D, Html } from "@react-three/drei";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
-import { useGameStore, useSensorStore } from "../Store";
+import { useGameStore, useSensorStore, gameStates } from "../Store";
 import { thingsToDo } from "../constants";
 import { Crate } from "./Crate";
 
@@ -9,9 +9,10 @@ export const DecisionSpot = () => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const { isSensor, setSensor } = useSensorStore();
-  const { generateDecisions, finalDecision } = useGameStore((state) => ({
+  const { generateDecisions, finalDecision, gameState } = useGameStore((state) => ({
     generateDecisions: state.generateDecisions,
     finalDecision: state.finalDecision,
+    gameState: state.gameState
   }));
 
   const [animate, setAnimate] = useState(false);
@@ -78,17 +79,17 @@ export const DecisionSpot = () => {
 
       {!isMobile && (
         <Html position={[isMobile ? -2.7 : -3.3, isMobile ? 8.6 : 5, 0]}>
-          <h1 className="text-sm text-center md:text-2xl text-white w-[30vw] p-2 md:p-5 rounded-lg mb-4 background-image max-sm:w-[70vw] font-spiegel">
+          <h1 className={`text-sm text-center md:text-2xl text-white w-[30vw] p-2 md:p-5 rounded-lg mb-4 background-image max-sm:w-[70vw] font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""}`}>
             {thingsToDo[decIdx]}
           </h1>
         </Html>
       )}
       <Html position={isMobile ? [-2.5, isMobile ? 8 : 6, 0] : [-15, 4, -5]}>
-        <h1 className="text-sm text-white max-w-[80%] p-2 rounded-lg background-image md:hidden animate-none text-center w-[80vw] font-spiegel">
+        <h1 className={`text-sm text-white max-w-[80%] p-2 rounded-lg background-image md:hidden animate-none text-center w-[80vw] font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""}`}>
           {thingsToDo[decIdx]}
         </h1>
         <div
-          className={`space-y-2 w-[30vw] max-sm:mt-7 h-[70vh] flex justify-center flex-col font-spiegel max-sm:h-[20vh] max-sm:w-[80vw] max-sm:space-y-1 ${
+          className={`space-y-2 w-[30vw] max-sm:mt-7 h-[70vh] flex justify-center flex-col font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""} max-sm:h-[20vh] max-sm:w-[80vw] max-sm:space-y-1 ${
             animate ? "animate-slide-in" : ""
           } ${animate && isMobile ? "animate-slide-in-mobile" : ""}`}
           onAnimationEnd={handleAnimationEnd}

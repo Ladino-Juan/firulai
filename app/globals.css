@@ -15,6 +15,7 @@
     background-image: url('../public/assets/woodenBg.webp'); /* Ruta relativa desde el directorio público */
   }
 
+
   .menu,
   .scores {
     position: fixed;
@@ -27,8 +28,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
     transition: all 1s ease-in-out;
   }
   

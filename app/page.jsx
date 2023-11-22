@@ -17,10 +17,11 @@ import PixelGlasses from "../public/assets/store/pixelGlasses.webp";
 import TennisBall from "../public/assets/store/tennisBall.webp";
 import Bear from "../public/assets/store/bear.webp";
 import Skate from "../public/assets/store/skate.webp";
-
+import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Home() {
+  const { userId } = auth();
   const planets = [
     {
       src: Planet1,
@@ -115,7 +116,7 @@ export default function Home() {
               <Image src={Skate} alt="Firulais App" className="w-full"></Image>
             </div>
           </div>
-          <Link href="/dashboard">
+          <Link  href={userId ? "/dashboard" : "/sign-in"}>
             <button
               className="mt-5 flex px-8 py-2 hover:bg-main text-blanco font-semibold hover:text-white border border-white hover:border-transparent rounded-lg transition-all duration-300"
               aria-label="Firulais"
