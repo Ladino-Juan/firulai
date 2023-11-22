@@ -85,7 +85,7 @@ export const DecisionSpot = () => {
         </Html>
       )}
       <Html position={isMobile ? [-2.5, isMobile ? 8 : 6, 0] : [-15, 4, -5]}>
-        <h1 className={`text-sm text-white max-w-[80%] p-2 rounded-lg background-image md:hidden animate-none text-center w-[80vw] font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""}`}>
+        <h1 className={`text-sm text-white max-w-[110%] p-2 rounded-lg background-image md:hidden animate-none text-center w-[80vw] font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""}`}>
           {thingsToDo[decIdx]}
         </h1>
         <div
@@ -96,7 +96,7 @@ export const DecisionSpot = () => {
         >
           {decisionsData.map((dec, index) => (
             <h1
-              className={`text-sm md:text-2xl text-white max-w-[80%] p-2 md:p-5 rounded-md background-image`}
+              className={`text-sm md:text-2xl text-white max-w-[110%] p-2 md:p-5 rounded-md background-image`}
               key={index}
             >{`${index + 1}: ${dec.description}`}</h1>
           ))}

@@ -16,21 +16,21 @@ export const decisions = [
   [
     {
       idx: 1,
-      description: "Llevar al perro inmediatamente al veterinario para un chequeo completo",
+      description: "Llevar a Rocky inmediatamente al veterinario",
       happinessLevel: +3,
       healthLevel: +15,
       money: -20,
     },
     {
       idx: 1,
-      description: "Investigar los síntomas en línea y tratar de diagnosticar el problema por tu cuenta en casa.",
+      description: "diagnosticar el problema por tu cuenta en casa.",
       happinessLevel: +3,
       healthLevel: +8,
       money: +0,
     },
     {
       idx: 1,
-      description: "Suministrar medicamento recomendado por tu amigo",
+      description: "Suministrar medicamento recomendado por un amigo",
       happinessLevel: +0,
       healthLevel: -12,
       money: -7,
@@ -44,7 +44,7 @@ export const decisions = [
     },
     {
       idx: 1,
-      description: "Comprar medicamentos de venta libre y administrarlos a Rocky sin una opinión profesional.",
+      description: "administrarle a Rocky medicamentos sin una opinión profesional.",
       happinessLevel: -0,
       healthLevel: -12,
       money: -10,
@@ -61,14 +61,14 @@ export const decisions = [
     },
     {
       idx: 2,
-      description: "Darle una comida especial fuera de la dieta por su buen comportamiento",
+      description: "Darle una comida especial por su buen comportamiento",
       happinessLevel: +15,
       healthLevel: -5,
       money: -10
     },
     {
       idx: 2,
-      description: "Compartir tu comida con él",
+      description: "Compartir tú comida con Rocky",
       happinessLevel: +15,
       healthLevel: -9,
       money: +0
@@ -82,7 +82,7 @@ export const decisions = [
     },
     {
       idx: 2,
-      description: "Comprar un alimento premium para Rocky",
+      description: "Comprar un alimento premium",
       happinessLevel: +10,
       healthLevel: +10,
       money: -15
@@ -92,14 +92,14 @@ export const decisions = [
   [
     {
       idx: 3,
-      description: "Llevar a Rocky inmediatamente al veterinario para un chequeo completo",
+      description: "Llevarlo inmediatamente al veterinario",
       happinessLevel: +0,
       healthLevel: +15,
       money: -20
     },
     {
       idx: 3,
-      description: "Investigar los síntomas en línea y tratar de diagnosticar el problema por tu cuenta",
+      description: "Investigar los síntomas en línea y tratar de aliviarlo",
       happinessLevel: +3,
       healthLevel: -8,
       money: +0
@@ -113,14 +113,14 @@ export const decisions = [
     },
     {
       idx: 3,
-      description: "Esperar un poco para ver si los síntomas mejoran por sí solos",
+      description: "Esperar por si los síntomas mejoran por sí solos",
       happinessLevel: +5,
       healthLevel: +0,
       money: +0
     },
     {
       idx: 3,
-      description: "Comprar medicamentos de venta libre y administrarlos a Rocky sin una opinión profesional",
+      description: "Comprarle medicamentos a Rocky sin una opinión profesional",
       happinessLevel: -2,
       healthLevel: -14,
       money: -10
@@ -130,7 +130,7 @@ export const decisions = [
   [
     {
       idx: 4,
-      description: "Jugar con él usando su juguete favorito",
+      description: "Jugar usando su juguete favorito",
       happinessLevel: +5,
       healthLevel: +0,
       money: +0
@@ -213,7 +213,7 @@ export const decisions = [
     },
     {
       idx: 6,
-      description: "Utilizar música suave o ruido ambiental para distraer a Rocky",
+      description: "Utilizar música suave",
       happinessLevel: +8,
       healthLevel: +0,
       money: +0
@@ -227,14 +227,14 @@ export const decisions = [
     },
     {
       idx: 6,
-      description: "Consultar a un adiestrador profesional o experto en comportamiento canino",
+      description: "Consultar a un experto en comportamiento canino",
       happinessLevel: +5,
       healthLevel: +0,
       money: -10
     },
     {
       idx: 6,
-      description: "darle afecto y caricias a Rocky durante la tormenta",
+      description: "darle afecto y caricias durante la tormenta",
       happinessLevel: +9,
       healthLevel: +0,
       money: +0
@@ -251,7 +251,7 @@ export const decisions = [
     },
     {
       idx: 7,
-      description: "Contratar a un entrenador personal para Rocky",
+      description: "Contratar a un entrenador personal",
       happinessLevel: +6,
       healthLevel: +13,
       money: -15
@@ -265,14 +265,14 @@ export const decisions = [
     },
     {
       idx: 7,
-      description: "Inscribir a Rocky en un programa de clases grupales de entrenamiento canino",
+      description: "Inscribirlo en un programa de clases grupales de entrenamiento canino",
       happinessLevel: -15,
       healthLevel: +6,
       money: -15
     },
     {
       idx: 7,
-      description: "Dedicar tiempo personal para entrenar a Rocky",
+      description: "Dedicar tiempo personal para entrenarlo",
       happinessLevel: +6,
       healthLevel: +8,
       money: +0
@@ -289,7 +289,7 @@ export const decisions = [
     },
     {
       idx: 8,
-      description: "Fabricar un juguete casero para Rocky",
+      description: "Fabricar un juguete casero",
       happinessLevel: +7,
       healthLevel: +0,
       money: -5
@@ -303,7 +303,7 @@ export const decisions = [
     },
     {
       idx: 8,
-      description: "Reutilizar y modificar un juguete antiguo de Rocky",
+      description: "Reutilizar y modificar un juguete",
       happinessLevel: +10,
       healthLevel: +3,
       money: -3
@@ -320,14 +320,14 @@ export const decisions = [
   [
     {
       idx: 9,
-      description: "Baño en casa con champú suave y abundante agua",
+      description: "Baño en casa con abundante agua",
       happinessLevel: -12,
       healthLevel: +12,
       money: -5
     },
     {
       idx: 9,
-      description: "Visitar una peluquería canina para un baño profesional",
+      description: "Visitar una peluquería canina",
       happinessLevel: -7,
       healthLevel: +5,
       money: -15
@@ -341,7 +341,7 @@ export const decisions = [
     },
     {
       idx: 9,
-      description: "Usar toallitas húmedas para mascotas y un spray de limpieza en seco",
+      description: "Usar un spray de limpieza en seco",
       happinessLevel: +10,
       healthLevel: +5,
       money: -5
@@ -358,21 +358,21 @@ export const decisions = [
   [
     {
       idx: 10,
-      description: "Instalar cámaras de seguridad para monitorear a Rocky",
+      description: "Instalar cámaras de seguridad para monitorearlo",
       happinessLevel: +3,
       healthLevel: +10,
       money: -15
     },
     {
       idx: 10,
-      description: "Contratar a un cuidador de mascotas para que cuide a Rocky",
+      description: "Contratar a un cuidador de mascotas para que lo cuide",
       happinessLevel: +10,
       healthLevel: +5,
       money: -9
     },
     {
       idx: 10,
-      description: "Instalar dispensadores de comida para mantener a Rocky ocupado durante el día",
+      description: "Instalar dispensadores de comida",
       happinessLevel: +10,
       healthLevel: +4,
       money: -4

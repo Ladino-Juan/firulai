@@ -76,13 +76,16 @@ const gameDuration = 30000;
 
 export const useGameStore = create((set) => ({
   gameState: gameStates.MENU,
-  healthLevel: 40,
-  happinessLevel: 40,
+  healthLevel: 50,
+  happinessLevel: 50,
   money: 50,
   timeLeft: null,
   startGameTimer: (callback, initialDuration = gameDuration) => {
     if (gameTimer) {
       clearTimeout(gameTimer);
+    }
+    if(useGameStore.getState().gameState != gameStates.GAME){
+      currentAudioInstance.stop();
     }
 
     startTime = Date.now(); // Store the start timestamp
@@ -118,8 +121,8 @@ export const useGameStore = create((set) => ({
     currentAudioInstance = playAudio("start", null, true, 0.1);
     set({
       gameState: gameStates.GAME,
-      healthLevel: 40,
-      happinessLevel: 40,
+      healthLevel: 50,
+      happinessLevel: 50,
       money: 50,
     });
 
@@ -132,6 +135,7 @@ export const useGameStore = create((set) => ({
   },
   gameOver: () => {
     set({ gameState: gameStates.GAME_OVER });
+
   },
   finalDecision: (decision) => {
     useGameStore.getState().startGameTimer(() => {
@@ -177,5 +181,6 @@ export const useGameStore = create((set) => ({
     set({
       gameState: gameStates.MENU,
     });
+   
   },
 }));
