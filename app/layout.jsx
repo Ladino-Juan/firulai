@@ -1,3 +1,4 @@
+
 import "./globals.css";
 import { dark } from "@clerk/themes";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -5,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Poppins } from "next/font/google";
 import Favicon from '../public/favicon.ico';
+
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
@@ -15,14 +17,17 @@ export const metadata = {
     icons: [{ rel: 'icon', url: Favicon.src }],
 };
 
+
 export default function RootLayout({ children }) {
+
+
   return (
     <ClerkProvider
       appearance={{
         baseTheme: dark
       }}
     >
-      <html lang="en">
+      <html lang="es">
         <body className={`bg-darkGray text-blanco ${poppins.className}`}>
           <Header />
           <main>
@@ -30,6 +35,7 @@ export default function RootLayout({ children }) {
               <div>{children}</div>
             </div>
           </main>
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

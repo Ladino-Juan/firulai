@@ -9,6 +9,11 @@ export const thingsToDo = [
   "Rocky quiere un juguete nuevo. ¿Qué piensas hacer al respecto?",
   "Es hora del baño. ¿Cuál opción es la mejor?",
   "Rocky debe quedarse solo en casa por un día. ¿Cuál sería la mejor opción?",
+  "Rocky necesita un poco de ejercicio canino. ¿Cómo decides abordar la situación?",
+  "Notamos a Rocky un poco obeso. ¿Qué decides hacer al respecto?",
+  "Quiero que Rocky esté en una mejor forma física. ¿A qué deporte lo inscribimos?",
+  "Rocky es muy sociable, unos niños quieren jugar con él. ¿Lo dejamos jugar?",
+  "Max, el vecino de Rocky, quiere jugar. ¿Permitimos jugar a Rocky?"
 ];
 
 export const decisions = [
@@ -391,6 +396,192 @@ export const decisions = [
       healthLevel: +8,
       money: +0
     }
+  ],
+  [
+    {
+      idx: 11,
+      description: "Llevar a Rocky a un recreador canino",
+      happinessLevel: +10,
+      healthLevel: +10,
+      money: -15
+    },
+    {
+      idx: 11,
+      description: "Permitir jugar a Rocky con perros extraños",
+      happinessLevel: +9,
+      healthLevel: -10,
+      money: +5
+    },
+    {
+      idx: 11,
+      description: "Salir a trotar con Rocky en las mañanas",
+      happinessLevel: +5,
+      healthLevel: -10,
+      money: +0
+    },
+    {
+      idx: 11,
+      description: "Mejor dejamos el ejercicio para después",
+      happinessLevel: +0,
+      healthLevel: -7,
+      money: +10
+    },
+    {
+      idx: 11,
+      description: "Ingresamos a Rocky a una academia canina de velocidad",
+      happinessLevel: +9,
+      healthLevel: -12,
+      money: -10
+    }
+  ],
+  [
+    {
+      idx: 12,
+      description: "Prepararle un plato con comida saludable",
+      happinessLevel: -2,
+      healthLevel: +6,
+      money: -4
+    },
+    {
+      idx: 12,
+      description: "Ingresar a Rocky a una dieta estricta",
+      happinessLevel: -5,
+      healthLevel: +10,
+      money: -5
+    },
+    {
+      idx: 12,
+      description: "¡Rocky se ve mejor gordito!",
+      happinessLevel: +10,
+      healthLevel: -9,
+      money: +4
+    },
+    {
+      idx: 12,
+      description: "No alimentarlo hoy",
+      happinessLevel: -5,
+      healthLevel: -10,
+      money: +10
+    },
+    {
+      idx: 12,
+      description: "Disminuir la cantidad de comida diaria",
+      happinessLevel: -6,
+      healthLevel: +9,
+      money: +7
+    }
+  ],
+  [
+    {
+      idx: 13,
+      description: "Inscribir a Rocky a practicar natación canina",
+      happinessLevel: -20,
+      healthLevel: +9,
+      money: -20
+    },
+    {
+      idx: 13,
+      description: "Disc Dog (Frisbee canino)",
+      happinessLevel: +10,
+      healthLevel: -10,
+      money: +10
+    },
+    {
+      idx: 13,
+      description: "Agility (Agilidad)",
+      happinessLevel: +12,
+      healthLevel: +11,
+      money: -8
+    },
+    {
+      idx: 13,
+      description: "Herding (Pastoreo)",
+      happinessLevel: +20,
+      healthLevel: +15,
+      money: -12
+    },
+    {
+      idx: 13,
+      description: "Rocky no necesita deporte!",
+      happinessLevel: -1,
+      healthLevel: -11,
+      money: +10
+    }
+  ],
+  [
+    {
+      idx: 14,
+      description: "Sí pero en nuestro jardín",
+      happinessLevel: +5,
+      healthLevel: +5,
+      money: +0
+    },
+    {
+      idx: 14,
+      description: "Que ellos le den un paseo libremente",
+      happinessLevel: +10,
+      healthLevel: -8,
+      money: -7
+    },
+    {
+      idx: 14,
+      description: "Darle un paseo a Rocky con los niños",
+      happinessLevel: +5,
+      healthLevel: +5,
+      money: -2
+    },
+    {
+      idx: 14,
+      description: "Ignorar a los niños",
+      happinessLevel: -2,
+      healthLevel: -2,
+      money: +5
+    },
+    {
+      idx: 14,
+      description: "No, mejor juego yo con él después",
+      happinessLevel: +2,
+      healthLevel: +5,
+      money: +0
+    }
+  ],
+  [
+    {
+      idx: 15,
+      description: "Sí, observando a la lejanía",
+      happinessLevel: +10,
+      healthLevel: -5,
+      money: +0
+    },
+    {
+      idx: 15,
+      description: "Sí, confiar en Rocky que no peleará ni se lastimará jugando",
+      happinessLevel: +15,
+      healthLevel: -10,
+      money: +0
+    },
+    {
+      idx: 15,
+      description: "Jugar con Rocky y Max",
+      happinessLevel: +10,
+      healthLevel: -15,
+      money: -2
+    },
+    {
+      idx: 15,
+      description: "No permitir a Rocky jugar con Max",
+      happinessLevel: -3,
+      healthLevel: -5,
+      money: +0
+    },
+    {
+      idx: 15,
+      description: "Luego jugamos con Max",
+      happinessLevel: -5,
+      healthLevel: +5,
+      money: +0
+    }
   ]
+ 
 
 ];

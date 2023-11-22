@@ -13,7 +13,7 @@ import {
 } from "../Store";
 
 import * as THREE from "three";
-import { Husky } from "./Husky";
+import { Rocky } from "./Rocky";
 /* responsive size for the pet model */
 const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
@@ -163,7 +163,7 @@ export const CharacterController = () => {
       >
         <CapsuleCollider args={[0.8, 0.4]} position={[0, 1.2, 0]} />
         <group ref={character}>
-          <Husky scale={isMobile ? 0.9 : 1}/>
+          <Rocky scale={isMobile ? 0.9 : 1}/>
         </group>
       </RigidBody>
     </group>

@@ -17,6 +17,7 @@ import PixelGlasses from "../public/assets/store/pixelGlasses.webp";
 import TennisBall from "../public/assets/store/tennisBall.webp";
 import Bear from "../public/assets/store/bear.webp";
 import Skate from "../public/assets/store/skate.webp";
+import RockyImg from "../public/assets/Rocky.webp";
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -57,9 +58,10 @@ export default function Home() {
             fIrulaiS
           </h1>
           <p className="text-xl text-whitePearl max-sm:text-sm">
-            Where virtual reality meets real-world impact! Join us on an
-            immersive journey of compassion and care for sheltered pets as you
-            dive into the exciting world of pet simulation.
+            ¡Donde la realidad virtual se encuentra con un impacto en el mundo
+            real! Únete a nosotros en un viaje inmersivo de compasión y cuidado
+            para mascotas refugiadas mientras te sumerges en el emocionante
+            mundo de la simulación de mascotas.
           </p>
         </div>
         <Image
@@ -81,12 +83,16 @@ export default function Home() {
         <div className="w-[90%] h-[80%] rounded-xl grid grid-cols-2 max-sm:grid-cols-1 content-center justify-items-center">
           <div className="col-span-2 w-[80%] mb-5">
             <h1 className="text-lg text-main sm:text-2xl max-sm:text-center">
-              PLAY WITH YOUR VIRTUAL FRIEND
+              JUEGA CON TÚ MASCOTA VIRTUAL
             </h1>
           </div>
 
-          <div className="w-[30vw] h-[40vh] bg-lightGray rounded-xl max-sm:h-[50vh] max-sm:w-[80vw]">
-        
+          <div className="w-[30vw] h-[40vh] bg-lightGray rounded-xl max-sm:h-[50vh] max-sm:w-[80vw] flex justify-center items-center">
+            <Image
+              src={RockyImg}
+              alt="Firulais App"
+              className="w-2/4 md:w-1/4"
+            ></Image>
           </div>
           <div className="w-[40vw] h-[40vh] l max-sm:h-[50vh] max-sm:w-[80%] grid grid-cols-3 gap-5 max-sm:grid-cols-2 max-sm:col-span-2 max-sm:mt-10">
             <div className="bg-lightGray rounded-xl flex items-center justify-center">
@@ -116,12 +122,12 @@ export default function Home() {
               <Image src={Skate} alt="Firulais App" className="w-full"></Image>
             </div>
           </div>
-          <Link  href={userId ? "/dashboard" : "/sign-in"}>
+          <Link href={userId ? "/dashboard" : "/sign-in"}>
             <button
               className="mt-5 flex px-8 py-2 hover:bg-main text-blanco font-semibold hover:text-white border border-white hover:border-transparent rounded-lg transition-all duration-300"
               aria-label="Firulais"
             >
-              PLAY <span className="border border-white px-2 ml-2">BETA</span>
+              JUGAR <span className="border border-white px-2 ml-2">BETA</span>
             </button>
           </Link>
         </div>
@@ -130,8 +136,7 @@ export default function Home() {
         <div>
           <div className="flex items-center max-sm:justify-center">
             <h2 className="w-2/3 max-sm:text-sm">
-              Play, care, and enjoy your virtual dog, inspired by a real-life
-              rescued pet!
+            ¡Juega, cuida y disfruta de tu perro virtual, inspirado en una mascota rescatada de la vida real!
             </h2>
             <Image
               src={Plate1}
@@ -141,8 +146,7 @@ export default function Home() {
           </div>
           <div className="flex items-center mt-5 max-sm:justify-center">
             <h2 className="w-2/3 max-sm:text-sm">
-              Personalize your virtual friend with trendy collars, toys,
-              clothes, and more!
+            ¡Personaliza a tu amigo virtual con collares de moda, juguetes, ropa y más!
             </h2>
             <Image
               src={Plate2}
@@ -152,8 +156,7 @@ export default function Home() {
           </div>
           <div className="flex items-center mt-5 max-sm:justify-center">
             <h2 className="w-2/3 max-sm:text-sm">
-              20% of the earnings generated from the game will be directly used
-              to benefit sheltered pets
+            El 50% de las ganancias generadas por el juego se utilizará directamente para beneficiar a las mascotas refugiadas.
             </h2>
             <Image
               src={Plate3}
@@ -185,13 +188,10 @@ export default function Home() {
         ></Image>
         <div className="w-1/3 max-sm:w-[80vw]">
           <h1 className="text-main text-3xl max-sm:text-xl">
-            BEYOND ENTERTAINMENT
+          MÁS ALLÁ DEL ENTRETENIMIENTO
           </h1>
           <p className="text-lg max-sm:text-sm mt-4">
-            It's about making a difference in the lives of rescued pets. Every
-            purchase you make in the game directly supports these animals,
-            providing them with the love, care, and attention they truly
-            deserve.
+          Se trata de marcar la diferencia en la vida de las mascotas rescatadas. Cada compra que realices en el juego apoya directamente a estos animales, brindándoles el amor, cuidado y atención que realmente merecen.
           </p>
         </div>
       </div>

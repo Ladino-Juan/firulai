@@ -22,15 +22,10 @@ const NavBar = (props) => {
           ></Image>
         </Link>
         <div className="max-sm:hidden space-x-4 text-gray-300">
-          <Link href="/" className="hover:text-blanco mr-2 text-sm">
-            PETS
+          <Link href="/mascotas" className="hover:text-blanco mr-2 text-sm">
+            MASCOTAS
           </Link>
-          <Link href="/" className="hover:text-blanco mr-2 text-sm">
-            SHELTERS
-          </Link>
-          <Link href="/" className="hover:text-blanco text-sm">
-            NEWS
-          </Link>
+         
         </div>
         <div
           className="text-main outline-none p-2 rounded-md focus:border-gray-400 focus:border hidden max-sm:block"
@@ -56,15 +51,10 @@ const NavBar = (props) => {
             : "absolute bg-lightGray w-screen px-8 py-12 rounded-b-xl text-blanco flex flex-col space-y-3"
         }
       >
-        <Link href="/" onClick={() => setNav(!nav)}>
-          PETS
+        <Link href="/mascotas" onClick={() => setNav(!nav)}>
+          MASCOTAS
         </Link>
-        <Link href="/" onClick={() => setNav(!nav)}>
-          SHELTERS
-        </Link>
-        <Link href="/" onClick={() => setNav(!nav)}>
-          NEWS
-        </Link>
+       
         {props.isLogged ? (
           <div className="text-gray-300 flex flex-col space-y-3 text-sm">
             <Link
