@@ -2,7 +2,10 @@
 
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Rocky } from "./Rocky";
+import dynamic from 'next/dynamic'
+const ComponentA = dynamic(() => import('./Rocky').then(module => module.Rocky), {
+  ssr: false,
+});
 
 const Experience = () => {
 
@@ -18,7 +21,7 @@ const Experience = () => {
           shadow-mapSize-height={1024}
         />
         <group position={[0, -1, 0]}>
-          <Rocky />
+          <ComponentA />
         </group>
       </Canvas>
     </>
