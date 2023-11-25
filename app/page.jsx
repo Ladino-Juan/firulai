@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DogAi from "../public/assets/dogAI.webp";
 import CatShader from "../public/assets/catShader.webp";
-import Rocky from "../public/assets/rockyReal.webp";
+import RockyLanding from "../public/assets/rockyReal.webp";
 import CatAi from "../public/assets/catAI.webp";
 import Planet1 from "../public/assets/planet1.svg";
 import Planet2 from "../public/assets/planet2.svg";
@@ -20,9 +20,10 @@ import Skate from "../public/assets/store/skate.webp";
 import RockyImg from "../public/assets/Rocky.webp";
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
+import { Rocky } from "./components/Rocky";
+import Experience from "./components/Experience";
 
 export default function Home() {
-  const { userId } = auth();
   const planets = [
     {
       src: Planet1,
@@ -88,11 +89,7 @@ export default function Home() {
           </div>
 
           <div className="w-[30vw] h-[40vh] bg-lightGray rounded-xl max-sm:h-[50vh] max-sm:w-[80vw] flex justify-center items-center">
-            <Image
-              src={RockyImg}
-              alt="Firulais App"
-              className="w-2/4 md:w-1/4"
-            ></Image>
+            <Experience />
           </div>
           <div className="w-[40vw] h-[40vh] l max-sm:h-[50vh] max-sm:w-[80%] grid grid-cols-3 gap-5 max-sm:grid-cols-2 max-sm:col-span-2 max-sm:mt-10">
             <div className="bg-lightGray rounded-xl flex items-center justify-center">
@@ -122,7 +119,7 @@ export default function Home() {
               <Image src={Skate} alt="Firulais App" className="w-full"></Image>
             </div>
           </div>
-          <Link href={userId ? "/dashboard" : "/sign-in"}>
+          <Link href="/game">
             <button
               className="mt-5 flex px-8 py-2 hover:bg-main text-blanco font-semibold hover:text-white border border-white hover:border-transparent rounded-lg transition-all duration-300"
               aria-label="Firulais"
@@ -181,7 +178,7 @@ export default function Home() {
       </div>
       <div className="w-full h-[70vh] flex justify-around items-center text-center max-sm:flex-col-reverse">
         <Image
-          src={Rocky}
+          src={RockyLanding}
           alt="Firulais App"
           className="w-[300px] max-sm:w-[250px] rounded-xl"
           quality={100}

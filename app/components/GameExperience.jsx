@@ -12,8 +12,6 @@ import { FarmStage } from "./FarmStage";
 import { useGameStore } from "../Store";
 
 const GameExperience = () => {
-
-
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const { timeLeft } = useGameStore((state) => ({ timeLeft: state.timeLeft }));
@@ -42,7 +40,11 @@ const GameExperience = () => {
       <group position-y={-1}>
         {/* FLOOR */}
         <RigidBody colliders={false} type="fixed" name="void">
-          <CuboidCollider position={[0, -3.5, 0]} args={[100, 0.1, 100]} sensor />
+          <CuboidCollider
+            position={[0, -3.5, 0]}
+            args={[100, 0.1, 100]}
+            sensor
+          />
         </RigidBody>
         <ContactShadows
           frames={1}
@@ -54,24 +56,21 @@ const GameExperience = () => {
           color={"#aa9acd"}
         />
         {/* STAGE */}
-        <FarmStage
-          position-y={-1.4}
-          position-z={2}
-        />
+        <FarmStage position-y={-1.4} position-z={2} />
         <RigidBody
           colliders={false}
           type="fixed"
           position-y={-0.5}
           friction={2}
         >
-          <CylinderCollider args={[isMobile ? 0.35 : 0.3, 5]}/>
+          <CylinderCollider args={[isMobile ? 0.35 : 0.3, 5]} />
         </RigidBody>
 
         {/* CHARACTER */}
         <CharacterController />
 
         {/* DECISIONS */}
-        <DecisionSpot/>
+        <DecisionSpot />
       </group>
     </>
   );

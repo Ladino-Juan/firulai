@@ -5,6 +5,7 @@ import {
   Loader,
   useFont,
   useProgress,
+  Text
 } from "@react-three/drei";
 import { Leva } from "leva";
 import { Canvas } from "@react-three/fiber";
@@ -94,10 +95,12 @@ const Game = () => {
         <Suspense>
           <Physics>
             <GameExperience />
+          
           </Physics>
         </Suspense>
       </Canvas>
       <Loader />
+     
       {!isMobile ? (
         <div className={`absolute inset-0 flex items-center justify-end space-x-5 mr-14 font-spiegel ${gameState != gameStates.GAME ? "hidden" : ""}`}>
           <div className="flex flex-col items-center space-y-2">

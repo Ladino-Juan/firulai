@@ -9,7 +9,7 @@ import {
   useCharacterStore,
   useSensorStore,
   playAudio,
-  useMobileController
+  useMobileController,
 } from "../Store";
 
 import * as THREE from "three";
@@ -17,13 +17,10 @@ import { Rocky } from "./Rocky";
 /* responsive size for the pet model */
 const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-
 const JUMP_FORCE = 0.65;
 const MOVEMENT_SPEED = 0.1;
 const MAX_VEL = 2.5;
 const RUN_VEL = 1.5;
-
-
 
 export const CharacterController = () => {
   const { setSensor } = useSensorStore();
@@ -32,66 +29,67 @@ export const CharacterController = () => {
     gameState: state.gameState,
   }));
   const jumpPressed = useKeyboardControls((state) => state[Controls.jump]);
-  const leftPressed = useKeyboardControls((state) => state[Controls.left])  || useMobileController.getState().isMovingLeft;
-  const rightPressed = useKeyboardControls((state) => state[Controls.right])  || useMobileController.getState().isMovingRight;
-  const backPressed = useKeyboardControls((state) => state[Controls.back])  || useMobileController.getState().isMovingBackward;
-  const forwardPressed = useKeyboardControls(
-    (state) => state[Controls.forward]
-  )  || useMobileController.getState().isMovingForward;
+  const leftPressed =
+    useKeyboardControls((state) => state[Controls.left]) ||
+    useMobileController.getState().isMovingLeft;
+  const rightPressed =
+    useKeyboardControls((state) => state[Controls.right]) ||
+    useMobileController.getState().isMovingRight;
+  const backPressed =
+    useKeyboardControls((state) => state[Controls.back]) ||
+    useMobileController.getState().isMovingBackward;
+  const forwardPressed =
+    useKeyboardControls((state) => state[Controls.forward]) ||
+    useMobileController.getState().isMovingForward;
   const rigidbody = useRef();
   const isOnFloor = useRef(true);
 
-
-
   useFrame((state, delta) => {
     const impulse = { x: 0, y: 0, z: 0 };
-
-
-
 
     if (jumpPressed && isOnFloor.current) {
       impulse.y += JUMP_FORCE;
       isOnFloor.current = false;
     }
-
-    const linvel = rigidbody.current.linvel();
-    let changeRotation = false;
-    if (rightPressed && linvel.x < MAX_VEL) {
-      impulse.x += MOVEMENT_SPEED;
-      changeRotation = true;
-    }
-    if (leftPressed && linvel.x > -MAX_VEL) {
-      impulse.x -= MOVEMENT_SPEED;
-      changeRotation = true;
-    }
-    if (backPressed && linvel.z < MAX_VEL) {
-      impulse.z += MOVEMENT_SPEED;
-      changeRotation = true;
-    }
-    if (forwardPressed && linvel.z > -MAX_VEL) {
-      impulse.z -= MOVEMENT_SPEED;
-      changeRotation = true;
-    }
-
-
-    rigidbody.current.applyImpulse(impulse, true);
-
-    if (Math.abs(linvel.x) > RUN_VEL || Math.abs(linvel.z) > RUN_VEL) {
-      if (characterState !== "Walk") {
-        setCharacterState("Walk");
+    if (rigidbody.current) {
+      const linvel = rigidbody.current.linvel();
+      let changeRotation = false;
+      if (rightPressed && linvel.x < MAX_VEL) {
+        impulse.x += MOVEMENT_SPEED;
+        changeRotation = true;
       }
-    } else {
-      if (characterState !== "Idle") {
-        setCharacterState("Idle");
+      if (leftPressed && linvel.x > -MAX_VEL) {
+        impulse.x -= MOVEMENT_SPEED;
+        changeRotation = true;
       }
-    }
-    if (jumpPressed) {
-      setCharacterState("Jump_ToIdle");
-    }
+      if (backPressed && linvel.z < MAX_VEL) {
+        impulse.z += MOVEMENT_SPEED;
+        changeRotation = true;
+      }
+      if (forwardPressed && linvel.z > -MAX_VEL) {
+        impulse.z -= MOVEMENT_SPEED;
+        changeRotation = true;
+      }
 
-    if (changeRotation) {
-      const angle = Math.atan2(linvel.x, linvel.z);
-      character.current.rotation.y = angle;
+      rigidbody.current.applyImpulse(impulse, true);
+
+      if (Math.abs(linvel.x) > RUN_VEL || Math.abs(linvel.z) > RUN_VEL) {
+        if (characterState !== "Walk") {
+          setCharacterState("Walk");
+        }
+      } else {
+        if (characterState !== "Idle") {
+          setCharacterState("Idle");
+        }
+      }
+      if (jumpPressed) {
+        setCharacterState("Jump_ToIdle");
+      }
+
+      if (changeRotation) {
+        const angle = Math.atan2(linvel.x, linvel.z);
+        character.current.rotation.y = angle;
+      }
     }
 
     // CAMERA FOLLOW
@@ -155,15 +153,20 @@ export const CharacterController = () => {
         onIntersectionEnter={({ other }) => {
           if (other.rigidBodyObject.name === "void") {
             resetPosition();
-            playAudio("fall", () => {
-              playAudio("bark", null, false, 0.2);
-            }, false, 0.3);
+            playAudio(
+              "fall",
+              () => {
+                playAudio("bark", null, false, 0.2);
+              },
+              false,
+              0.3
+            );
           }
         }}
       >
         <CapsuleCollider args={[0.8, 0.4]} position={[0, 1.2, 0]} />
         <group ref={character}>
-          <Rocky scale={isMobile ? 0.9 : 1}/>
+          <Rocky scale={isMobile ? 0.9 : 1} />
         </group>
       </RigidBody>
     </group>

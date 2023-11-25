@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useRef, useEffect } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import { useCharacterStore } from "../Store";
 
 export function Rocky(props) {
@@ -11,11 +11,17 @@ export function Rocky(props) {
 
   const characterState = useCharacterStore((state) => state.characterState);
   useEffect(() => {
-    actions[characterState].reset().fadeIn(0.5).play();
-    return () => {
-      actions[characterState].fadeOut(0.5);
-    };
-  }, [characterState]);
+    const selectedAction = actions[characterState];
+
+    if (selectedAction) {
+      selectedAction.reset().play();
+      return () => {
+        selectedAction.fadeOut(0.1);
+      };
+    }
+
+    return () => {};
+  }, [characterState, actions]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -26,17 +32,53 @@ export function Rocky(props) {
           <primitive object={nodes.IKBackLegR} />
           <primitive object={nodes.IKFrontLegR} />
           <group name="Cube">
-            <skinnedMesh castShadow name="Cube_1" geometry={nodes.Cube_1.geometry} material={materials.Material} skeleton={nodes.Cube_1.skeleton} />
-            <skinnedMesh castShadow name="Cube_2" geometry={nodes.Cube_2.geometry} material={materials['Material.006']} skeleton={nodes.Cube_2.skeleton} />
-            <skinnedMesh castShadow name="Cube_3" geometry={nodes.Cube_3.geometry} material={materials['Material.001']} skeleton={nodes.Cube_3.skeleton} />
-            <skinnedMesh castShadow name="Cube_4" geometry={nodes.Cube_4.geometry} material={materials['Material.002']} skeleton={nodes.Cube_4.skeleton} />
-            <skinnedMesh castShadow name="Cube_5" geometry={nodes.Cube_5.geometry} material={materials['Material.003']} skeleton={nodes.Cube_5.skeleton} />
-            <skinnedMesh castShadow name="Cube_6" geometry={nodes.Cube_6.geometry} material={materials['Material.004']} skeleton={nodes.Cube_6.skeleton} />
+            <skinnedMesh
+              castShadow
+              name="Cube_1"
+              geometry={nodes.Cube_1.geometry}
+              material={materials.Material}
+              skeleton={nodes.Cube_1.skeleton}
+            />
+            <skinnedMesh
+              castShadow
+              name="Cube_2"
+              geometry={nodes.Cube_2.geometry}
+              material={materials["Material.006"]}
+              skeleton={nodes.Cube_2.skeleton}
+            />
+            <skinnedMesh
+              castShadow
+              name="Cube_3"
+              geometry={nodes.Cube_3.geometry}
+              material={materials["Material.001"]}
+              skeleton={nodes.Cube_3.skeleton}
+            />
+            <skinnedMesh
+              castShadow
+              name="Cube_4"
+              geometry={nodes.Cube_4.geometry}
+              material={materials["Material.002"]}
+              skeleton={nodes.Cube_4.skeleton}
+            />
+            <skinnedMesh
+              castShadow
+              name="Cube_5"
+              geometry={nodes.Cube_5.geometry}
+              material={materials["Material.003"]}
+              skeleton={nodes.Cube_5.skeleton}
+            />
+            <skinnedMesh
+              castShadow
+              name="Cube_6"
+              geometry={nodes.Cube_6.geometry}
+              material={materials["Material.004"]}
+              skeleton={nodes.Cube_6.skeleton}
+            />
           </group>
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('./models/Rocky.gltf')
+useGLTF.preload("./models/Rocky.gltf");

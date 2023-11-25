@@ -35,6 +35,9 @@ export const DecisionSpot = () => {
   };
 
   let decIdx = null;
+  if (decisionsData.length > 0) {
+    decIdx = decisionsData[0].idx - 1; // or apply your desired logic to determine decIdx
+  }
   return (
     <>
       {decisionsData.map((dec, index) => (
@@ -42,7 +45,7 @@ export const DecisionSpot = () => {
           key={index}
           rotation-y={(index / decisionsData.length) * Math.PI * 2}
         >
-          {(decIdx = dec.idx - 1)}
+     
 
           <group
             position-x={3.5}

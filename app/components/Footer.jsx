@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer
       className={`bottom-0 flex justify-around items-center w-full h-[40vh] rounded-t-3xl bg-lightGray max-sm:flex-col max-sm:h-[50vh] ${
-        router == "/dashboard" ? "hidden" : ""
+        router == "/game" ? "hidden" : ""
       }`}
     >
       <Link href="/">
