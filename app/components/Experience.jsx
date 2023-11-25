@@ -2,9 +2,15 @@
 
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { useState, useEffect } from "react";
+import { Rocky } from "./Rocky";
 
 const Experience = () => {
+  const [isMounted, setIsMounted] = useState(false);
 
+  useEffect(() => {
+    setIsMounted(true); // Set the state to indicate that the component is mounted
+  }, []);
   return (
     <>
       <Canvas camera={{ position: [5, 1.5, 8], fov: 50 }} shadows>
@@ -17,7 +23,7 @@ const Experience = () => {
           shadow-mapSize-height={1024}
         />
         <group position={[0, -1, 0]}>
-   
+        {isMounted && <Rocky />}
         </group>
       </Canvas>
     </>
