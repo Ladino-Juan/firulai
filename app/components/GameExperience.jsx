@@ -31,7 +31,7 @@ const GameExperience = () => {
         position={[0, -0.92, 0]}
         fontSize={1.84}
         rotation-x={-Math.PI / 2}
-        font="./fonts/Poppins-Regular.ttf"
+        font="/fonts/Poppins-Regular.ttf"
       >
         {timeLeft}
         <meshStandardMaterial color={"white"} opacity={0.6} transparent />

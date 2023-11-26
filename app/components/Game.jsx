@@ -38,7 +38,7 @@ const Game = () => {
     gameState: state.gameState
   }));
 
-  useFont.preload("./fonts/Poppins.json");
+  useFont.preload("/fonts/Poppins.json");
 
   const map = useMemo(
     () => [
