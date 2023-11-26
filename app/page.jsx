@@ -24,7 +24,6 @@ import { Rocky } from "./components/Rocky";
 import Experience from "./components/Experience";
 
 export default function Home() {
-  const { userId } = auth();
   const planets = [
     {
       src: Planet1,
@@ -90,7 +89,7 @@ export default function Home() {
           </div>
 
           <div className="w-[30vw] h-[40vh] bg-lightGray rounded-xl max-sm:h-[50vh] max-sm:w-[80vw] flex justify-center items-center">
-            {userId && <Experience />}
+             <Experience />
           </div>
           <div className="w-[40vw] h-[40vh] l max-sm:h-[50vh] max-sm:w-[80%] grid grid-cols-3 gap-5 max-sm:grid-cols-2 max-sm:col-span-2 max-sm:mt-10">
             <div className="bg-lightGray rounded-xl flex items-center justify-center">

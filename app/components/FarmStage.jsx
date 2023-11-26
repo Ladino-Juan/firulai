@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function FarmStage(props) {
-  const { nodes, materials } = useGLTF('./models/farmStage.glb')
+  const { nodes, materials } = useGLTF('/models/farmStage.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[-6.679, -6.454, -18.501]} rotation={[-Math.PI / 2, 0, -1.584]} scale={0.445}>
@@ -58,4 +58,4 @@ export function FarmStage(props) {
   )
 }
 
-useGLTF.preload('./models/farmStage.glb')
+useGLTF.preload('/models/farmStage.glb')

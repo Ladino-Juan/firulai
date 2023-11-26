@@ -6,7 +6,7 @@ import { useCharacterStore } from "../Store";
 
 export function Rocky(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("./models/Rocky.gltf");
+  const { nodes, materials, animations } = useGLTF("/models/Rocky.gltf");
   const { actions } = useAnimations(animations, group);
 
   const characterState = useCharacterStore((state) => state.characterState);
@@ -81,4 +81,4 @@ export function Rocky(props) {
   );
 }
 
-useGLTF.preload("./models/Rocky.gltf");
+useGLTF.preload("/models/Rocky.gltf");
