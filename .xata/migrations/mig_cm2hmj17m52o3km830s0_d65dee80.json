@@ -1,0 +1,11 @@
+{
+  "id": "mig_cm2hmj17m52o3km830s0",
+  "checksum": "1:d65dee80b585247cf99eb302fb01e8c6cf40da0772848b71c49c87fee0f1c051",
+  "operations": [
+    {
+      "addTable": {
+        "table": "firus"
+      }
+    }
+  ]
+}

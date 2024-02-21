@@ -1,0 +1,7 @@
+{
+  "databaseURL": "https://Juan-David-Ladino-s-workspace-ljoq22.eu-west-1.xata.sh/db/firuApp",
+  "codegen": {
+    "output": "src/xata.js",
+    "moduleType": "esm"
+  }
+}

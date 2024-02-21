@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "SOLARIS";
+  src: url("/fonts/Solaris.otf");
+}
+@font-face {
+  font-family: "SPIEGEL";
+  src: url("/fonts/spiegel.ttf");
+}
+
+.modelFiruImage:hover .modelFiruImageInner {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: scale(1.2);
+}

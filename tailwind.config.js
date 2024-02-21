@@ -19,23 +19,13 @@ module.exports = {
         circle_fast: {
           '0%': { transform: 'rotate(0deg) translateX(5px) rotate(0deg)' },
           '100%': { transform: 'rotate(-360deg) translateX(5px) rotate(360deg)' },
-        },
-        slide_in: {
-          '50%': { transform: 'translateX(-90%)' },
-          '100%': { transform: 'translateY(0)' },
-        },
-        slide_in_mobile: {
-          '50%': { transform: 'translateX(-120%)' },
-          '100%': { transform: 'translateX(0)' },
         }
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'circle': 'circle 20s linear infinite',
-        'circle-fast': 'circle_fast 10s linear infinite',
-        'slide-in': 'slide_in 1s ease-in-out',
-        'slide-in-mobile': 'slide_in_mobile 1s ease-in-out',
+        'circle-fast': 'circle_fast 10s linear infinite'
       },
       fontFamily: {
         solaris: ['SOLARIS', 'cursive'],
@@ -43,10 +33,18 @@ module.exports = {
       },
       colors: {
         main: "#FFD6AC",
-        lightGray: "#393839",
-        darkGray: "#211F21",
-        blanco: "#F5F5F7",
+        lightGreen: "#8CC540",
+        darkGreen: "#FFFFFF",
+        blanco: "#FFFFFF",
+        lightPurple: "#9290F8",
+        darkPurple: "#5955FC",
+        lightOrange: "#FFCB87",
+        darkOrange: "#FF914C"
       },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        'gallery': 'inset 17px -17px 47px #a6a6a6, inset -17px 17px 47px #ffffff'
+      }
     },
   },
   plugins: [],
