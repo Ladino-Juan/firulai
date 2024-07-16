@@ -2,63 +2,52 @@ import Stripe from "stripe";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { getXataClient } from "@/src/xata";
+import crypto from "crypto";
+import { auth } from "@clerk/nextjs";
 
 export async function POST(request) {
-  const body = await request.text();
-  const signature = headers().get("Stripe-Signature");
-  let event;
+  const { userId } = auth();
+  const body = await request.json();
+  const { event, signature, timestamp, data } = body;
+  const secret = process.env.WOMPI_WEBHOOK_KEY; // Asegúrate de definir tu secreto en variables de entorno
+  const xataClient = getXataClient();
 
   try {
-    event = Stripe.webhooks.constructEvent(
-      body,
-      signature,
-      process.env.STRIPE_WEBHOOK_SECRET
-    );
+    // Paso 1: Concatena los valores de los datos del evento
+    const concatenatedProperties = signature.properties.join('');
+
+    // Paso 2: Concatena el campo timestamp
+    const concatenatedString = concatenatedProperties + timestamp;
+
+    // Paso 3: Concatena tu secreto
+    const stringToHash = concatenatedString + secret;
+
+    // Paso 4: Usa SHA256 para generar el checksum
+    const calculatedChecksum = crypto
+      .createHash("sha256")
+      .update(stringToHash)
+      .digest('hex');
+
+
+    // Paso 5: Compara tu checksum calculado con el proveído en el evento
+    if (calculatedChecksum === signature.checksum && signature.properties[1] === 'APPROVED') {
+      const parts = data.transaction.reference.split('-');
+      const userId = parts[0];
+      const petId = parts[1];
+      const xataClient = getXataClient();    
+    
+        const parsedData = {
+          models: petId,
+        };
+        const newRecord = { ...parsedData, userId };
+    
+        await xataClient.db.firus.create(newRecord);
+      
+    }
+    
   } catch (error) {
     return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
   }
 
-  const session = event.data.object;
-  const userId = session?.metadata?.userId;
-  const petId = session?.metadata?.petId;
-  const xataClient = getXataClient();
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2023-10-16",
-  });
-  
-  if (event.type === "checkout.session.completed") {
-    if (!userId || !petId) {
-      return new NextResponse("Webhook Error: Missing metadata", {
-        status: 400,
-      });
-    }
-    const subscription = await stripe.subscriptions.retrieve(
-      session.subscription
-    );
-    const parsedData = {
-      models: petId,
-      subscriptionId: subscription.id,
-      customerId: subscription.customer,
-      priceId: subscription.items.data[0].price.id,
-      currentPeriodEnd: new Date((subscription.current_period_end * 1000)),
-    };
-    const newRecord = { ...parsedData, userId };
-
-    await xataClient.db.firus.create(newRecord);
-  }
-  if (event.type === "invoice.payment_succeeded") {
-    const subscription = await stripe.subscriptions.retrieve(
-      session.subscription
-    );
-    await xataClient.db.firus.update(userId, {
-      priceId: subscription.items.data[0].price.id,
-      currentPeriodEnd: new Date((subscription.current_period_end * 1000)),
-    });
-  } else {
-    return new NextResponse(
-      `Webhook Error: Unhandled event Type ${event.type}`,
-      { status: 200 }
-    );
-  }
   return new NextResponse(null, { status: 200 });
 }

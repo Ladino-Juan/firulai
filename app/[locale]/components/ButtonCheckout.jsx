@@ -13,9 +13,9 @@ const ButtonCheckout = ({ priceId, userId, petId, isPro = false, index }) => {
       case 1:
         return "bg-darkPurple hover:bg-blue-700 transition-all duration-300";
       case 2:
-        return "bg-lightGreen hover:bg-green-600 transition-all duration-300";
+        return "bg-darkestGreen hover:bg-green-600 transition-all duration-300";
       default:
-        return "bg-lightGreen hover:bg-green-600 transition-all duration-300";
+        return "bg-darkestGreen hover:bg-green-950 transition-all duration-300";
     }
   };
 

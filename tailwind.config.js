@@ -32,10 +32,9 @@ module.exports = {
         spiegel: ['SPIEGEL', 'cursive']
       },
       colors: {
-        main: "#FFD6AC",
-        lightGreen: "#8CC540",
-        darkGreen: "#FFFFFF",
-        blanco: "#FFFFFF",
+        lightGreen: "#84E7C6",
+        darkGreen: "#10B67F",
+        darkestGreen: '#07513D',
         lightPurple: "#9290F8",
         darkPurple: "#5955FC",
         lightOrange: "#FFCB87",

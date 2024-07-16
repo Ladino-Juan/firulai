@@ -4,13 +4,29 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Carousel from "./Carousel";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 const PetsOwned = ({ modelData }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true } /*, [Autoplay()]*/
+  );
+  const handlePrevious = () => {
+    emblaApi?.scrollPrev();
+  };
+  const handleNext = () => {
+    emblaApi?.scrollNext();
+  };
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [selectedPet, setSelectedPet] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [bgColor, setBgColor] = useState(
+    "bg-gradient-to-tr from-emerald-700 to-green-300"
+  );
 
   const onSelect = (petId) => {
     const current = new URLSearchParams(searchParams);
@@ -42,7 +58,25 @@ const PetsOwned = ({ modelData }) => {
       );
       setSelectedPet(selected);
     }
-  }, []);
+    if (emblaApi) {
+      emblaApi.on("select", () => {
+        setCurrentIndex(emblaApi.selectedScrollSnap());
+      });
+    }
+  }, [emblaApi]);
+
+  useEffect(() => {
+    // Define los colores de fondo para cada índice de slide
+    const colors = [
+      "bg-gradient-to-r from-lime-500 to-lime-400",
+      "bg-gradient-to-r from-lime-500 to-green-600",
+      "bg-gradient-to-r from-blue-800 to-indigo-900",
+      "bg-gradient-to-r from-red-500 to-orange-500"
+      // Agrega más colores si tienes más slides
+    ];
+
+    setBgColor(colors[currentIndex % colors.length]);
+  }, [currentIndex]);
 
   const handlePetClick = (petId) => {
     onSelect(petId);
@@ -50,102 +84,121 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex justify-around items-center space-x-4 relative max-sm:flex-col">
+      <div className="flex justify-center items-center h-[80vh]">
+        <div
+          className={`embla w-[98vw] h-3/4 min-h-min rounded-xl`}
+          ref={emblaRef}
+        >
+          <div className="embla__container">
+            {modelData.map((firu, idx) => (
+              <div
+                key={idx}
+                className={`relative flex flex-col items-start space-y-5 embla__slide ${bgColor} rounded-xl mt-48 cursor-pointer group`}
+                onClick={() => handlePetClick(firu[3])}
+              >
+                <div className="absolute transform -translate-x-10 -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 group-hover:scale-110">
+                  <Image
+                    src={firu[1]}
+                    alt={`Dog ${firu[0][0]}`}
+                    className="block max-sm:w-[150px] max-sm:h-[150px]"
+                    unoptimized
+                    width={300} // Set the width of the image
+                    height={300} // Adjust height to maintain aspect ratio
+                  />
+                </div>
+                <div className="w-[95%] h-[25vh] flex flex-col justify-center items-end mr-20">
+                  <h1 className="text-3xl font-bold text-white max-sm:text-4xl max-sm:text-center opacity-80">
+                    {firu[0][0]}
+                  </h1>
+                  <br></br>
+                  <p className="opacity-80 text-sm text-white">
+                    Fundación: Hogar Sarita Reyes
+                  </p>
+                  <p className="transition-transform duration-1000 text-white transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 underline">
+                    Conoce más
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center gap-x-5">
+        <button
+          aria-label="go to previous slide"
+          onClick={handlePrevious}
+          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
+        >
+          <ArrowLeftIcon className="w-5 h-5" />
+        </button>
+        <button
+          aria-label="go to next slide"
+          onClick={handleNext}
+          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
+        >
+          <ArrowRightIcon className={`w-5 h-5`} />
+        </button>
+      </div>
+      <div className="w-full min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col">
         {selectedPet && (
           <>
-            <div className="w-full md:w-1/4 h-[80vh] bg-lightGreen rounded-2xl flex justify-center items-center flex-col p-10 space-y-5  text-darkGreen">
-              <h1 className="font-bold text-2xl">{selectedPet[0][0]}</h1>
-              <div className="w-28 h-24 flex items-center justify-center relative">
-                <Image
-                  src={selectedPet[2]}
-                  alt="firulai"
-                  unoptimized
-                  className="object-contain z-10"
-                  fill
-                />
+            <div className="md:w-3/4 w-[90vw] text-white text-center">
+              <div
+                className={`w-full md:h-[90vh] h-[100vh] rounded-l-3xl ${bgColor}  space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mt-10 max-sm:text-center`}
+              >
+                
+                <h1 className="font-bold md:text-8xl text-4xl opacity-80 flex justify-start w-3/4 mr-32 max-sm:mr-0">
+                  {selectedPet[0][0]}
+                </h1>
+                <div className="flex opacity-80 mr-32 max-sm:mr-0 space-x-5">
+                  <div className="flex flex-col">
+                    <h1 className="text-base font-semibold">EDAD</h1>
+                    <h2 className="text-sm">{selectedPet[0][4]}</h2>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <h1 className="text-base font-semibold">TAMAÑO</h1>
+                    <h2 className="text-sm">{selectedPet[0][3]}</h2>
+                  </div>
+                  <div className="flex flex-col">
+                    <h1 className="text-base font-semibold">RAZA</h1>
+                    <h2 className="text-sm">{selectedPet[0][1]}</h2>
+                  </div>
+                  <div className="flex flex-col">
+                    <h1 className="text-base font-semibold">COLOR</h1>
+                    <h2 className="text-sm">{selectedPet[0][2]}</h2>
+                  </div>
+                </div>
+                <h3 className="text-justify opacity-80 w-3/4 mr-32 max-sm:mr-0">
+                  {selectedPet[0][5]}
+                </h3>
+                <div className="w-full md:h-44 h-28 flex justify-end space-x-5 mr-10 mt-10">
+                  <div className="md:w-1/5 w-[40%] h-full rounded-xl">
+                    <Carousel mediaData={selectedPet[5]} type={"photo"} />
+                  </div>
+                  <div className="md:w-1/5 w-[40%] h-full rounded-xl">
+                    <Carousel mediaData={selectedPet[6]} type={"video"} />
+                  </div>
+                </div>
+
                 {/* Position the second image at the bottom-right corner */}
-                <div className="absolute bottom-0 -left-2 z-20">
+                <div className="absolute bottom-50 left-0 z-20">
                   <Image
                     src={selectedPet[1]}
                     alt="firulai"
                     unoptimized
-                    width={40}
-                    height={40}
-                    className="rounded-md"
+                    width={600}
+                    height={600}
+                    className="rounded-md max-sm:hidden"
                   />
                 </div>
               </div>
-              <h3 className="text-justify">{selectedPet[0][5]}</h3>
-             {/* <Link
-                   href="/dashboard/experience3d"
-                className={`bg-darkGreen hover:bg-green-700 transition-all duration-300 text-white px-4 py-2 rounded-lg hover:scale-105`}
-              >
-                View firu in 3d
-        </Link>*/}
-            </div>
-            <div className="md:w-2/4 w-[90vw] text-darkGreen text-center space-y-4">
-              <div className="w-full h-64 rounded-xl bg-lightGreen flex justify-center items-center md:space-x-12 max-sm:flex-col max-sm:mt-10 max-sm:text-center">
-                <div className="flex flex-col">
-                  <h1 className="font-bold text-xl">EDAD</h1>
-                  <h2>{selectedPet[0][4]}</h2>
-                </div>
-                <div className="flex flex-col">
-                  <h1 className="font-bold text-xl">TAMAÑO</h1>
-                  <h2>{selectedPet[0][3]}</h2>
-                </div>
-                <div className="flex flex-col">
-                  <h1 className="font-bold text-xl">RAZA</h1>
-                  <h2>{selectedPet[0][1]}</h2>
-                </div>
-                <div className="flex flex-col">
-                  <h1 className="font-bold text-xl">COLOR</h1>
-                  <h2>{selectedPet[0][2]}</h2>
-                </div>
-              </div>
+
               <h1 className="text-lightGreen">{`Ultima actualizacion: ${selectedPet[4]}`}</h1>
-              <div className="w-full h-64 flex space-x-5">
-                <div className="w-2/4 h-full bg-lightGreen rounded-xl">
-                  <Carousel mediaData={selectedPet[5]} type={'photo'}/>
-                </div>
-                <div className="w-2/4 h-full bg-lightGreen rounded-xl">
-                <Carousel mediaData={selectedPet[6]} type={'video'} />
-                </div>
-              </div>
             </div>
           </>
         )}
-      </div>
-      <div className="h-[80vh] justify-center items-center ml-5 md:space-x-4 md:w-3/4 w-[90vw] grid md:grid-cols-6 grid-cols-2 gap-10 my-10">
-        {modelData.map((firu, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col items-center space-y-5"
-            onClick={() => handlePetClick(firu[3])}
-          >
-            <h1 className="w-full flex justify-center font-bold text-lg text-darkGreen bg-lightGreen p-2 rounded-lg">
-              {firu[0][0]}
-            </h1>
-            <div className="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center relative modelFiruImage cursor-pointer">
-              <Image
-                src={firu[2]}
-                alt={`Dog ${firu[0][0]}`}
-                className="object-contain z-10"
-                unoptimized
-                quality={100}
-                fill
-              />
-              <div className="absolute bottom-0 -left-2 z-20 w-10 h-10 md:w-14 md:h-14">
-                <Image
-                  src={firu[1]}
-                  alt={`Model Firu ${firu[0][0]}`}
-                  unoptimized
-                  fill
-                  className="rounded-md modelFiruImageInner"
-                />
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </>
   );

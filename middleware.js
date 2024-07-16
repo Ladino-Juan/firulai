@@ -46,7 +46,7 @@ const authMiddlewareConfig = {
   beforeAuth: (req) => {
     return middleware(req);
   },
-  publicRoutes: ['/:locale', '/:locale/sign-in', '/:locale/sign-up', '/:locale/api/pets', '/:locale/api/checkout', '/:locale/api/webhook'],
+  publicRoutes: ['/:locale', '/:locale/sign-in', '/:locale/sign-up', '/:locale/api/pets', '/:locale/api/checkout', '/:locale/api/webhook', '/:locale/api/enterprise'],
 };
 
 const middlewareWithAuth = authMiddleware(authMiddlewareConfig);

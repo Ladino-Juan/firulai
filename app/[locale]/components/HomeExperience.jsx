@@ -8,7 +8,7 @@ import { Rocky } from "./Rocky";
 const HomeExperience = () => {
   return (
     <>
-      <Canvas camera={{ position: [5, 1.5, 8], fov: 50 }} shadows>
+      <Canvas camera={{ position: [3, 2, 10], fov: 45 }} shadows>
         <OrbitControls />
         <ambientLight />
         <directionalLight

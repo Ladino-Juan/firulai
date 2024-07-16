@@ -32,7 +32,7 @@ const SocialShare = ({ url }) => {
   return (
     <div>
       <button
-        className="p-2 border-2 border-white rounded-md hover:bg-lightGreen transition-all duration-300"
+        className="p-2 border-2 border-white rounded-md hover:bg-darkestGreen transition-all duration-300"
         onClick={openModal}
       >
         <ShareIcon className="w-5 text-white" />

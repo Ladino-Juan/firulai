@@ -49,29 +49,34 @@ const CurrentPets = () => {
 
   return (
     <div className="w-full min-h-screen flex justify-around items-center space-x-4 relative max-sm:flex-col">
-      <div className="w-full md:w-1/4 h-[80vh] bg-lightGreen rounded-2xl flex justify-center items-center relative flex-col p-10 space-y-5  text-darkGreen shadow-2xl">
+      <div className="w-full md:w-1/4 h-[80vh] bg-green-500 rounded-3xl flex justify-center items-center relative flex-col p-10 space-y-5  text-white">
         {selectedPet && (
           <>
-            <h1 className="font-bold text-2xl">{selectedPet.firuData.name}</h1>
-            <div className="w-24 h-24 bg-blanco rounded-full flex items-center justify-center relative">
+            <div className="absolute top-0 left-0 w-full h-[30vh]">
               <Image
                 src={selectedPet.firuData.realFiru}
                 alt={`Dog ${selectedPet.firuData.name}`}
-                className="rounded-full object-cover z-10"
-                fill
+                className="rounded-t-3xl object-cover"
+                layout="fill"
               />
-              {/* Position the second image at the bottom-right corner */}
-              <div className="absolute bottom-0 -left-2 z-20">
+              <h1 className="font-bold text-7xl opacity-80 p-10">
+                {selectedPet.firuData.name}
+              </h1>
+            </div>
+            <div className="absolute w-full h-[50vh] p-10 bottom-5">
+              <div className="absolute -bottom-24 max-sm:-bottom-16 -right-36 max-sm:right-0 shadow-sm">
                 <Image
                   src={selectedPet.firuData.modelFiru}
                   alt={`Model Firu ${selectedPet.firuData.name}`}
-                  width={40}
-                  height={40}
-                  className="rounded-md"
+                  width={220}
+                  height={220}
+                  className="rounded-md max-sm:w-[150px]"
                 />
               </div>
+              <h3 className="text-justify font-extralight text-sm">
+                {selectedPet.firuData.history}
+              </h3>
             </div>
-            <h3 className="text-justify font-extralight text-sm">{selectedPet.firuData.history}</h3>
           </>
         )}
       </div>
@@ -82,10 +87,10 @@ const CurrentPets = () => {
             className="flex flex-col items-center space-y-5"
             onClick={() => handlePetClick(firu.id)}
           >
-            <h1 className="w-full flex justify-center font-normal text-lg text-darkGreen bg-lightGreen p-2 rounded-lg shadow-2xl">
+            <h1 className="w-full flex justify-center font-normal text-lg text-white bg-green-500 p-2 rounded-lg shadow-inner">
               {firu.firuData.name}
             </h1>
-            <div className="md:w-32 md:h-32 w-20 h-20 bg-lightGreen rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
+            <div className="md:w-32 md:h-32 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
               <Image
                 src={firu.firuData.realFiru}
                 alt={`Dog ${firu.firuData.name}`}
@@ -93,7 +98,7 @@ const CurrentPets = () => {
                 quality={100}
                 fill
               />
-              <div className="absolute bottom-0 -left-2 z-20 w-10 h-10 md:w-14 md:h-14">
+              <div className="absolute bottom-0 -left-9 z-20 w-10 h-10 md:w-20 md:h-20">
                 <Image
                   src={firu.firuData.modelFiru}
                   alt={`Model Firu ${firu.firuData.name}`}

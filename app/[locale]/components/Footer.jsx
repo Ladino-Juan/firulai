@@ -2,8 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FirulaisLogo from "@assets/firulaisLogo.webp";
-import WppIcon from "@icons/whatsapp-icon.svg";
-import Xicon from "@icons/twitter-icon.svg";
+import IgIcon from "@icons/instagram-icon.svg";
 import { getlocales } from "../../actions";
 
 const Footer =  async ({ lang }) => {
@@ -22,7 +21,7 @@ const Footer =  async ({ lang }) => {
         />
       </Link>
 
-      <div className="md:w-1/3 w-[80vw] text-center space-y-2 text-blanco">
+      <div className="md:w-1/3 w-[80vw] text-center space-y-2 md:mr-40 text-white opacity-80">
         <h1 className=" text-base max-sm:text-sm">
           {footer?.missionTitle}
         </h1>
@@ -42,27 +41,20 @@ const Footer =  async ({ lang }) => {
 
       <div className="flex justify-center items-center space-y-5 flex-col max-sm:flex-row max-sm:space-x-2">
         <Link
-          href="https://wa.me/573205279852"
+          href="https://www.instagram.com/firulai.co/"
           target="_blank"
           rel="noreferrer"
           aria-label="firulais whatsapp"
         >
           <Image
-            src={WppIcon}
+            src={IgIcon}
             alt="Whatsapp Firulais"
             className="max-sm:mt-5"
             width={30}
             quality={100}
           />
         </Link>
-        <Link
-          href="https://twitter.com/firulaisVR"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="firulais twitter x"
-        >
-          <Image src={Xicon} alt="Twitter Firulais" width={30} quality={100} />
-        </Link>
+       
       </div>
     </footer>
   );

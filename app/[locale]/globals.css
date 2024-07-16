@@ -11,7 +11,27 @@
   src: url("/fonts/spiegel.ttf");
 }
 
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 .modelFiruImage:hover .modelFiruImageInner {
   transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
   transform: scale(1.2);
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+
+/* Usa las clases responsivas de TailwindCSS */
+.embla__slide {
+  @apply flex-[0_0_80%] md:flex-[0_0_30%] min-w-0 mr-5;
 }

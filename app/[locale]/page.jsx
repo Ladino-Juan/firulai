@@ -1,171 +1,77 @@
+"use client";
+
 import Image from "next/image";
-import CatShader from "@assets/catShader.webp";
-import CatAi from "@assets/catAI.webp";
-import Planet1 from "@assets/planet1.svg";
-import Planet2 from "@assets/planet2.svg";
-import Planet3 from "@assets/planet3.svg";
-import Planet4 from "@assets/planet4.svg";
-import Planet5 from "@assets/planet5.svg";
-import Plate1 from "@assets/plate1.svg";
-import Plate2 from "@assets/plate2.svg";
-import Plate3 from "@assets/plate3.svg";
-import DogAI from "@assets/dogAI.webp"; 
-import FrogHat from "@assets/store/frogHat.webp";
-import FoxHat from "@assets/store/foxHat.webp";
-import PixelGlasses from "@assets/store/pixelGlasses.webp";
-import TennisBall from "@assets/store/tennisBall.webp";
-import Bear from "@assets/store/bear.webp";
-import Skate from "@assets/store/skate.webp";
+import DogAI from "@assets/dogAI.gif";
+import BgLanding from "@assets/background-landing.webp";
+import BgLanding1 from "@assets/background-landing1.webp";
 import Link from "next/link";
 import { getlocales } from "../actions";
-import HomeExperience from "./components/HomeExperience";
+import CountUp from "react-countup";
 
 export default async function Home({ params: lang }) {
-  
   const { home } = await getlocales(lang.locale);
-  const planets = [
-    {
-      src: Planet1,
-      className:
-        "right-24 absolute -z-10 animate-circle w-[120px] max-sm:w-[60px] max-sm:top-2/4",
-    },
-    {
-      src: Planet2,
-      className:
-        "top-1/3 right-1/3 absolute -z-10 animate-spin-slow w-[80px] max-sm:w-[40px] max-sm:left-20 max-sm:top-[65vh]",
-    },
-    {
-      src: Planet3,
-      className:
-        "bottom-36 right-96 absolute -z-10 animate-circle w-[120px] max-sm:w-[60px] max-sm:left-20 max-sm:top-2/4",
-    },
-    {
-      src: Planet4,
-      className:
-        "top-32 right-64 absolute -z-10 animate-circle-fast w-[134px] max-sm:w-[120px] max-sm:top-3/4 max-sm:right-2/4",
-    },
-    {
-      src: Planet5,
-      className:
-        "right-10 bottom-36 absolute -z-10 animate-circle-fast w-[134px] max-sm:w-[130px]",
-    },
-  ];
   return (
     <>
-      <div className="flex justify-around items-center overflow-hidden h-[80vh] max-sm:flex-col mt-20">
-        <div className="flex flex-col w-2/5 max-sm:w-[80vw] max-sm:text-center space-y-4">
-          <h1 className="font-solaris text-7xl text-main text-left max-sm:text-4xl max-sm:text-center">
+      <div className="flex justify-around max-sm:justify-center items-center overflow-hidden w-[90vw] h-[80vh] rounded-2xl mt-20 max-sm:flex-col bg-gradient-to-r from-emerald-700 to-emerald-500">
+        <div className="flex flex-col w-2/5 max-sm:w-[80vw] max-sm:text-center space-y-4 ml-48 max-sm:ml-0">
+          <h1 className="text-5xl font-bold text-white text-left max-sm:text-4xl max-sm:text-center">
             {home.title}
           </h1>
-          <p className="text-xl text-whitePearl max-sm:text-sm">
+          <p className="text-lg text-white max-sm:text-sm">
             {home.description}
           </p>
+          <br />
+          <Link
+            href={`/api/pets`}
+            className="bg-darkGreen text-center hover:bg-darkestGreen transition-all duration-300 text-white text-lg px-4 py-2 rounded-lg hover:scale-105 shadow-xl"
+          >
+            {home.landingButton}
+          </Link>
         </div>
 
         <Image
           src={DogAI}
           alt="Firulais dog AI"
-          className="w-[400px] max-sm:w-[200px]"
+          className="w-[620px] max-sm:w-[200px] max-sm:absolute max-sm:bottom-0 max-sm:right-0 mr-28"
         ></Image>
-
-        {planets.map((planet, index) => (
-          <Image
-            key={index}
-            src={planet.src}
-            alt="Firulais dog AI"
-            className={planet.className}
-          />
-        ))}
       </div>
-      <div className="w-full max-h[160vh] flex justify-center items-center max-sm:mt-[20vh]">
-        <div className="w-[90%] h-[80%] rounded-xl grid grid-cols-2 max-sm:grid-cols-1 content-center justify-items-center">
-          <div className="col-span-2 w-[80%] mb-5">
-            <h1 className="text-lg text-main sm:text-2xl max-sm:text-center">
-              {home.storeTitle}
-            </h1>
+      <div className="flex justify-around items-center overflow-hidden max-sm:flex-col h-screen w-full">
+        <div className="flex flex-col max-sm:w-[80vw] max-sm:text-center space-y-4 text-darkGreen font-semibold text-start">
+          <h1 className="font-bold text-5xl w-3/5 max-sm:w-[80vw]">
+            {home.title2}
+          </h1>
+          <br></br>
+          <div className="text-6xl">
+            +<CountUp end={1000} enableScrollSpy />
+            <h2 className="text-xl font-normal">{home.meta1}</h2>
           </div>
 
-          <div className="w-[30vw] h-[40vh] bg-lightGreen rounded-xl max-sm:h-[50vh] max-sm:w-[80vw] flex justify-center items-center">
-            <HomeExperience />
+          <div className="text-6xl">
+            +<CountUp end={100} enableScrollSpy />
+            <h2 className="text-xl font-normal">{home.meta2}</h2>
           </div>
-          <div className="w-[40vw] h-[40vh] l max-sm:h-[50vh] max-sm:w-[80%] grid grid-cols-3 gap-5 max-sm:grid-cols-2 max-sm:col-span-2 max-sm:mt-10">
-            <div className="bg-lightGreen rounded-xl flex items-center justify-center">
-              <Image
-                src={FrogHat}
-                alt="Firulais App"
-                className="w-full"
-              ></Image>
-            </div>
-            <div className="bg-lightGreen rounded-xl flex items-center justify-center">
-              <Image src={FoxHat} alt="Firulais App" className="w-full"></Image>
-            </div>
-            <div className="bg-lightGreen rounded-xl flex items-center justify-center">
-              <Image
-                src={PixelGlasses}
-                alt="Firulais App"
-                className="w-full"
-              ></Image>
-            </div>
-            <div className="bg-lightGreen rounded-xl flex items-center justify-center">
-              <Image src={TennisBall} alt="Firulais App"></Image>
-            </div>
-            <div className="bg-lightGreen rounded-xl flex items-center justify-center">
-              <Image src={Bear} alt="Firulais App" className="w-full"></Image>
-            </div>
-            <div className="bg-lightGreen rounded-xl flex items-center justify-center">
-              <Image src={Skate} alt="Firulais App" className="w-full"></Image>
-            </div>
+
+          <div className="text-6xl">
+            +<CountUp end={10} enableScrollSpy />
+            <h2 className="text-xl font-normal">{home.meta3}</h2>
           </div>
-          <Link href="/game">
-            <button
-              className="mt-5 flex px-8 py-2 hover:bg-main text-blanco font-semibold hover:text-white border border-white hover:border-transparent rounded-lg transition-all duration-300"
-              aria-label="Firulais"
-            >
-              {home.storeButton}{" "}
-              <span className="border border-white px-2 ml-2">BETA</span>
-            </button>
-          </Link>
         </div>
+        <Image
+          src={BgLanding}
+          alt="Firulais dog AI"
+          className="w-[500px] max-sm:w-[200px] -skew-y-12 rounded-xl"
+        ></Image>
       </div>
-      <div className="h-screen w-full flex justify-center mt-20 items-center max-sm:flex-col">
-        <div>
-          <div className="flex items-center max-sm:justify-center">
-            <h2 className="w-2/3 max-sm:text-sm">{home.plate1}</h2>
-            <Image
-              src={Plate1}
-              alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] ml-5"
-            ></Image>
-          </div>
-          <div className="flex items-center mt-5 max-sm:justify-center">
-            <h2 className="w-2/3 max-sm:text-sm">{home.plate2}</h2>
-            <Image
-              src={Plate2}
-              alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] ml-5"
-            ></Image>
-          </div>
-          <div className="flex items-center mt-5 max-sm:justify-center">
-            <h2 className="w-2/3 max-sm:text-sm">{home.plate3}</h2>
-            <Image
-              src={Plate3}
-              alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] ml-5"
-            ></Image>
-          </div>
-        </div>
-        <div className="relative max-sm:mt-20">
-          <Image
-            src={CatAi}
-            alt="Firulais App"
-            className="w-[400px] max-sm:w-[250px]"
-            quality={100}
-          ></Image>
-          <Image
-            src={CatShader}
-            alt="Firulais App"
-            className="w-[400px] max-sm:w-[250px] absolute top-0 left-0 animate-pulse"
-          ></Image>
+      <div className="flex justify-between items-center overflow-hidden max-sm:h-[120vh] max-sm:flex-col-reverse h-screen w-[90vw]">
+        <Image
+          src={BgLanding1}
+          alt="Firulais dog AI"
+          className="w-[500px] h-[400px] max-sm:w-[200px] rounded-xl max-sm:my-10"
+        ></Image>
+        <div className="flex flex-col w-2/4 max-sm:w-[80vw] max-sm:text-center space-y-4 text-darkGreen text-justify">
+          <h1 className="font-bold text-5xl">{home.infoTitle}</h1>
+          <br></br>
+          <p className="text-xl max-sm:text-s text-justify">{home.infoText}</p>
         </div>
       </div>
     </>
