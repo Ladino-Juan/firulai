@@ -24,7 +24,7 @@ async function generateUniqueReference(selected) {
 }
 async function Pets({ searchParams }) {
 
-  const prices = [1000000, 2500000, 5000000];
+  const prices = [500000, 2500000, 5000000];
   const integrityKey = process.env.INTEGRITY_KEY;
 
   const references = await Promise.all(
