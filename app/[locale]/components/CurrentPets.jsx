@@ -59,17 +59,18 @@ const CurrentPets = () => {
                 className="rounded-t-3xl object-cover"
                 layout="fill"
               />
-              <h1 className="font-bold text-7xl opacity-80 p-10">
+              <h1 className="font-bold text-7xl opacity-80 p-14 md:p-10">
                 {selectedPet.firuData.name}
               </h1>
             </div>
             <div className="absolute w-full h-[50vh] p-10 bottom-5">
-              <div className="absolute -bottom-24 max-sm:-bottom-16 -right-36 max-sm:right-0 shadow-sm">
+              <div className="absolute -bottom-24 max-sm:-bottom-16 -right-36 max-sm:right-0">
                 <Image
                   src={selectedPet.firuData.modelFiru}
                   alt={`Model Firu ${selectedPet.firuData.name}`}
                   width={220}
                   height={220}
+                  quality={100}
                   className="rounded-md max-sm:w-[150px]"
                 />
               </div>
@@ -98,7 +99,7 @@ const CurrentPets = () => {
                 quality={100}
                 fill
               />
-              <div className="absolute bottom-0 -left-9 z-20 w-10 h-10 md:w-20 md:h-20">
+              <div className="absolute bottom-0 -left-5 md:-left-9 z-20 w-10 h-12 md:w-20 md:h-24">
                 <Image
                   src={firu.firuData.modelFiru}
                   alt={`Model Firu ${firu.firuData.name}`}

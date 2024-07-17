@@ -13,7 +13,7 @@ export default async function Home({ params: lang }) {
   return (
     <>
       <div className="flex justify-around max-sm:justify-center items-center overflow-hidden w-[90vw] h-[80vh] rounded-2xl mt-20 max-sm:flex-col bg-gradient-to-r from-emerald-700 to-emerald-500">
-        <div className="flex flex-col w-2/5 max-sm:w-[80vw] max-sm:text-center space-y-4 ml-48 max-sm:ml-0">
+        <div className="flex flex-col w-4/5 max-sm:w-[80vw] max-sm:text-center space-y-4 ml-24 max-sm:ml-0">
           <h1 className="text-5xl font-bold text-white text-left max-sm:text-4xl max-sm:text-center">
             {home.title}
           </h1>
