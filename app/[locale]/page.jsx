@@ -66,7 +66,7 @@ export default async function Home({ params: lang }) {
         <Image
           src={BgLanding1}
           alt="Firulais dog AI"
-          className="w-[500px] h-[400px] max-sm:w-[200px] rounded-xl max-sm:my-10"
+          className="w-[500px] max-sm:w-[200px] rounded-xl max-sm:my-10"
         ></Image>
         <div className="flex flex-col w-2/4 max-sm:w-[80vw] max-sm:text-center space-y-4 text-darkGreen text-justify">
           <h1 className="font-bold text-5xl">{home.infoTitle}</h1>

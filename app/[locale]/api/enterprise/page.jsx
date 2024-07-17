@@ -61,7 +61,7 @@ export default async function Home({ params: lang }) {
         <Image
           src={BgLanding1}
           alt="Firulais dog AI"
-          className="w-[500px] h-[400px] max-sm:w-[200px] rounded-xl"
+          className="w-[500px] max-sm:w-[200px] rounded-xl"
         ></Image>
       </div>
       <Formulario />
