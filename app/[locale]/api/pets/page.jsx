@@ -12,18 +12,20 @@ import CurrentPets from "../../components/CurrentPets";
 import SocialShare from "../../components/SocialShare";
 import HomeExperience from "../../components/HomeExperience";
 import crypto from "crypto";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 async function generateUniqueReference(selected) {
   const { userId } = auth();
- // Generar una cadena única para la referencia
- const uniqueString = `${userId}-${selected}`;
- // Crear un hash SHA-256 de la cadena única
- const hash = crypto.randomBytes(8).toString("hex");;
- // Retornar la referencia completa con el hash al final
- return `${uniqueString}-${hash}`;
+  // Generar una cadena única para la referencia
+  const uniqueString = `${userId}-${selected}`;
+  // Crear un hash SHA-256 de la cadena única
+  const hash = crypto.randomBytes(8).toString("hex");
+  // Retornar la referencia completa con el hash al final
+  return `${uniqueString}-${hash}`;
 }
 async function Pets({ searchParams }) {
-
+  const { userId } = auth();
   const prices = [1000000, 2500000, 5000000];
   const integrityKey = process.env.INTEGRITY_KEY;
 
@@ -51,6 +53,13 @@ async function Pets({ searchParams }) {
         return "bg-darkestGreen hover:bg-green-600 transition-all duration-300";
       default:
         return "bg-darkestGreen hover:bg-green-950 transition-all duration-300";
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    if (!userId) {
+      e.preventDefault();
+      redirect("/sign-in");
     }
   };
 
@@ -86,11 +95,10 @@ async function Pets({ searchParams }) {
                     : "Firu Guardian"
                 }`}</h3>
 
-                
-                  <h2 className="text-2xl font-bold mb-2 md:mb-10">
-                    {`${(price / 100).toLocaleString("es-CO")} COP`}
-                  </h2>
-             
+                <h2 className="text-2xl font-bold mb-2 md:mb-10">
+                  {`${(price / 100).toLocaleString("es-CO")} COP`}
+                </h2>
+
                 <form action="https://checkout.wompi.co/p/" method="GET">
                   <input
                     type="hidden"
@@ -109,16 +117,30 @@ async function Pets({ searchParams }) {
                     name="signature:integrity"
                     value={references[index].hashHex}
                   />
-                    <input type="hidden" name="redirect-url" value={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard`} />
-
-                  <button
-                    className={`${getBackgroundColor(
-                      index
-                    )} text-white px-4 py-2 rounded-lg hover:scale-105`}
-                    type="submit"
-                  >
-                    APADRINA
-                  </button>
+                  <input
+                    type="hidden"
+                    name="redirect-url"
+                    value={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard`}
+                  />
+                  {!userId ? (
+                    <Link
+                      href="/sign-in"
+                      className={`${getBackgroundColor(
+                        index
+                      )} text-white px-4 py-2 rounded-lg hover:scale-105`}
+                    >
+                      APADRINA
+                    </Link>
+                  ) : (
+                    <button
+                      className={`${getBackgroundColor(
+                        index
+                      )} text-white px-4 py-2 rounded-lg hover:scale-105`}
+                      type="submit"
+                    >
+                      APADRINA
+                    </button>
+                  )}
                 </form>
               </div>
             ))}
@@ -148,7 +170,8 @@ async function Pets({ searchParams }) {
               className="w-[100px] max-sm:w-[50px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
-              Descubre Firulai, la nueva forma de apadrinar. El 100% del valor que dones se destina directamente a la mascota que elijas.
+              Descubre Firulai, la nueva forma de apadrinar. El 100% del valor
+              que dones se destina directamente a la mascota que elijas.
               Recibirás actualizaciones semanales con videos, fotos y hasta una
               mascota virtual inspirada en la tuya.
             </h2>

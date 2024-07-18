@@ -58,12 +58,18 @@ const NavLinks = (props) => {
             {navBar?.enterprise}
           </Link>
           <span className="text-darkGreen">|</span>
-          <Link
+          {props.isLogged ? (<Link
+            href={`/sign-in`}
+            className="hover:text-darkestGreen mr-2 text-sm"
+          >
+            {navBar?.mypets}
+          </Link>)  : (<Link
             href={`/dashboard`}
             className="hover:text-darkestGreen mr-2 text-sm"
           >
             {navBar?.mypets}
-          </Link>
+          </Link>)}
+          
         </div>
         <div
           className="text-darkGreen outline-none p-2 rounded-md focus:border-darkGreen focus:border hidden max-sm:block"
@@ -94,10 +100,13 @@ const NavLinks = (props) => {
         </Link>
         <Link href={`/api/enterprise`} className=" opacity-80" onClick={() => setNav(!nav)}>
           {navBar?.enterprise}
-        </Link>{" "}
-        <Link href={`/dashboard`} className=" opacity-80" onClick={() => setNav(!nav)}>
-          {navBar?.mypets}
         </Link>
+        {props.isLogged ? (<Link href={`/sign-in`} className=" opacity-80" onClick={() => setNav(!nav)}>
+          {navBar?.mypets}
+        </Link>):( <Link href={`/dashboard`} className=" opacity-80" onClick={() => setNav(!nav)}>
+          {navBar?.mypets}
+        </Link>)}
+       
         {props.isLogged ? (
           <div className="text-white flex flex-col space-y-3 text-sm">
             <Link

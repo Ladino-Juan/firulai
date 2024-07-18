@@ -5,6 +5,7 @@ import PetsOwned from "../components/PetsOwned";
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
 import SocialShare from "../components/SocialShare";
+import Nofiru from "../components/Nofiru";
 const Dashboard = async () => {
   try {
     const { userId } = auth();
@@ -16,10 +17,10 @@ const Dashboard = async () => {
       .getMany();
 
     // Obtener IDs únicos de modelos desde las suscripciones
-    const subscriptionIds = new Set(subscriptions.flatMap(sub => sub.models));
+    const subscriptionIds = new Set(subscriptions.flatMap((sub) => sub.models));
 
     // Consultar las mascotas asociadas a los IDs únicos de modelos
-    const petPromises = Array.from(subscriptionIds).map(modelId =>
+    const petPromises = Array.from(subscriptionIds).map((modelId) =>
       xataClient.db.pets.filter({ id: modelId }).getMany()
     );
 
@@ -27,7 +28,7 @@ const Dashboard = async () => {
     const pets = await Promise.all(petPromises);
 
     // Procesar y formatear los datos de las mascotas
-    const parsedData = pets.map(item => {
+    const parsedData = pets.map((item) => {
       const firuData = JSON.parse(item[0].firuData);
       const fechaObjeto = new Date(item[0].xata.updatedAt);
       const dia = fechaObjeto.getDate();
@@ -48,17 +49,20 @@ const Dashboard = async () => {
         item[0].realFiru.url,
         item[0].id,
         fechaFormateada,
-        item[0].petPhotos.map(photo => photo.url),
-        item[0].petVideos.map(video => video.url),
+        item[0].petPhotos.map((photo) => photo.url),
+        item[0].petVideos.map((video) => video.url),
       ];
     });
 
     return (
       <>
-      {parsedData.length === 0 ? <h1 className="text-6xl text-black w-full h-screen flex justify-center items-center">Adopta firu</h1> :  <div className="w-full justify-center items-center">
-          <PetsOwned modelData={parsedData} />
-        </div>}
-       
+        {parsedData.length === 0 ? (
+          <Nofiru />
+        ) : (
+          <div className="w-full justify-center items-center">
+            <PetsOwned modelData={parsedData} />
+          </div>
+        )}
       </>
     );
   } catch (error) {

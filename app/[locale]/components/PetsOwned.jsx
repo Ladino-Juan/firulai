@@ -84,9 +84,9 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[80vh] max-sm:h-[40vh]">
+      <div className="flex justify-center items-center h-[80vh] max-sm:h-[60vh]">
         <div
-          className={`embla w-[99vw] h-3/4 min-h-min rounded-xl`}
+          className={`embla w-[99vw] h-full min-h-min rounded-xl`}
           ref={emblaRef}
         >
           <div className={`embla__container ${modelData.length < 3 ? 'justify-center' : ''}`}>
@@ -96,7 +96,7 @@ const PetsOwned = ({ modelData }) => {
                 className={`relative flex flex-col items-start space-y-5 embla__slide bg-gradient-to-t from-emerald-500 to-emerald-400 max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
                 onClick={() => handlePetClick(firu[3])}
               >
-                <div className="absolute transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 group-hover:scale-110">
+                <div className="absolute transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 max-sm:group-hover:scale-100 group-hover:scale-110">
                   <Image
                     src={firu[1]}
                     alt={`Dog ${firu[0][0]}`}
@@ -114,7 +114,7 @@ const PetsOwned = ({ modelData }) => {
                   <p className="opacity-80 text-sm text-white text max-sm:hidden">
                     Fundación: Hogar Sarita Reyes
                   </p>
-                  <p className="transition-transform duration-1000 text-white transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 underline">
+                  <p className="transition-transform max-sm:hidden duration-1000 text-white transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 underline">
                     Conoce más
                   </p>
                 </div>
