@@ -31,6 +31,9 @@ export default {
   navBar: {
     pets: "APADRINAR",
     enterprise: "EMPRESAS",
-    mypets: "MIS MASCOTAS"
+    mypets: "MIS MASCOTAS",
+    signin: "INICIAR SESIÓN",
+    signup: "REGISTRARSE",
+    home: "INICIO"
   },
 };

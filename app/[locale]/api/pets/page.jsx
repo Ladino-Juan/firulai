@@ -24,7 +24,7 @@ async function generateUniqueReference(selected) {
 }
 async function Pets({ searchParams }) {
 
-  const prices = [500000, 2500000, 5000000];
+  const prices = [1000000, 2500000, 5000000];
   const integrityKey = process.env.INTEGRITY_KEY;
 
   const references = await Promise.all(
@@ -60,11 +60,10 @@ async function Pets({ searchParams }) {
       <div className="w-full flex justify-center items-center">
         <div>
           <header className="text-center my-5">
-            <h1 className=" md:text-white md:bg-green-500 shadow-inner text-white bg-lightOrange p-2 rounded-lg flex justify-between items-center">
+            <h1 className=" md:text-white md:bg-green-500 shadow-inner text-white bg-green-500 p-2 rounded-lg flex justify-between items-center">
               <span className="mx-auto font-bold text-2xl">
                 ¿Cómo apadrinar?
               </span>
-              <SocialShare url={`${process.env.NEXT_PUBLIC_APP_URL}/api/pets`} />
             </h1>
           </header>
           <div className="flex gap-x-5 max-sm:flex-col">
@@ -77,7 +76,7 @@ async function Pets({ searchParams }) {
                     : index === 1
                     ? "bg-lightPurple text-white shadow-2xl"
                     : "bg-green-500 text-white shadow-2xl"
-                } mb-2 p-10 rounded-3xl w-72 h-56`}
+                } mb-2 p-10 rounded-3xl w-72 h-40 md:h-56`}
               >
                 <h3>{`${
                   index === 0
@@ -88,7 +87,7 @@ async function Pets({ searchParams }) {
                 }`}</h3>
 
                 
-                  <h2 className="text-2xl font-bold mb-10">
+                  <h2 className="text-2xl font-bold mb-2 md:mb-10">
                     {`${(price / 100).toLocaleString("es-CO")} COP`}
                   </h2>
              
@@ -149,8 +148,7 @@ async function Pets({ searchParams }) {
               className="w-[100px] max-sm:w-[50px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
-              Descubre Firulai, la nueva forma de apadrinar. Por cada $10 que
-              dones, $9 se destinan directamente a la mascota que elijas.
+              Descubre Firulai, la nueva forma de apadrinar. El 100% del valor que dones se destina directamente a la mascota que elijas.
               Recibirás actualizaciones semanales con videos, fotos y hasta una
               mascota virtual inspirada en la tuya.
             </h2>

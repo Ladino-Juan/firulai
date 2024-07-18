@@ -35,7 +35,7 @@ const Footer =  async ({ lang }) => {
           rel="noreferrer"
           aria-label="firulais number phone"
         >
-          +57 (320) 527-9852
+          +57 (322) 664-6007
         </Link>
       </div>
 

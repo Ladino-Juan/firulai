@@ -31,12 +31,16 @@ const NavLinks = (props) => {
     <>
       <div className="px-2 w-[95vw] flex justify-around items-center h-full max-sm:flex-row-reverse max-sm:w-[55%] max-sm:justify-between">
         <Link href="/">
+        <div className="flex items-center"> 
+          <span className="text-sm text-darkGreen ml-8 max-sm:hidden">{navBar?.home}</span>
           <Image
             src={Logo}
             alt="Firulais icon"
-            width={30}
+            width={50}
             quality={100}
           ></Image>
+          </div>
+         
         </Link>
         <div className="max-sm:hidden space-x-3 text-darkGreen">
           <Link
@@ -68,11 +72,11 @@ const NavLinks = (props) => {
         </div>
         {props.isLogged ? (
           <div className="text-white space-x-4 max-sm:hidden text-sm">
-            <button className="hover:text-white bg-darkGreen outline-1 rounded border p-2 hover:bg-darkestGreen transition-all duration-500 hover:scale-105">
-              <Link href="/sign-in">Sign In</Link>
+            <button className="hover:text-white bg-darkGreen outline-1 rounded-lg shadow-xl border py-2 px-5 hover:bg-darkestGreen transition-all duration-500 hover:scale-105">
+              <Link href="/sign-in">{navBar?.signin}</Link>
             </button>
-            <button className="hover:text-white bg-darkGreen outline-1 rounded border p-2 hover:bg-darkestGreen transition-all duration-500 hover:scale-105">
-              <Link href="/sign-up">Sign Up</Link>
+            <button className="hover:text-white bg-darkGreen outline-1 rounded-lg shadow-xl border py-2 px-5 hover:bg-darkestGreen transition-all duration-500 hover:scale-105">
+              <Link href="/sign-up">{navBar?.signup}</Link>
             </button>
           </div>
         ) : null}
@@ -100,7 +104,7 @@ const NavLinks = (props) => {
               onClick={() => setNav(!nav)}
               className="hover:text-blanco outline-1 text-center rounded-lg border p-2 hover:bg-darkGreen transition-all duration-300"
             >
-              Sign In
+              {navBar?.signin}
             </Link>
 
             <Link
@@ -108,7 +112,7 @@ const NavLinks = (props) => {
               onClick={() => setNav(!nav)}
               className="hover:text-blanco text-center outline-1 rounded-lg border p-2 hover:bg-darkGreen transition-all duration-300"
             >
-              Sign Up
+              {navBar?.signup}
             </Link>
           </div>
         ) : null}

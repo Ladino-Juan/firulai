@@ -29,7 +29,10 @@ export default {
     navBar: {
       pets: "SPONSOR",
       enterprise: "ENTERPRISE",
-      mypets: "MY PETS"
+      mypets: "MY PETS",
+      signin: "SIGN IN",
+      signup: "SIGN UP",
+      home: "HOME"
   }
   };
   

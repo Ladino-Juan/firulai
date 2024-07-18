@@ -88,7 +88,7 @@ const CurrentPets = () => {
             className="flex flex-col items-center space-y-5"
             onClick={() => handlePetClick(firu.id)}
           >
-            <h1 className="w-full flex justify-center font-normal text-lg text-white bg-green-500 p-2 rounded-lg shadow-inner">
+            <h1 className="w-full flex justify-center font-normal text-xs text-white bg-green-500 p-2 rounded-lg shadow-inner">
               {firu.firuData.name}
             </h1>
             <div className="md:w-32 md:h-32 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
@@ -99,7 +99,7 @@ const CurrentPets = () => {
                 quality={100}
                 fill
               />
-              <div className="absolute bottom-0 -left-5 md:-left-9 z-20 w-10 h-12 md:w-20 md:h-24">
+              <div className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-14 h-16 md:w-20 md:h-24">
                 <Image
                   src={firu.firuData.modelFiru}
                   alt={`Model Firu ${firu.firuData.name}`}
