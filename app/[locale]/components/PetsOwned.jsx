@@ -89,11 +89,11 @@ const PetsOwned = ({ modelData }) => {
           className={`embla w-[99vw] h-3/4 min-h-min rounded-xl`}
           ref={emblaRef}
         >
-          <div className="embla__container">
+          <div className={`embla__container ${modelData.length < 3 ? 'justify-center' : ''}`}>
             {modelData.map((firu, idx) => (
               <div
                 key={idx}
-                className={`relative flex flex-col items-start space-y-5 embla__slide ${bgColor} max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
+                className={`relative flex flex-col items-start space-y-5 embla__slide bg-gradient-to-t from-emerald-500 to-emerald-400 max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
                 onClick={() => handlePetClick(firu[3])}
               >
                 <div className="absolute transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 group-hover:scale-110">
@@ -129,24 +129,24 @@ const PetsOwned = ({ modelData }) => {
         <button
           aria-label="go to previous slide"
           onClick={handlePrevious}
-          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} max-sm:bg-none max-sm:opacity-95 max-sm:text-black opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
+          className={`h-8 w-8 rounded-full flex items-center justify-center bg-none max-sm:opacity-95 opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-black`}
         >
           <ArrowLeftIcon className="w-5 h-5" />
         </button>
         <button
           aria-label="go to next slide"
           onClick={handleNext}
-          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} max-sm:bg-none max-sm:opacity-95 max-sm:text-black  opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
+          className={`h-8 w-8 rounded-full flex items-center justify-center bg-none max-sm:opacity-95  opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-black`}
         >
           <ArrowRightIcon className={`w-5 h-5`} />
         </button>
       </div>
-      <div className="w-full min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col">
+      <div className="w-full min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col max-sm:mt-20">
         {selectedPet && (
           <>
             <div className="md:w-3/4 w-[90vw] text-white text-center">
               <div
-                className={`w-full md:h-[90vh] h-[80vh] rounded-l-3xl max-sm:rounded-3xl ${bgColor} max-sm:bg-gradient-to-t from-emerald-500 to-emerald-400 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center`}
+                className={`w-full md:h-[90vh] h-[80vh] max-sm:h-[90vh] rounded-l-3xl max-sm:rounded-3xl bg-gradient-to-t from-emerald-500 to-emerald-400 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center`}
               >
                 
                 <h1 className="font-bold max-sm:text-white md:text-8xl text-6xl max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start w-3/4 mr-32 max-sm:mr-0">
