@@ -27,7 +27,7 @@ export default {
       contact: "CONTACT",
     },
     navBar: {
-      pets: "PETS",
+      pets: "SPONSOR",
       enterprise: "ENTERPRISE",
       mypets: "MY PETS"
   }

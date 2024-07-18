@@ -32,7 +32,7 @@ export default async function Home({ params: lang }) {
         <Image
           src={DogAI}
           alt="Firulais dog AI"
-          className="w-[620px] max-sm:w-[200px] max-sm:absolute max-sm:bottom-0 max-sm:right-0 mr-28"
+          className="w-[620px] max-sm:w-[200px]"
         ></Image>
       </div>
       <div className="flex justify-around items-center overflow-hidden max-sm:flex-col h-screen w-full">
