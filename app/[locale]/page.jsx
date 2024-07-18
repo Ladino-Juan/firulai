@@ -12,7 +12,7 @@ export default async function Home({ params: lang }) {
   const { home } = await getlocales(lang.locale);
   return (
     <>
-      <div className="flex justify-around max-sm:justify-center items-center overflow-hidden w-[90vw] h-[80vh] max-sm:h-[70vh] rounded-2xl mt-20 max-sm:flex-col bg-gradient-to-r from-green-600 to-emerald-500">
+      <div className="flex justify-around max-sm:justify-center items-center overflow-hidden w-[90vw] h-[80vh] max-sm:h-[80vh] rounded-2xl mt-20 max-sm:flex-col bg-gradient-to-r from-green-600 to-emerald-500">
         <div className="flex flex-col w-2/5 max-sm:w-[80vw] max-sm:text-center space-y-4 ml-24 max-sm:ml-0">
           <h1 className="text-5xl font-bold text-white text-left max-sm:text-4xl max-sm:text-center">
             {home.title}
@@ -33,7 +33,7 @@ export default async function Home({ params: lang }) {
           <Image
             src={DogAI}
             alt="Firulais dog AI"
-            className="w-[400px] max-sm:w-[200px] max-sm:mt-10"
+            className="w-[400px] max-sm:w-[170px]"
           />
       </div>
       <div className="flex justify-around items-center overflow-hidden max-sm:flex-col h-screen md:h-[90vh] w-full">

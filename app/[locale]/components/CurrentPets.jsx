@@ -48,23 +48,23 @@ const CurrentPets = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex justify-around items-center space-x-4 relative max-sm:flex-col">
-      <div className="w-full md:w-1/4 h-[80vh] bg-green-500 rounded-3xl flex justify-center items-center relative flex-col p-10 space-y-5  text-white">
+    <div className="w-full min-h-screen flex justify-around items-center space-x-4 relative max-sm:flex-col max-sm:mt-20">
+      <div className="w-full md:w-1/4 h-[80vh] max-sm:w-[90vw] bg-green-600 rounded-3xl flex justify-center items-center relative flex-col p-10 space-y-5  text-white">
         {selectedPet && (
           <>
-            <div className="absolute top-0 left-0 w-full h-[30vh]">
+            <div className="absolute top-0 left-0 w-full h-[35vh]">
               <Image
                 src={selectedPet.firuData.realFiru}
                 alt={`Dog ${selectedPet.firuData.name}`}
                 className="rounded-t-3xl object-cover"
                 layout="fill"
               />
-              <h1 className="font-bold text-7xl opacity-80 p-14 md:p-10">
+              <h1 className="font-bold text-7xl opacity-80 p-5 md:p-10 max-sm:text-5xl">
                 {selectedPet.firuData.name}
               </h1>
             </div>
-            <div className="absolute w-full h-[50vh] p-10 bottom-5">
-              <div className="absolute -bottom-24 max-sm:-bottom-16 -right-36 max-sm:right-0">
+            <div className="absolute w-full h-[45vh] p-10 bottom-5">
+              <div className="absolute -bottom-24 max-sm:-bottom-16 -right-36 max-sm:left-0">
                 <Image
                   src={selectedPet.firuData.modelFiru}
                   alt={`Model Firu ${selectedPet.firuData.name}`}
@@ -74,7 +74,7 @@ const CurrentPets = () => {
                   className="rounded-md max-sm:w-[150px]"
                 />
               </div>
-              <h3 className="text-justify font-extralight text-sm">
+              <h3 className="text-center text-sm">
                 {selectedPet.firuData.history}
               </h3>
             </div>
