@@ -84,40 +84,41 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[80vh]">
+      <div className="flex justify-center items-center h-[80vh] max-sm:h-[40vh]">
         <div
-          className={`embla w-[98vw] h-3/4 min-h-min rounded-xl`}
+          className={`embla w-[99vw] h-3/4 min-h-min rounded-xl`}
           ref={emblaRef}
         >
           <div className="embla__container">
             {modelData.map((firu, idx) => (
               <div
                 key={idx}
-                className={`relative flex flex-col items-start space-y-5 embla__slide ${bgColor} rounded-xl mt-48 cursor-pointer group`}
+                className={`relative flex flex-col items-start space-y-5 embla__slide ${bgColor} max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
                 onClick={() => handlePetClick(firu[3])}
               >
-                <div className="absolute transform -translate-x-10 -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 group-hover:scale-110">
+                <div className="absolute transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 group-hover:scale-110">
                   <Image
                     src={firu[1]}
                     alt={`Dog ${firu[0][0]}`}
-                    className="block max-sm:w-[150px] max-sm:h-[150px]"
+                    className="block max-sm:w-[250px] max-sm:h-[250px]"
                     unoptimized
                     width={300} // Set the width of the image
                     height={300} // Adjust height to maintain aspect ratio
                   />
                 </div>
-                <div className="w-[95%] h-[25vh] flex flex-col justify-center items-end mr-20">
+                <div className="w-[95%] h-[25vh] flex flex-col justify-center items-end mr-20 max-sm:hidden">
                   <h1 className="text-3xl font-bold text-white max-sm:text-4xl max-sm:text-center opacity-80">
                     {firu[0][0]}
                   </h1>
                   <br></br>
-                  <p className="opacity-80 text-sm text-white">
+                  <p className="opacity-80 text-sm text-white text max-sm:hidden">
                     Fundación: Hogar Sarita Reyes
                   </p>
                   <p className="transition-transform duration-1000 text-white transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 underline">
                     Conoce más
                   </p>
                 </div>
+                
               </div>
             ))}
           </div>
@@ -128,14 +129,14 @@ const PetsOwned = ({ modelData }) => {
         <button
           aria-label="go to previous slide"
           onClick={handlePrevious}
-          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
+          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} max-sm:bg-none max-sm:opacity-95 max-sm:text-black opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
         >
           <ArrowLeftIcon className="w-5 h-5" />
         </button>
         <button
           aria-label="go to next slide"
           onClick={handleNext}
-          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
+          className={`h-8 w-8 rounded-full flex items-center justify-center ${bgColor} max-sm:bg-none max-sm:opacity-95 max-sm:text-black  opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-white`}
         >
           <ArrowRightIcon className={`w-5 h-5`} />
         </button>
@@ -145,32 +146,35 @@ const PetsOwned = ({ modelData }) => {
           <>
             <div className="md:w-3/4 w-[90vw] text-white text-center">
               <div
-                className={`w-full md:h-[90vh] h-[100vh] rounded-l-3xl ${bgColor}  space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mt-10 max-sm:text-center`}
+                className={`w-full md:h-[90vh] h-[80vh] rounded-l-3xl max-sm:rounded-3xl ${bgColor} max-sm:bg-gradient-to-t from-emerald-500 to-emerald-400 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center`}
               >
                 
-                <h1 className="font-bold md:text-8xl text-4xl opacity-80 flex justify-start w-3/4 mr-32 max-sm:mr-0">
+                <h1 className="font-bold max-sm:text-white md:text-8xl text-6xl max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start w-3/4 mr-32 max-sm:mr-0">
                   {selectedPet[0][0]}
                 </h1>
+                <p className="opacity-80 text-sm text-white md:hidden text-left w-3/4">
+                    Fundación: Hogar Sarita Reyes
+                  </p>
                 <div className="flex opacity-80 mr-32 max-sm:mr-0 space-x-5">
                   <div className="flex flex-col">
-                    <h1 className="text-base font-semibold">EDAD</h1>
-                    <h2 className="text-sm">{selectedPet[0][4]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">EDAD</h1>
+                    <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][4]}</h2>
                   </div>
 
                   <div className="flex flex-col">
-                    <h1 className="text-base font-semibold">TAMAÑO</h1>
-                    <h2 className="text-sm">{selectedPet[0][3]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">TAMAÑO</h1>
+                    <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][3]}</h2>
                   </div>
                   <div className="flex flex-col">
-                    <h1 className="text-base font-semibold">RAZA</h1>
-                    <h2 className="text-sm">{selectedPet[0][1]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">RAZA</h1>
+                    <h2 className="text-sm  max-sm:text-xs" >{selectedPet[0][1]}</h2>
                   </div>
                   <div className="flex flex-col">
-                    <h1 className="text-base font-semibold">COLOR</h1>
-                    <h2 className="text-sm">{selectedPet[0][2]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">COLOR</h1>
+                    <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][2]}</h2>
                   </div>
                 </div>
-                <h3 className="text-justify opacity-80 w-3/4 mr-32 max-sm:mr-0">
+                <h3 className="text-justify opacity-80 w-3/4 mr-32 max-sm:mr-0 max-sm:text-sm">
                   {selectedPet[0][5]}
                 </h3>
                 <div className="w-full md:h-44 h-28 flex justify-end space-x-5 mr-10 mt-10">

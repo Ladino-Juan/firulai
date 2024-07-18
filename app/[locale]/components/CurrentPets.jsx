@@ -64,7 +64,7 @@ const CurrentPets = () => {
               </h1>
             </div>
             <div className="absolute w-full h-[45vh] p-10 bottom-5">
-              <div className="absolute -bottom-24 max-sm:-bottom-16 -right-36 max-sm:left-0">
+              <div className="absolute -bottom-24 max-sm:-bottom-28 -right-36 max-sm:left-0 max-sm:-right-0">
                 <Image
                   src={selectedPet.firuData.modelFiru}
                   alt={`Model Firu ${selectedPet.firuData.name}`}
@@ -81,7 +81,7 @@ const CurrentPets = () => {
           </>
         )}
       </div>
-      <div className="md:w-2/4 w-[90vw] grid md:grid-cols-3 grid-cols-2 gap-10 my-10">
+      <div className="md:w-2/4 w-[90vw] grid md:grid-cols-3 grid-cols-2 gap-10 my-10 max-sm:my-32">
         {dogs.map((firu) => (
           <div
             key={firu.id}
@@ -91,7 +91,7 @@ const CurrentPets = () => {
             <h1 className="w-full flex justify-center font-normal text-xs text-white bg-green-500 p-2 rounded-lg shadow-inner">
               {firu.firuData.name}
             </h1>
-            <div className="md:w-32 md:h-32 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
+            <div className="md:w-32 md:h-32 w-28 h-28 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
               <Image
                 src={firu.firuData.realFiru}
                 alt={`Dog ${firu.firuData.name}`}
@@ -99,7 +99,7 @@ const CurrentPets = () => {
                 quality={100}
                 fill
               />
-              <div className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-14 h-16 md:w-20 md:h-24">
+              <div className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-20 md:h-24">
                 <Image
                   src={firu.firuData.modelFiru}
                   alt={`Model Firu ${firu.firuData.name}`}

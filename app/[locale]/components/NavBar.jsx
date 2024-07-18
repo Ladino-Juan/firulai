@@ -11,7 +11,7 @@ const NavBar = ({ lang }) => {
         <NavLinks isLogged={userId === null} lang={lang}/>
       </nav>
       {userId && (
-        <div className="bg-white w-[20vw] h-[48px] fixed top-0 right-0 z-50 p-2">
+        <div className="bg-white w-[20vw] h-[48px] max-sm:-right-5 fixed top-0 right-0 z-50 p-2">
           <UserButton afterSignOutUrl="/" />
         </div>
       )}

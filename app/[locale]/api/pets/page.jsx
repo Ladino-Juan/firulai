@@ -61,7 +61,7 @@ async function Pets({ searchParams }) {
         <div>
           <header className="text-center my-5">
             <h1 className=" md:text-white md:bg-green-500 shadow-inner text-white bg-green-500 p-2 rounded-lg flex justify-between items-center">
-              <span className="mx-auto font-bold text-2xl">
+              <span className="mx-auto font-bold text-2xl max-sm:text-xl">
                 ¿Cómo apadrinar?
               </span>
             </h1>
@@ -76,7 +76,7 @@ async function Pets({ searchParams }) {
                     : index === 1
                     ? "bg-lightPurple text-white shadow-2xl"
                     : "bg-green-500 text-white shadow-2xl"
-                } mb-2 p-10 rounded-3xl w-72 h-40 md:h-56`}
+                } mb-5 md:mb-2 py-3 px-10 md:px-10 md:py-10 rounded-3xl w-72 h-32 md:h-56`}
               >
                 <h3>{`${
                   index === 0
@@ -126,7 +126,7 @@ async function Pets({ searchParams }) {
         </div>
       </div>
       <div className="w-full flex justify-center items-center max-sm:flex-col-reverse my-20 text-darkGreen">
-        <div className="max-sm:mt-20 md:w-2/4  w-[80vw] flex justify-center items-center h-[60vh]">
+        <div className="max-sm:mt-20 md:w-2/4  w-[60vw] flex justify-center items-center h-[30vh]">
           <HomeExperience />
         </div>
         <div>

@@ -36,6 +36,7 @@ const NavLinks = (props) => {
           <Image
             src={Logo}
             alt="Firulais icon"
+            className="max-sm:w-[30px]"
             width={50}
             quality={100}
           ></Image>
