@@ -84,7 +84,7 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[80vh] max-sm:h-[40vh] max-sm:mt-24">
+      <div className="flex justify-center items-center h-[65vh] max-sm:h-[40vh] max-sm:mt-24">
         <div
           className={`embla w-[99vw] h-full min-h-min rounded-xl`}
           ref={emblaRef}
@@ -171,7 +171,7 @@ const PetsOwned = ({ modelData }) => {
                     <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][2]}</h2>
                   </div>
                 </div>
-                <h3 className="text-justify opacity-80 w-3/4 mr-32 max-sm:mr-0 max-sm:text-sm">
+                <h3 className="text-justify text-lg opacity-80 w-3/4 mr-32 max-sm:mr-0 max-sm:text-sm">
                   {selectedPet[0][5]}
                 </h3>
                 <div className="w-full md:h-44 h-28 flex justify-end space-x-5 mr-10 mt-10">
