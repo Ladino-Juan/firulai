@@ -84,7 +84,7 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[80vh] max-sm:h-[60vh]">
+      <div className="flex justify-center items-center h-[80vh] max-sm:h-[40vh] max-sm:mt-24">
         <div
           className={`embla w-[99vw] h-full min-h-min rounded-xl`}
           ref={emblaRef}
@@ -96,7 +96,7 @@ const PetsOwned = ({ modelData }) => {
                 className={`relative flex flex-col items-start space-y-5 embla__slide bg-gradient-to-t from-emerald-500 to-emerald-400 max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
                 onClick={() => handlePetClick(firu[3])}
               >
-                <div className="absolute transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 max-sm:-translate-y-20 transition-transform duration-700 max-sm:group-hover:scale-100 group-hover:scale-110">
+                <div className="absolute max-sm:translate-x-0 max-sm:translate-y-0 transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 transition-transform duration-700 group-hover:scale-110">
                   <Image
                     src={firu[1]}
                     alt={`Dog ${firu[0][0]}`}
@@ -125,7 +125,7 @@ const PetsOwned = ({ modelData }) => {
         </div>
       </div>
 
-      <div className="flex justify-center gap-x-5">
+      <div className={`flex justify-center gap-x-5 ${modelData.length < 2 ? 'hidden' : 'visible'}`}>
         <button
           aria-label="go to previous slide"
           onClick={handlePrevious}
@@ -165,10 +165,7 @@ const PetsOwned = ({ modelData }) => {
                     <h1 className="text-base  max-sm:text-sm font-semibold">TAMAÑO</h1>
                     <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][3]}</h2>
                   </div>
-                  <div className="flex flex-col">
-                    <h1 className="text-base  max-sm:text-sm font-semibold">RAZA</h1>
-                    <h2 className="text-sm  max-sm:text-xs" >{selectedPet[0][1]}</h2>
-                  </div>
+            
                   <div className="flex flex-col">
                     <h1 className="text-base  max-sm:text-sm font-semibold">COLOR</h1>
                     <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][2]}</h2>

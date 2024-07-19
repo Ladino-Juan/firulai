@@ -29,7 +29,6 @@ const Carousel = ({ mediaData, type }) => {
         ></div>
       ) : (
         <video
-          autoPlay
           controls
           className="w-full h-full rounded-2xl"
           src={mediaData[currentIndex]}
