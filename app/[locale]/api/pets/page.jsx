@@ -14,6 +14,7 @@ import HomeExperience from "../../components/HomeExperience";
 import crypto from "crypto";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { currentUser } from "@clerk/nextjs/server";
 
 async function generateUniqueReference(selected) {
   const { userId } = auth();
@@ -28,6 +29,12 @@ async function Pets({ searchParams }) {
   const { userId } = auth();
   const prices = [1000000, 2500000, 5000000];
   const integrityKey = process.env.INTEGRITY_KEY;
+
+  const user = await currentUser();
+  const primaryEmail = user?.emailAddresses.find(
+    (email) => email.id === user?.primaryEmailAddressId
+  )?.emailAddress;
+  const fullName = `${user?.firstName} ${user?.lastName}`;
 
   const references = await Promise.all(
     prices.map(async (price) => {
@@ -56,12 +63,6 @@ async function Pets({ searchParams }) {
     }
   };
 
-  const handleFormSubmit = (e) => {
-    if (!userId) {
-      e.preventDefault();
-      redirect("/sign-in");
-    }
-  };
 
   return (
     <>
@@ -121,6 +122,16 @@ async function Pets({ searchParams }) {
                     type="hidden"
                     name="redirect-url"
                     value={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard`}
+                  />
+                  <input
+                    type="hidden"
+                    name="customer-data:email"
+                    value={primaryEmail}
+                  />
+                  <input
+                    type="hidden"
+                    name="customer-data:full-name"
+                    value={fullName}
                   />
                   {!userId ? (
                     <Link

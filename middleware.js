@@ -1,5 +1,5 @@
 import { match } from '@formatjs/intl-localematcher';
-import {  NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import Negotiator from 'negotiator';
 import { authMiddleware } from '@clerk/nextjs';
 import { i18n } from './i18n.config';
@@ -26,6 +26,10 @@ const getLocale = (request) => {
 };
 
 const middleware = (request) => {
+  // Add custom header x-current-path
+  const headers = new Headers(request.headers);
+  headers.set("x-current-path", request.nextUrl.pathname);
+
   const pathname = request.nextUrl.pathname;
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -40,13 +44,15 @@ const middleware = (request) => {
       )
     );
   }
+
+  return NextResponse.next({ headers });
 };
 
 const authMiddlewareConfig = {
   beforeAuth: (req) => {
     return middleware(req);
   },
-  publicRoutes: ['/:locale', '/:locale/sign-in', '/:locale/sign-up', '/:locale/api/pets', '/:locale/api/checkout', '/:locale/api/webhook', '/:locale/api/enterprise', '/:locale/terms_and_conditions'],
+  publicRoutes: ['/:locale', '/:locale/sign-in', '/:locale/sign-up', '/:locale/api/pets', '/:locale/api/checkout', '/:locale/api/webhook', '/:locale/api/enterprise', '/:locale/terms_and_conditions', '/:locale/[username]'],
 };
 
 const middlewareWithAuth = authMiddleware(authMiddlewareConfig);
@@ -54,5 +60,9 @@ const middlewareWithAuth = authMiddleware(authMiddlewareConfig);
 export default middlewareWithAuth;
 
 export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: [
+    '/((?!.*\\..*|_next/static|_next/image|favicon.ico).*)',
+    '/', 
+    '/(api|trpc)(.*)',
+  ],
 };

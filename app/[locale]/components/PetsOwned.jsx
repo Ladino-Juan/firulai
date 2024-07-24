@@ -84,9 +84,9 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[65vh] max-sm:h-[40vh] max-sm:mt-24">
+      <div className="flex justify-center items-center h-[75vh] max-sm:h-[40vh] max-sm:mt-24">
         <div
-          className={`embla w-[99vw] h-full min-h-min rounded-xl`}
+          className={`embla w-[98vw] h-full min-h-min rounded-xl`}
           ref={emblaRef}
         >
           <div className={`embla__container ${modelData.length < 3 ? 'justify-center' : ''}`}>
@@ -96,7 +96,7 @@ const PetsOwned = ({ modelData }) => {
                 className={`relative flex flex-col items-start space-y-5 embla__slide bg-gradient-to-t from-emerald-500 to-emerald-400 max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
                 onClick={() => handlePetClick(firu[3])}
               >
-                <div className="absolute max-sm:translate-x-0 max-sm:translate-y-0 transform -translate-x-10 max-sm:transform-none max-sm:mx-auto -translate-y-40 transition-transform duration-700 group-hover:scale-110">
+                <div className="absolute max-sm:translate-x-0 max-sm:translate-y-0 max-sm:transform-none max-sm:mx-auto -translate-y-12 transition-transform duration-700 group-hover:scale-110">
                   <Image
                     src={firu[1]}
                     alt={`Dog ${firu[0][0]}`}
@@ -106,18 +106,7 @@ const PetsOwned = ({ modelData }) => {
                     height={300} // Adjust height to maintain aspect ratio
                   />
                 </div>
-                <div className="w-[95%] h-[25vh] flex flex-col justify-center items-end mr-20 max-sm:hidden">
-                  <h1 className="text-3xl font-bold text-white max-sm:text-4xl max-sm:text-center opacity-80">
-                    {firu[0][0]}
-                  </h1>
-                  <br></br>
-                  <p className="opacity-80 text-sm text-white text max-sm:hidden">
-                    Fundación: Hogar Sarita Reyes
-                  </p>
-                  <p className="transition-transform max-sm:hidden duration-1000 text-white transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 underline">
-                    Conoce más
-                  </p>
-                </div>
+         
                 
               </div>
             ))}
@@ -141,20 +130,21 @@ const PetsOwned = ({ modelData }) => {
           <ArrowRightIcon className={`w-5 h-5`} />
         </button>
       </div>
-      <div className="w-full min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col max-sm:mt-20">
+      <div className="w-full max-sm:min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col max-sm:mt-20">
         {selectedPet && (
           <>
             <div className="md:w-3/4 w-[90vw] text-white text-center">
               <div
-                className={`w-full md:h-[90vh] h-[80vh] max-sm:h-[90vh] rounded-l-3xl max-sm:rounded-3xl bg-gradient-to-t from-emerald-500 to-emerald-400 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center`}
+                className={`w-full md:h-[120vh] max-sm:h-[90vh] rounded-l-3xl max-sm:rounded-3xl bg-gradient-to-t from-emerald-500 to-emerald-400 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center`}
               >
                 
                 <h1 className="font-bold max-sm:text-white md:text-8xl text-6xl max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start w-3/4 mr-32 max-sm:mr-0">
                   {selectedPet[0][0]}
                 </h1>
-                <p className="opacity-80 text-sm text-white md:hidden text-left w-3/4">
+                <p className="opacity-80 text-lg text-white text-left w-3/4  mr-32 max-sm:mr-0">
                     Fundación: Hogar Sarita Reyes
                   </p>
+                
                 <div className="flex opacity-80 mr-32 max-sm:mr-0 space-x-5">
                   <div className="flex flex-col">
                     <h1 className="text-base  max-sm:text-sm font-semibold">EDAD</h1>
@@ -171,14 +161,14 @@ const PetsOwned = ({ modelData }) => {
                     <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][2]}</h2>
                   </div>
                 </div>
-                <h3 className="text-justify text-lg opacity-80 w-3/4 mr-32 max-sm:mr-0 max-sm:text-sm">
+                <h3 className="text-justify text-xl opacity-80 w-3/4 mr-32 max-sm:mr-0 max-sm:text-sm">
                   {selectedPet[0][5]}
                 </h3>
-                <div className="w-full md:h-44 h-28 flex justify-end space-x-5 mr-10 mt-10">
-                  <div className="md:w-1/5 w-[40%] h-full rounded-xl">
+                <div className="w-full md:h-56 h-28 flex justify-end space-x-5 mr-10 mt-10">
+                  <div className="md:w-1/4 w-[40%] h-full rounded-xl">
                     <Carousel mediaData={selectedPet[5]} type={"photo"} />
                   </div>
-                  <div className="md:w-1/5 w-[40%] h-full rounded-xl">
+                  <div className="md:w-1/4 w-[40%] h-full rounded-xl">
                     <Carousel mediaData={selectedPet[6]} type={"video"} />
                   </div>
                 </div>
