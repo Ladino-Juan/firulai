@@ -10,5 +10,9 @@ module.exports = {
     config.resolve.alias['@sounds'] = path.join(__dirname, 'public/sounds');
     return config;
   },
+
+  images: {
+    domains: ['img.clerk.com'],
+  },
  
 };

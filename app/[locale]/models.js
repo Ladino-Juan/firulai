@@ -5,7 +5,7 @@ export const dogs = [
     firuData: {
       name: "Tafy",
       history:
-        "cuando apenas tenía dos días de nacida, estuvo a punto de ser arrojada al río, enfrentando una existencia incierta desde el inicio. Sin embargo, su historia tomó un giro esperanzador cuando alguien intervino para salvarla. A pesar de los desafíos que enfrentó en sus primeros momento. Su valentía y determinación nos recuerdan la importancia de la compasión y la protección hacia los más vulnerables de nuestra sociedad. Tafi merece un hogar lleno de amor y cuidados rodeada de afecto y seguridad",
+        "Tafy es una de las perritas más nobles y serenas que jamás hayamos conocido. Casi fue arrojada al río apenas dos días después de su nacimiento, enfrentando una vida de incertidumbre. La llevaron a la Fundación Sara Reyes para tener un hogar temporal y le ofrecieron todo lo que necesitaba para tener una vida digna. El hogar de Tafy debe ser un lugar de amor y cuidado, es amigable con personas y animales",
       realFiru: "/assets/firus/firu5.webp",
       modelFiru: "/assets/firus/firuModel5.webp",
     },
@@ -16,7 +16,7 @@ export const dogs = [
     firuData: {
       name: "La abuela",
       history:
-        "La Abuela, una perrita de 8 años, ha llegado a la dulce etapa de la ancianidad con gracia. Su corazón rebosa de amor y su dulzura ilumina cualquier espacio que pisa. Con años de sabiduría y experiencias compartidas, la Abuela es un faro de bondad, irradiando calidez y amor a todos los que tienen el privilegio de conocerla. Su historia es un recordatorio conmovedor de la belleza y el valor de los animales",
+        "La abuela es una perrita de 9 años que ha llegado a la dulce edad de la vejez. Su corazón rebosa dulzura, iluminando cualquier espacio que pisa y robándose el corazón de todo aquel que visita su Fundación. Es una perrita amable y cariñosa que difunde ternura con su feliz carita entre todos los que la rodean. Su hogar ya está en la Fundación Sarita Reyes, donde aman y aprecian cada una de sus canas. ",
       realFiru: "/assets/firus/firu1.webp",
       modelFiru: "/assets/firus/firuModel1.webp",
     },
@@ -27,7 +27,7 @@ export const dogs = [
     firuData: {
       name: "Amelia",
       history:
-        "Amelia, una perrita valiente y adorable, enfrentó una experiencia desafiante a los tres meses de edad cuando un encuentro con un gato le arrebató uno de sus preciosos ojitos. A pesar de la adversidad, su espíritu no se quebrantó. Con un solo ojito, Amelia irradia una ternura incomparable y una determinación inquebrantable, inspirando a todos aquellos que tienen el privilegio de cruzarse en su camino.",
+        "Amelia, una perrita valiente y adorable, enfrentó una experiencia desafiante a los tres meses de edad cuando un encuentro con un gato le arrebató uno de sus ojitos. A pesar de la adversidad, Amelia irradia una ternura incomparable y una energía inagotable; nunca se cansa de jugar y ama las caricias. Ella espera encontrar un hogar donde pueda gastar toda esa energía y ofrecer todo ese amor que durante mucho tiempo ha guardado.",
       realFiru: "/assets/firus/firu3.webp",
       modelFiru: "/assets/firus/firuModel3.webp",
     },
@@ -38,7 +38,7 @@ export const dogs = [
     firuData: {
       name: "Koral",
       history:
-        "Koral, una pitbull amorosa, fue abandonada en Villa Verde, llevando consigo el peso del abandono y la pérdida. A pesar del dolor de perder a la mitad de sus cachorros, quienes fueron arrojados al río, su corazón sigue siendo un manantial de amor incondicional. Koral merece un hogar donde pueda sanar sus heridas emocionales y ser apreciada por la lealtad y el cariño que ofrece sin reservas.",
+        "Koral es una pitbull amorosa que fue abandonada muy joven y carga consigo el peso del abandono. A pesar del dolor de perder a la mitad de sus cachorros su corazón sigue siendo un manantial de amor. Koral merece un hogar donde pueda sanar sus heridas emocionales. No te dejes engañar por su distintiva raza, la cual muchos temen; ella es una perrita noble que merece ser apreciada por la lealtad y el cariño que ofrece.",
       realFiru: "/assets/firus/firu4.webp",
       modelFiru: "/assets/firus/firuModel4.webp",
     },
@@ -49,7 +49,7 @@ export const dogs = [
     firuData: {
       name: "Paris",
       history:
-        "Paris, una perrita valiente y amorosa, enfrentó un desafío desde temprana edad, perdió una de sus patitas tras ser atropellada a los 3 meses de edad. A pesar de su adversidad, Paris irradia alegría con su dulce mirada y su lealtad inquebrantable hacia quienes la rodean",
+        "Paris, una perrita valiente y cariñosa, fue atropellada cuando tenía solo 3 meses de edad y perdió una de sus patas. A pesar de su condición, Paris transmite una energía increíble debido a su corta edad. Le encanta saludar a todos los que visitan la fundación e irradia alegría por donde pasa. Sigue en busca de un hogar donde pueda ser apreciada por su forma especial de interactuar con las personas y otros animales",
       realFiru: "/assets/firus/firu2.webp",
       modelFiru: "/assets/firus/firuModel2.webp",
     },
