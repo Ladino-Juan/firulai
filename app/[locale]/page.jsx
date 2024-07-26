@@ -7,9 +7,46 @@ import BgLanding1 from "@assets/background-landing1.webp";
 import Link from "next/link";
 import { getlocales } from "../actions";
 import CountUp from "react-countup";
+import { useState, useEffect } from "react";
+import LoaderIcon from "@assets/loader.gif";
+import FetchHomeData from "./components/FetchHomeData";
 
-export default async function Home({ params: lang }) {
-  const { home } = await getlocales(lang.locale);
+
+
+export default function Home({ params: lang }) {
+  const [home, setHome] = useState(null);
+  const [loading, setLoading] = useState(true); // State to manage loading status
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true); // Set loading to true when fetching starts
+      try {
+        const { home } = await getlocales(lang.locale);
+        setHome(home);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Optionally, you can set an error state here to display an error message.
+      } finally {
+        setLoading(false); // Set loading to false when fetching is done
+      }
+    }
+    fetchData();
+  }, [lang.locale]);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Image
+            src={LoaderIcon}
+            alt="Firulais dog AI"
+            width={50}
+            height={50}
+          />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="flex justify-center">
