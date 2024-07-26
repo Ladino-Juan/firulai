@@ -27,11 +27,10 @@
 .embla {
   overflow: hidden;
 }
-.embla__container {
-  display: flex;
-}
+
 
 /* Usa las clases responsivas de TailwindCSS */
 .embla__slide {
   @apply flex-[0_0_50%] md:flex-[0_0_20%] min-w-0;
 }
+

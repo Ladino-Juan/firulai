@@ -49,14 +49,14 @@ const CurrentPets = () => {
 
   return (
     <div className="w-full min-h-screen flex justify-around items-center space-x-4 relative max-sm:flex-col max-sm:mt-20">
-      <div className="w-full md:w-1/4 h-[80vh] max-sm:w-[90vw] bg-green-600 rounded-3xl flex justify-center items-center relative flex-col p-10 space-y-5  text-white">
+      <div className="w-full lg:w-1/4 md:w-2/4 h-[80vh]  bg-green-600 rounded-3xl flex justify-center items-center relative flex-col p-10 space-y-5  text-white">
         {selectedPet && (
           <>
-            <div className="absolute top-0 left-0 w-full h-[35vh]">
+            <div className="absolute -top-10 md:top-0 left-0 w-full h-[35vh]">
               <Image
                 src={selectedPet.firuData.realFiru}
                 alt={`Dog ${selectedPet.firuData.name}`}
-                className="rounded-t-3xl object-cover"
+                className="md:rounded-t-3xl object-cover"
                 layout="fill"
               />
               <h1 className="font-bold text-7xl opacity-80 p-5 md:p-10 max-sm:text-5xl">
@@ -81,7 +81,7 @@ const CurrentPets = () => {
           </>
         )}
       </div>
-      <div className="md:w-2/4 w-[90vw] grid md:grid-cols-3 grid-cols-2 gap-10 my-10 max-sm:my-32">
+      <div className="lg:w-2/4 md:w-1/4 w-[90vw] grid lg:grid-cols-3 md:grid-cols-1 grid-cols-2 gap-10 my-10 max-sm:my-32">
         {dogs.map((firu) => (
           <div
             key={firu.id}
@@ -91,7 +91,7 @@ const CurrentPets = () => {
             <h1 className="w-full flex justify-center font-normal text-xs text-white bg-green-500 p-2 rounded-lg shadow-inner">
               {firu.firuData.name}
             </h1>
-            <div className="md:w-32 md:h-32 w-28 h-28 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
+            <div className="lg:w-32 lg:h-32 md:w-20 md:h-20 w-28 h-28 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
               <Image
                 src={firu.firuData.realFiru}
                 alt={`Dog ${firu.firuData.name}`}
@@ -99,7 +99,7 @@ const CurrentPets = () => {
                 quality={100}
                 fill
               />
-              <div className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-20 md:h-24">
+              <div className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-14 md:h-16 lg:w-20 lg:h-24">
                 <Image
                   src={firu.firuData.modelFiru}
                   alt={`Model Firu ${firu.firuData.name}`}

@@ -59,9 +59,7 @@ const Dashboard = async () => {
         {parsedData.length === 0 ? (
           <Nofiru />
         ) : (
-          <div className="w-full justify-center items-center">
             <PetsOwned modelData={parsedData} />
-          </div>
         )}
       </>
     );

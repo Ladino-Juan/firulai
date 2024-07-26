@@ -21,13 +21,21 @@ export default function RootLayout({ children, params }) {
     <ClerkProvider
       localization={params.locale === "en" ? enUS : esES}
     >
+      
       <html lang={params.locale ?? defaultLocale}>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+            `,
+          }} />
         <body className={`${poppins.className}`}>
           <NavBar lang={params.locale} />
-          <main>
-            <div className="flex items-start justify-center min-h-screen">
+          <main>    
               <div>{children}</div>
-            </div>
           </main>
           <Footer lang={params.locale}/>
         </body>

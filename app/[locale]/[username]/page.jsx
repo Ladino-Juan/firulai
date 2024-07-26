@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import { getXataClient } from "@/src/xata";
 import FiruGallery from "../components/FiruGallery";
+import Nofiru from "../components/Nofiru";
 
 const page = async () => {
   const xataClient = getXataClient();
@@ -56,19 +57,39 @@ const page = async () => {
   });
 
   return (
-    <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
-      <div className="flex gap-x-3 mt-24">
-        <h1 className="font-bold text-3xl text-center text-gray-700">{`${user.firstName} ${user.lastName}`}</h1>
-        <Image
-          src={user.imageUrl}
-          alt="firulai"
-          className="rounded-full"
-          width={50}
-          height={50}
-        />
-      </div>
-        <FiruGallery modelData={parsedData}/>
-    </div>
+    <>
+      {parsedData.length < 1 ? (
+        <Nofiru />
+      ) : (
+        <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center gap-x-3 mt-24 p-10 bg-gradient-to-r from-red-500 to-orange-500 rounded-3xl w-[90vw]">
+            <h1 className="font-bold text-xl text-center text-white">{`Gracias, ${user.username}, por apadrinar a ${parsedData.length} mascotas a través de nuestra plataforma. ¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables amigos peludos!`}</h1>
+            <Image
+              src={user.imageUrl}
+              alt="firulai"
+              className="rounded-full"
+              width={50}
+              height={50}
+            />
+          </div>
+          {/* <div className="md:w-2/4 w-[90vw] grid md:grid-cols-3 grid-cols-1 gap-10 my-10">
+            {parsedData.map((firu, idx) => (
+              <div key={idx} className=" max-sm:mx-auto bg-darkGreen rounded-3xl">
+                <Image
+                  src={firu}
+                  alt={`Dog ${firu}`}
+                  className="400px max-sm:h-[250px]"
+                  unoptimized
+                  width={300} // Set the width of the image
+                  height={300} // Adjust height to maintain aspect ratio
+                />
+              </div>
+            ))}
+          </div>*/}
+          
+        </div>
+      )}
+    </>
   );
 };
 

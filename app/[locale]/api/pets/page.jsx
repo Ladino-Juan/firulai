@@ -86,9 +86,9 @@ async function Pets({ searchParams }) {
                     : index === 1
                     ? "bg-lightPurple text-white shadow-2xl"
                     : "bg-green-500 text-white shadow-2xl"
-                } mb-5 md:mb-2 py-3 px-10 md:px-10 md:py-10 rounded-3xl w-72 h-32 md:h-56`}
+                } mb-5 lg:mb-2 py-3 px-10 lg:px-10 lg:py-10 rounded-3xl lg:w-72 md:w-52 md:h-40 w-72  h-32 lg:h-56`}
               >
-                <h3>{`${
+                <h3 className="md:text-center lg:text-left text-left">{`${
                   index === 0
                     ? "Firu Padrino"
                     : index === 1
@@ -96,11 +96,11 @@ async function Pets({ searchParams }) {
                     : "Firu Guardian"
                 }`}</h3>
 
-                <h2 className="text-2xl font-bold mb-2 md:mb-10">
+                <h2 className="lg:text-2xl md:text-xl md:text-center lg:text-left text-left text-2xl font-bold mb-2 md:mb-10">
                   {`${(price / 100).toLocaleString("es-CO")} COP`}
                 </h2>
 
-                <form action="https://checkout.wompi.co/p/" method="GET">
+                <form action="https://checkout.wompi.co/p/" method="GET" className="md:flex md:justify-center lg:justify-start justify-start">
                   <input
                     type="hidden"
                     name="public-key"
@@ -167,7 +167,7 @@ async function Pets({ searchParams }) {
             <Image
               src={Badge1}
               alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] md:mx-5 max-sm:mr-4"
+              className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
               ¡Únete a nosotros para promover la protección y el cuidado
@@ -178,7 +178,7 @@ async function Pets({ searchParams }) {
             <Image
               src={Badge2}
               alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] md:mx-5 max-sm:mr-4"
+              className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
               Descubre Firulai, la nueva forma de apadrinar. El 100% del valor
@@ -191,7 +191,7 @@ async function Pets({ searchParams }) {
             <Image
               src={Badge3}
               alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] md:mx-5 max-sm:mr-4"
+              className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
               Nuestro objetivo es transformar las vidas de las mascotas sin
@@ -203,7 +203,7 @@ async function Pets({ searchParams }) {
             <Image
               src={Badge4}
               alt="Firulais App"
-              className="w-[100px] max-sm:w-[50px] md:mx-5 max-sm:mr-4"
+              className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
               Mantenemos a nuestros usuarios completamente informados sobre

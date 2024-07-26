@@ -71,7 +71,7 @@ const PetsOwned = ({ modelData }) => {
       "bg-gradient-to-r from-lime-500 to-lime-400",
       "bg-gradient-to-r from-lime-500 to-green-600",
       "bg-gradient-to-r from-blue-800 to-indigo-900",
-      "bg-gradient-to-r from-red-500 to-orange-500"
+      "bg-gradient-to-r from-red-500 to-orange-500",
       // Agrega más colores si tienes más slides
     ];
 
@@ -84,19 +84,21 @@ const PetsOwned = ({ modelData }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[75vh] max-sm:h-[40vh] max-sm:mt-24">
+      <div className="flex justify-center items-start h-[40vh] max-sm:mt-14">
         <div
-          className={`embla w-[98vw] h-full min-h-min rounded-xl`}
+          className={`overflow-hidden w-[98vw] lg:h-[50vh] h-[40vh] rounded-xl lg:-mt-14 `}
           ref={emblaRef}
         >
-          <div className={`embla__container ${modelData.length < 3 ? 'justify-center' : ''}`}>
+          <div
+            className={`flex ${modelData.length < 3 ? "justify-center" : ""}`}
+          >
             {modelData.map((firu, idx) => (
               <div
                 key={idx}
                 className={`relative flex flex-col items-start space-y-5 embla__slide bg-gradient-to-t from-emerald-500 to-emerald-400 max-sm:bg-none rounded-xl mt-48 max-sm:mt-10 cursor-pointer group`}
                 onClick={() => handlePetClick(firu[3])}
               >
-                <div className="absolute max-sm:translate-x-0 max-sm:translate-y-0 max-sm:transform-none max-sm:mx-auto -translate-y-12 transition-transform duration-700 group-hover:scale-110">
+                <div className="absolute max-sm:translate-x-0 max-sm:translate-y-0 max-sm:transform-none max-sm:mx-auto -translate-y-12 transition-transform duration-700 group-hover:scale-125">
                   <Image
                     src={firu[1]}
                     alt={`Dog ${firu[0][0]}`}
@@ -106,69 +108,62 @@ const PetsOwned = ({ modelData }) => {
                     height={300} // Adjust height to maintain aspect ratio
                   />
                 </div>
-         
-                
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className={`flex justify-center gap-x-5 ${modelData.length < 2 ? 'hidden' : 'visible'}`}>
-        <button
-          aria-label="go to previous slide"
-          onClick={handlePrevious}
-          className={`h-8 w-8 rounded-full flex items-center justify-center bg-none max-sm:opacity-95 opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-black`}
-        >
-          <ArrowLeftIcon className="w-5 h-5" />
-        </button>
-        <button
-          aria-label="go to next slide"
-          onClick={handleNext}
-          className={`h-8 w-8 rounded-full flex items-center justify-center bg-none max-sm:opacity-95  opacity-50 hover:opacity-90 bg-opacity-40 z-10 shadow-md text-black`}
-        >
-          <ArrowRightIcon className={`w-5 h-5`} />
-        </button>
-      </div>
-      <div className="w-full max-sm:min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col max-sm:mt-20">
+      <div className="w-full max-sm:min-h-screen flex justify-end items-center space-x-4 relative max-sm:flex-col max-sm:mt-10">
         {selectedPet && (
           <>
-            <div className="md:w-3/4 w-[90vw] text-white text-center">
+            <div className="md:w-screen w-[90vw] text-white text-center">
               <div
-                className={`w-full md:h-[120vh] max-sm:h-[90vh] rounded-l-3xl max-sm:rounded-3xl bg-gradient-to-t from-emerald-500 to-emerald-400 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center`}
+                className={`w-full lg:h-[140vh] h-[100vh] rounded-3xl max-sm:rounded-3xl bg-gradient-to-r from-[#6A66FC] to-indigo-600 space-y-4 flex flex-col justify-center items-end max-sm:flex-col max-sm:mb-20 max-sm:items-center mb-10`}
               >
-                
-                <h1 className="font-bold max-sm:text-white md:text-8xl text-6xl max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start w-3/4 mr-32 max-sm:mr-0">
+                <h1 className="font-bold max-sm:text-white md:text-8xl text-6xl max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start lg:w-2/4 mr-32 max-sm:mr-0">
                   {selectedPet[0][0]}
                 </h1>
-                <p className="opacity-80 text-lg text-white text-left w-3/4  mr-32 max-sm:mr-0">
-                    Fundación: Hogar Sarita Reyes
-                  </p>
-                
+                <p className="opacity-80 text-lg text-white text-left lg:w-2/4  mr-32 max-sm:mr-0">
+                  Fundación: Hogar Sarita Reyes
+                </p>
+
                 <div className="flex opacity-80 mr-32 max-sm:mr-0 space-x-5">
                   <div className="flex flex-col">
-                    <h1 className="text-base  max-sm:text-sm font-semibold">EDAD</h1>
-                    <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][4]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">
+                      EDAD
+                    </h1>
+                    <h2 className="text-sm  max-sm:text-xs">
+                      {selectedPet[0][4]}
+                    </h2>
                   </div>
 
                   <div className="flex flex-col">
-                    <h1 className="text-base  max-sm:text-sm font-semibold">TAMAÑO</h1>
-                    <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][3]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">
+                      TAMAÑO
+                    </h1>
+                    <h2 className="text-sm  max-sm:text-xs">
+                      {selectedPet[0][3]}
+                    </h2>
                   </div>
-            
+
                   <div className="flex flex-col">
-                    <h1 className="text-base  max-sm:text-sm font-semibold">COLOR</h1>
-                    <h2 className="text-sm  max-sm:text-xs">{selectedPet[0][2]}</h2>
+                    <h1 className="text-base  max-sm:text-sm font-semibold">
+                      COLOR
+                    </h1>
+                    <h2 className="text-sm  max-sm:text-xs">
+                      {selectedPet[0][2]}
+                    </h2>
                   </div>
                 </div>
-                <h3 className="text-justify text-xl opacity-80 w-3/4 mr-32 max-sm:mr-0 max-sm:text-sm">
+                <h3 className="text-justify text-xl opacity-80 lg:w-2/4 md:w-3/4 w-[70vw] mr-32 max-sm:mr-0 max-sm:text-sm">
                   {selectedPet[0][5]}
                 </h3>
-                <div className="w-full md:h-56 h-28 flex justify-end space-x-5 mr-10 mt-10">
-                  <div className="md:w-1/4 w-[40%] h-full rounded-xl">
+                <div className="md:h-64 h-28 flex justify-center lg:w-2/3 w-full space-x-5 pt-5">
+                  <div className="md:w-2/5 w-[40%] h-full rounded-xl">
                     <Carousel mediaData={selectedPet[5]} type={"photo"} />
                   </div>
-                  <div className="md:w-1/4 w-[40%] h-full rounded-xl">
+                  <div className="md:w-2/5 w-[40%] h-full rounded-xl">
                     <Carousel mediaData={selectedPet[6]} type={"video"} />
                   </div>
                 </div>
@@ -181,12 +176,11 @@ const PetsOwned = ({ modelData }) => {
                     unoptimized
                     width={600}
                     height={600}
-                    className="rounded-md max-sm:hidden"
+                    className="rounded-md md:w-[400px] xl:w-[600px] lg:block hidden"
                   />
                 </div>
+                <h1 className="opacity-80 w-2/4 mr-32 max-sm:mr-0 text-left pt-20 max-sm:text-sm max-sm:text-center max-sm:pt-2">{`Última actualización: ${selectedPet[4]}`}</h1>
               </div>
-
-              <h1 className="text-lightGreen">{`Ultima actualizacion: ${selectedPet[4]}`}</h1>
             </div>
           </>
         )}
