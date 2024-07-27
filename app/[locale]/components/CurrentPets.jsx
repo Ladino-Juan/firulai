@@ -87,7 +87,7 @@ const CurrentPets = () => {
                 {selectedPet.firuData.history}
               </h3>
               <div className="w-full flex justify-center mt-2">
-              <button onTouchStart={handleScrollToSection} onClick={handleScrollToSection} className="py-2 px-4 bg-darkGreen hover:scale-110  hover:bg-darkestGreen transition-all duration-700 shadow-inner rounded-lg">
+              <button onTouchStart={handleScrollToSection} onClick={handleScrollToSection} className="py-2 px-4 bg-darkGreen hover:scale-110  hover:bg-darkestGreen transition-all duration-700 shadow-inner rounded-lg max-sm:hidden">
                 ¡Apadríname!
               </button>
               </div>
