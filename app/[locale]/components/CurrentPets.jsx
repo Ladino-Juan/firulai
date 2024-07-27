@@ -2,7 +2,7 @@
 
 import { dogs } from "../models";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 const CurrentPets = () => {
@@ -10,6 +10,15 @@ const CurrentPets = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [selectedPet, setSelectedPet] = useState(null);
+
+  const targetSectionRef = useRef(null);
+  
+ const handleScrollToSection = () => {
+    if (targetSectionRef.current) {
+      targetSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
 
   const onSelect = (petId) => {
     const current = new URLSearchParams(searchParams);
@@ -77,6 +86,11 @@ const CurrentPets = () => {
               <h3 className="text-center text-sm">
                 {selectedPet.firuData.history}
               </h3>
+              <div className="w-full flex justify-center mt-2">
+              <button onClick={handleScrollToSection} className="py-2 px-4 bg-darkGreen hover:scale-110  hover:bg-darkestGreen transition-all duration-700 shadow-inner rounded-lg">
+                ¡Apadríname!
+              </button>
+              </div>
             </div>
           </>
         )}
@@ -99,7 +113,7 @@ const CurrentPets = () => {
                 quality={100}
                 fill
               />
-              <div className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-14 md:h-16 lg:w-20 lg:h-24">
+              <div  ref={targetSectionRef} className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-14 md:h-16 lg:w-20 lg:h-24">
                 <Image
                   src={firu.firuData.modelFiru}
                   alt={`Model Firu ${firu.firuData.name}`}

@@ -40,7 +40,7 @@ const Dashboard = async () => {
         [
           firuData.name,
           firuData.raza,
-          firuData.color,
+          firuData.estado,
           firuData.tamaño,
           firuData.edad,
           firuData.history,

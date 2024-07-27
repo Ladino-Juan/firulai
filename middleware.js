@@ -49,10 +49,24 @@ const middleware = (request) => {
 };
 
 const authMiddlewareConfig = {
+
   beforeAuth: (req) => {
     return middleware(req);
   },
-  publicRoutes: ['/:locale', '/:locale/sign-in', '/:locale/sign-up', '/:locale/api/pets', '/:locale/api/checkout', '/:locale/api/webhook', '/:locale/api/enterprise', '/:locale/terms_and_conditions', '/:locale/:username'],
+
+  publicRoutes: [
+    '/:locale', 
+    '/:locale/sign-in', 
+    '/:locale/sign-up', 
+    '/:locale/api/pets', 
+    '/:locale/api/checkout', 
+    '/:locale/api/webhook', 
+    '/:locale/api/enterprise', 
+    '/:locale/terms_and_conditions', 
+    '/:locale/:username',
+  ],
+  
+
 };
 
 const middlewareWithAuth = authMiddleware(authMiddlewareConfig);

@@ -32,6 +32,8 @@ export default function RootLayout({ children, params }) {
               gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
             `,
           }} />
+
+          
         <body className={`${poppins.className}`}>
           <NavBar lang={params.locale} />
           <main>    

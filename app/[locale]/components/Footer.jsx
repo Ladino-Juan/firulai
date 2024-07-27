@@ -10,7 +10,7 @@ const Footer = async ({ lang }) => {
 
   return (
     <footer
-      className={`bottom-0 flex justify-around items-center w-full h-[40vh] rounded-t-3xl bg-darkGreen max-sm:flex-col max-sm:h-[50vh] `}
+      className={`bottom-0 flex justify-around items-center w-full h-[40vh] rounded-t-3xl bg-green-500 max-sm:flex-col max-sm:h-[50vh]`}
     >
       <Link href="/">
         <Image

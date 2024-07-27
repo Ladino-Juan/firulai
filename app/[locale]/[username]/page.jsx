@@ -2,7 +2,6 @@ import { clerkClient } from "@clerk/nextjs";
 import { headers } from "next/headers";
 import Image from "next/image";
 import { getXataClient } from "@/src/xata";
-import FiruGallery from "../components/FiruGallery";
 import Nofiru from "../components/Nofiru";
 
 const page = async () => {
@@ -61,32 +60,39 @@ const page = async () => {
       {parsedData.length < 1 ? (
         <Nofiru />
       ) : (
-        <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
-          <div className="flex flex-col justify-center items-center gap-x-3 mt-24 p-10 bg-gradient-to-r from-red-500 to-orange-500 rounded-3xl w-[90vw]">
-            <h1 className="font-bold text-xl text-center text-white">{`Gracias, ${user.username}, por apadrinar a ${parsedData.length} mascotas a través de nuestra plataforma. ¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables amigos peludos!`}</h1>
-            <Image
-              src={user.imageUrl}
-              alt="firulai"
-              className="rounded-full"
-              width={50}
-              height={50}
-            />
-          </div>
-          {/* <div className="md:w-2/4 w-[90vw] grid md:grid-cols-3 grid-cols-1 gap-10 my-10">
-            {parsedData.map((firu, idx) => (
-              <div key={idx} className=" max-sm:mx-auto bg-darkGreen rounded-3xl">
+        <div className="flex flex-col items-center ">
+          <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center w-2/4 max-sm:w-[80vw] space-y-3">
+              <h1 className="text-xs text-center text-gray-500">
+                <span>{`Gracias, ${user.username}, `}</span>
                 <Image
-                  src={firu}
-                  alt={`Dog ${firu}`}
-                  className="400px max-sm:h-[250px]"
-                  unoptimized
-                  width={300} // Set the width of the image
-                  height={300} // Adjust height to maintain aspect ratio
+                  src={user.imageUrl}
+                  alt="firulai"
+                  className="rounded-full inline-block align-middle" // inline-block to align with text
+                  width={20}
+                  height={20}
                 />
-              </div>
-            ))}
-          </div>*/}
-          
+                <span>{` por apadrinar a ${parsedData.length} mascotas a través de Firulai. ¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables amigos peludos!`}</span>
+              </h1>
+            </div>
+
+            <div className="w-full flex -space-x-24 max-sm:-space-x-10 justify-center overflow-hidden">
+              {parsedData.map((firu, idx) => (
+                <div key={idx} className="">
+                  <Image
+                    src={firu}
+                    alt={`Dog ${firu}`}
+                    className={`${
+                      parsedData === 1 ? "max-sm:w-[300px]" : "max-sm:w-[120px]"
+                    } max-w-[500px] min-w-[50px]`}
+                    unoptimized
+                    width={300} // Set the width of the image
+                    height={300} // Adjust height to maintain aspect ratio
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </>
