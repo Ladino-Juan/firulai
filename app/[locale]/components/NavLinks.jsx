@@ -10,7 +10,7 @@ import { getlocales } from "../../actions";
 const NavLinks = (props) => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
-
+  const [username, setUsername] = useState(null);
   const [navBar, setNavBar] = useState(null);
 
   useEffect(() => {
@@ -26,6 +26,13 @@ const NavLinks = (props) => {
       fetchData();
     }
   }, [props.lang, navBar]);
+
+  useEffect(() => {
+    if (props.username) {
+      setUsername(props.username);
+    }
+  }, [props.username]);
+
 
   return (
     <>
@@ -73,6 +80,18 @@ const NavLinks = (props) => {
             >
               {navBar?.mypets}
             </Link>
+          )}
+    
+          {username && (
+            <>
+                   <span className="text-darkGreen">|</span>
+            <Link
+              href={`/${username}`}
+              className="hover:text-darkestGreen mr-1 text-sm"
+            >
+              {navBar?.share}
+            </Link>
+            </>
           )}
         </div>
         <div
@@ -128,6 +147,16 @@ const NavLinks = (props) => {
             onClick={() => setNav(!nav)}
           >
             {navBar?.mypets}
+          </Link>
+        )}
+
+        {username && (
+          <Link
+            href={`/${username}`}
+            className=" opacity-80"
+            onClick={() => setNav(!nav)}
+          >
+            {navBar?.share}
           </Link>
         )}
 

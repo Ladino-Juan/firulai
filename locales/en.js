@@ -32,7 +32,8 @@ export default {
       mypets: "MY PETS",
       signin: "SIGN IN",
       signup: "SIGN UP",
-      home: "HOME"
+      home: "HOME",
+      share: "SHARE"
   }
   };
   

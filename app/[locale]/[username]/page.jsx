@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import { getXataClient } from "@/src/xata";
 import Nofiru from "../components/Nofiru";
+import SocialShare from "../components/SocialShare";
 
 const page = async () => {
   const xataClient = getXataClient();
@@ -55,16 +56,25 @@ const page = async () => {
     return item[0].modelFiru.url;
   });
 
+  
+
+
+
   return (
     <>
       {parsedData.length < 1 ? (
         <Nofiru />
       ) : (
+
         <div className="flex flex-col items-center ">
+
+         
           <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
-            <div className="flex flex-col justify-center items-center w-2/4 max-sm:w-[80vw] space-y-3">
-              <h1 className="text-xs text-center text-gray-500">
-                <span>{`Gracias, ${user.username}, `}</span>
+          <SocialShare url={process.env.NEXT_PUBLIC_APP_URL + pathname} />
+            <div className="flex flex-col justify-center items-center w-3/4 max-sm:w-[80vw] space-y-3">
+              <h1 className="text-sm text-center text-gray-500">
+                <span>{`Gracias,  `}</span>
+                <span className="font-bold text-base text-darkGreen">{`${user.username} `}</span>
                 <Image
                   src={user.imageUrl}
                   alt="firulai"
@@ -72,7 +82,11 @@ const page = async () => {
                   width={20}
                   height={20}
                 />
-                <span>{` por apadrinar a ${parsedData.length} mascotas a través de Firulai. ¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables amigos peludos!`}</span>
+                <span>{`  por apadrinar a ${parsedData.length} mascotas sin hogar a través de `}</span> 
+                <span className="font-bold text-darkGreen">{`Firulai.co`}</span>
+                <br />
+                <br />
+                <span className="text-xs">¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables aniamles!</span>
               </h1>
             </div>
 
@@ -92,7 +106,12 @@ const page = async () => {
                 </div>
               ))}
             </div>
+            <button className="px-4 py-2 shadow-inner z-10 rounded-xl text-xs bg-green-600 text-white">Descubre cómo puedes hacerlo</button>
+     
+
+      
           </div>
+    
         </div>
       )}
     </>

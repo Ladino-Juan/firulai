@@ -10,6 +10,7 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import SocialShare from "./SocialShare";
 
 const PetsOwned = ({ modelData }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -93,6 +94,7 @@ const PetsOwned = ({ modelData }) => {
   return (
     <>
       <div className="flex justify-center items-start h-[40vh] max-sm:mt-14">
+    
         <div
           className={`overflow-hidden w-[98vw] lg:h-[80vh] h-[40vh] rounded-xl lg:-mt-14 `}
           ref={emblaRef}
@@ -134,6 +136,7 @@ const PetsOwned = ({ modelData }) => {
                 <h1 className="font-bold max-sm:text-white md:text-8xl text-5xl max-sm:w-[70vw] max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start max-sm:justify-center lg:w-3/4 mr-32 max-sm:mr-0">
                   {selectedPet[0][0]}
                 </h1>
+                <SocialShare />
 
                 
                 <p className="opacity-80 md:text-xl md:font-bold max-sm:text-sm text-white text-left lg:w-3/4  mr-32 max-sm:mr-0">
@@ -192,9 +195,9 @@ const PetsOwned = ({ modelData }) => {
                   />
                 </div>
                 <div className="flex justify-center w-full">
-                <button className="w-[80vw] md:w-2/4 flex justify-center py-2 rounded-xl bg-green-600 shadow-inner max-sm:text-xs">
+                <h1 className="w-[80vw] md:w-2/4 flex justify-center py-2 rounded-xl max-sm:text-xs">
                   ¡Gracias por apadrinarme!
-                </button>
+                </h1>
                 </div>
                 <h1 className="opacity-80 w-2/4 mr-32 max-sm:mr-0 text-left pt-10 max-sm:text-sm max-sm:text-center max-sm:pt-2">{`Última actualización: ${selectedPet[4]}`}</h1>
 

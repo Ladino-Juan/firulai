@@ -5,6 +5,7 @@ import Badge1 from "@assets/mascotas/badge1.svg";
 import Badge2 from "@assets/mascotas/badge2.svg";
 import Badge3 from "@assets/mascotas/badge3.svg";
 import Badge4 from "@assets/mascotas/badge4.svg";
+import Info from "@icons/info-icon.svg"
 import Perrito from "@assets/mascotas/perrito.png";
 import { auth } from "@clerk/nextjs";
 import { checkSubscription } from "@/lib/subscription";
@@ -70,11 +71,30 @@ async function Pets({ searchParams }) {
       <div className="w-full flex justify-center items-center">
         <div>
           <header className="text-center my-5">
-            <h1 className=" md:text-white md:bg-green-500 shadow-inner text-white bg-green-500 p-2 rounded-lg flex justify-between items-center">
-              <span className="mx-auto font-bold text-2xl max-sm:text-xl">
-                ¿Cómo apadrinar?
-              </span>
-            </h1>
+          <h1 className="md:text-white md:bg-green-500 shadow-inner text-white bg-green-500 p-2 rounded-lg flex justify-between items-center">
+  <span className="mx-auto font-bold text-2xl max-sm:text-xl text-center w-full">
+    ¿Cómo apadrinar?
+  </span>
+  <div className="group absolute">
+    <Image
+      src={Info}
+      alt="Info Firulai"
+      height={20}
+      width={20}
+      quality={100}
+    />
+   
+<span class="text-left absolute top-10 scale-0 rounded-lg bg-green-500 w-[69vw] p-2 text-xs text-white group-hover:scale-100">
+1. Regístrate.<br />
+2. Selecciona la mascota que deseas apadrinar.<br />
+3. Elige un monto (mensualmente te enviaremos un correo para que renueves el pago).<br />
+4. Una vez realices el pago, se habilitará el perfil de la mascota que apadrines en la sección "Mis mascotas".
+</span>
+  </div>
+ 
+</h1>
+
+            
           </header>
           <div className="flex gap-x-5 max-sm:flex-col">
             {prices.map((price, index) => (
@@ -181,10 +201,9 @@ async function Pets({ searchParams }) {
               className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
             <h2 className="w-2/3 max-sm:text-sm">
-              Descubre Firulai, la nueva forma de apadrinar. El 100% del valor
-              que dones se destina directamente a la mascota que elijas.
-              Recibirás actualizaciones semanales con videos, fotos y hasta una
-              mascota virtual inspirada en la tuya.
+              Descubre Firulai, la nueva forma de apadrinar. El valor
+              que dones se destina directamente a la fundación de la mascota que elijas.
+              Recibirás actualizaciones semanales de la mascota que apadrines.
             </h2>
           </div>
           <div className="flex items-center mt-5 max-sm:justify-center">
@@ -208,7 +227,7 @@ async function Pets({ searchParams }) {
             <h2 className="w-2/3 max-sm:text-sm">
               Mantenemos a nuestros usuarios completamente informados sobre
               nuestras operaciones, impacto y el uso de recursos, así como el
-              estado de la mascota que están apadrinando en todo momento.
+              estado de la mascota que apadrinen.
             </h2>
           </div>
         </div>

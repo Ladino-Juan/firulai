@@ -34,6 +34,7 @@ export default {
     mypets: "MIS MASCOTAS",
     signin: "INICIAR SESIÓN",
     signup: "REGISTRARSE",
-    home: "INICIO"
+    home: "INICIO",
+    share: "COMPARTIR"
   },
 };

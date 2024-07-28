@@ -62,7 +62,7 @@ export default function Home({ params: lang }) {
             <div className="w-full flex justify-center lg:justify-start">
               <Link
                 href={`/api/pets`}
-                className="bg-darkGreen w-full max-w-lg text-center hover:bg-darkestGreen transition-all duration-300 text-white text-lg px-5 py-2 rounded-lg hover:scale-105 shadow-xl"
+                className="bg-darkGreen w-full max-w-lg text-center hover:bg-darkestGreen transition-all duration-300 text-white text-lg px-5 py-2 rounded-lg hover:scale-105 shadow-xl animate-bounce"
               >
                 {home.landingButton}
               </Link>
