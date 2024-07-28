@@ -13,16 +13,17 @@ const SocialShare = ({ url }) => {
 
   return (
     <div className={`group absolute top-20 left-5`} onClick={copyToClipboard}>
-      <div className="flex items-center space-x-2">
+  
       <Image
         src={Copy}
         alt="Info Firulai"
+        className="opacity-20"
         height={15}
         width={15}
         quality={100}
       />
-      <h1 className="text-xs">Comparte tu galería</h1>
-      </div>
+   
+   
      
 
       <span class="text-left absolute top-10 scale-0 rounded-lg bg-green-500 p-2 text-xs text-white group-hover:scale-100">

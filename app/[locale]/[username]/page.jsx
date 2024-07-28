@@ -97,7 +97,7 @@ const page = async () => {
                     src={firu}
                     alt={`Dog ${firu}`}
                     className={`${
-                      parsedData === 1 ? "max-sm:w-[300px]" : "max-sm:w-[120px]"
+                      parsedData === 1 ? "max-sm:w-[300px]" : "max-sm:w-[160px]"
                     } max-w-[500px] min-w-[50px]`}
                     unoptimized
                     width={300} // Set the width of the image
