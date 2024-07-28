@@ -136,7 +136,6 @@ const PetsOwned = ({ modelData }) => {
                 <h1 className="font-bold max-sm:text-white md:text-8xl text-5xl max-sm:w-[70vw] max-sm:font-bold opacity-80 max-sm:opacity-90 flex justify-start max-sm:justify-center lg:w-3/4 mr-32 max-sm:mr-0">
                   {selectedPet[0][0]}
                 </h1>
-                <SocialShare />
 
                 
                 <p className="opacity-80 md:text-xl md:font-bold max-sm:text-sm text-white text-left lg:w-3/4  mr-32 max-sm:mr-0">

@@ -71,14 +71,14 @@ const page = async () => {
          
           <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
           <SocialShare url={process.env.NEXT_PUBLIC_APP_URL + pathname} />
-            <div className="flex flex-col justify-center items-center w-3/4 max-sm:w-[80vw] space-y-3">
-              <h1 className="text-sm text-center text-gray-500">
+            <div className="flex flex-col justify-center items-center w-2/4 max-sm:w-[80vw] space-y-3">
+              <h1 className="md:text-2xl text-sm text-center text-gray-500">
                 <span>{`Gracias,  `}</span>
-                <span className="font-bold text-base text-darkGreen">{`${user.username} `}</span>
+                <span className="font-bold text-base md:text-3xl text-darkGreen">{`${user.username} `}</span>
                 <Image
                   src={user.imageUrl}
                   alt="firulai"
-                  className="rounded-full inline-block align-middle" // inline-block to align with text
+                  className="rounded-full inline-block align-middle md:w-[30px] md:h-[30px]" // inline-block to align with text
                   width={20}
                   height={20}
                 />
@@ -86,7 +86,7 @@ const page = async () => {
                 <span className="font-bold text-darkGreen">{`Firulai.co`}</span>
                 <br />
                 <br />
-                <span className="text-xs">¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables aniamles!</span>
+                <span className="text-xs md:text-xl">¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables animales!</span>
               </h1>
             </div>
 
@@ -106,7 +106,7 @@ const page = async () => {
                 </div>
               ))}
             </div>
-            <button className="px-4 py-2 shadow-inner z-10 rounded-xl text-xs bg-green-600 text-white">Descubre cómo puedes hacerlo</button>
+            <button className="px-4 py-2 shadow-inner z-10 rounded-xl text-xs md:text-xl bg-green-600 text-white">¡Descubre cómo puedes hacerlo!</button>
      
 
       
