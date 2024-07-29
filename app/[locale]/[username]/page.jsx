@@ -70,7 +70,7 @@ const page = async () => {
 
          
           <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
-          <SocialShare url={process.env.NEXT_PUBLIC_APP_URL + pathname} />
+          <SocialShare url={`firulai.co/${cleanedPathname}`} />
             <div className="flex flex-col justify-center items-center w-2/4 max-sm:w-[80vw] space-y-3">
               <h1 className="md:text-2xl text-sm text-center text-gray-500">
                 <span>{`Gracias,  `}</span>

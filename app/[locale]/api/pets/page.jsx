@@ -84,7 +84,7 @@ async function Pets({ searchParams }) {
       quality={100}
     />
    
-<span class="text-left absolute top-10 scale-0 rounded-lg bg-green-500 w-[69vw] p-2 text-xs text-white group-hover:scale-100">
+<span class="text-left absolute top-10 scale-0 rounded-lg bg-green-500 max-sm:w-[69vw] w-[40vw] p-2 text-xs text-white group-hover:scale-100">
 1. Regístrate.<br />
 2. Selecciona la mascota que deseas apadrinar.<br />
 3. Elige un monto (mensualmente te enviaremos un correo para que renueves el pago).<br />

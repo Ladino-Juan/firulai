@@ -56,8 +56,6 @@ const authMiddlewareConfig = {
 
   publicRoutes: [
     '/:locale', 
-    '/:locale/sign-in', 
-    '/:locale/sign-up', 
     '/:locale/api/pets', 
     '/:locale/api/checkout', 
     '/:locale/api/webhook', 
