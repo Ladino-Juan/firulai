@@ -6,7 +6,7 @@ import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
 import SocialShare from "../components/SocialShare";
 import Nofiru from "../components/Nofiru";
-const Dashboard = async () => {
+const Dashboard = async ({params: lang}) => {
   try {
     const { userId } = auth();
     const xataClient = getXataClient();
@@ -38,12 +38,12 @@ const Dashboard = async () => {
 
       return [
         [
-          firuData.name,
-          firuData.raza,
-          firuData.estado,
-          firuData.tamaño,
-          firuData.edad,
-          firuData.history,
+          firuData[lang.locale].name, 
+          firuData[lang.locale].raza,
+          firuData[lang.locale].estado,
+          firuData[lang.locale].tamaño,
+          firuData[lang.locale].edad,
+          firuData[lang.locale].history,
         ],
         item[0].modelFiru.url,
         item[0].realFiru.url,

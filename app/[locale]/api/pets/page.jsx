@@ -1,20 +1,15 @@
-import { Stripe } from "stripe";
-import ButtonCheckout from "../../components/ButtonCheckout";
 import Image from "next/image";
 import Badge1 from "@assets/mascotas/badge1.svg";
 import Badge2 from "@assets/mascotas/badge2.svg";
 import Badge3 from "@assets/mascotas/badge3.svg";
 import Badge4 from "@assets/mascotas/badge4.svg";
-import Info from "@icons/info-icon.svg"
-import Perrito from "@assets/mascotas/perrito.png";
+import Info from "@icons/info-icon.svg";
 import { auth } from "@clerk/nextjs";
-import { checkSubscription } from "@/lib/subscription";
 import CurrentPets from "../../components/CurrentPets";
-import SocialShare from "../../components/SocialShare";
 import HomeExperience from "../../components/HomeExperience";
 import crypto from "crypto";
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import { getlocales } from "../../../actions";
 import { currentUser } from "@clerk/nextjs/server";
 
 async function generateUniqueReference(selected) {
@@ -26,8 +21,9 @@ async function generateUniqueReference(selected) {
   // Retornar la referencia completa con el hash al final
   return `${uniqueString}-${hash}`;
 }
-async function Pets({ searchParams }) {
+async function Pets({ searchParams, params: lang }) {
   const { userId } = auth();
+  const { pets } = await getlocales(lang.locale);
   const prices = [1000000, 2500000, 5000000];
   const integrityKey = process.env.INTEGRITY_KEY;
 
@@ -64,37 +60,36 @@ async function Pets({ searchParams }) {
     }
   };
 
-
   return (
     <>
-      <CurrentPets />
+      <CurrentPets lang={lang.locale} />
       <div className="w-full flex justify-center items-center">
         <div>
           <header className="text-center my-5">
-          <h1 className="md:text-white md:bg-green-500 shadow-inner text-white bg-green-500 p-2 rounded-lg flex justify-between items-center">
-  <span className="mx-auto font-bold text-2xl max-sm:text-xl text-center w-full">
-    ¿Cómo apadrinar?
-  </span>
-  <div className="group absolute">
-    <Image
-      src={Info}
-      alt="Info Firulai"
-      height={20}
-      width={20}
-      quality={100}
-    />
-   
-<span class="text-left absolute top-10 scale-0 rounded-lg bg-green-500 max-sm:w-[69vw] w-[40vw] p-2 text-xs text-white group-hover:scale-100">
-1. Regístrate.<br />
-2. Selecciona la mascota que deseas apadrinar.<br />
-3. Elige un monto (mensualmente te enviaremos un correo para que renueves el pago).<br />
-4. Una vez realices el pago, se habilitará el perfil de la mascota que apadrines en la sección "Mis mascotas".
-</span>
-  </div>
- 
-</h1>
+            <h1 className="md:text-white md:bg-green-500 shadow-inner text-white bg-green-500 p-2 rounded-lg flex justify-between items-center">
+              <span className="mx-auto font-bold text-2xl max-sm:text-xl text-center w-full">
+                {pets?.paymentTitle}
+              </span>
+              <div className="group absolute">
+                <Image
+                  src={Info}
+                  alt="Info Firulai"
+                  height={20}
+                  width={20}
+                  quality={100}
+                />
 
-            
+                <span className="text-left absolute top-10 scale-0 rounded-lg bg-green-500 max-sm:w-[69vw] w-[40vw] p-2 text-xs text-white group-hover:scale-100">
+                  {pets?.step1}
+                  <br />
+                  {pets?.step2}
+                  <br />
+                  {pets?.step3}
+                  <br />
+                  {pets?.step4}
+                </span>
+              </div>
+            </h1>
           </header>
           <div className="flex gap-x-5 max-sm:flex-col">
             {prices.map((price, index) => (
@@ -120,7 +115,11 @@ async function Pets({ searchParams }) {
                   {`${(price / 100).toLocaleString("es-CO")} COP`}
                 </h2>
 
-                <form action="https://checkout.wompi.co/p/" method="GET" className="md:flex md:justify-center lg:justify-start justify-start">
+                <form
+                  action="https://checkout.wompi.co/p/"
+                  method="GET"
+                  className="md:flex md:justify-center lg:justify-start justify-start"
+                >
                   <input
                     type="hidden"
                     name="public-key"
@@ -160,7 +159,7 @@ async function Pets({ searchParams }) {
                         index
                       )} text-white px-4 py-2 rounded-lg hover:scale-105`}
                     >
-                      APADRINA
+                      {pets?.paymentButton}
                     </Link>
                   ) : (
                     <button
@@ -169,7 +168,7 @@ async function Pets({ searchParams }) {
                       )} text-white px-4 py-2 rounded-lg hover:scale-105`}
                       type="submit"
                     >
-                      APADRINA
+                      {pets?.paymentButton}
                     </button>
                   )}
                 </form>
@@ -189,10 +188,7 @@ async function Pets({ searchParams }) {
               alt="Firulais App"
               className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
-            <h2 className="w-2/3 max-sm:text-sm">
-              ¡Únete a nosotros para promover la protección y el cuidado
-              adecuado de los animales sin hogar!
-            </h2>
+            <h2 className="w-2/3 max-sm:text-sm">{pets?.joinUs}</h2>
           </div>
           <div className="flex items-center mt-5 max-sm:justify-center">
             <Image
@@ -200,11 +196,7 @@ async function Pets({ searchParams }) {
               alt="Firulais App"
               className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
-            <h2 className="w-2/3 max-sm:text-sm">
-              Descubre Firulai, la nueva forma de apadrinar. El valor
-              que dones se destina directamente a la fundación de la mascota que elijas.
-              Recibirás actualizaciones semanales de la mascota que apadrines.
-            </h2>
+            <h2 className="w-2/3 max-sm:text-sm">{pets?.discoverFirulai}</h2>
           </div>
           <div className="flex items-center mt-5 max-sm:justify-center">
             <Image
@@ -212,11 +204,7 @@ async function Pets({ searchParams }) {
               alt="Firulais App"
               className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
-            <h2 className="w-2/3 max-sm:text-sm">
-              Nuestro objetivo es transformar las vidas de las mascotas sin
-              hogar, mejorando su bienestar y contribuyendo al bienestar general
-              de los animales.
-            </h2>
+            <h2 className="w-2/3 max-sm:text-sm">{pets?.transformLives}</h2>
           </div>
           <div className="flex items-center mt-5 max-sm:justify-center">
             <Image
@@ -224,11 +212,7 @@ async function Pets({ searchParams }) {
               alt="Firulais App"
               className="w-[50px] md:w-[60px] lg:w-[100px] md:mx-5 max-sm:mr-4"
             ></Image>
-            <h2 className="w-2/3 max-sm:text-sm">
-              Mantenemos a nuestros usuarios completamente informados sobre
-              nuestras operaciones, impacto y el uso de recursos, así como el
-              estado de la mascota que apadrinen.
-            </h2>
+            <h2 className="w-2/3 max-sm:text-sm">{pets?.keepInformed}</h2>
           </div>
         </div>
       </div>

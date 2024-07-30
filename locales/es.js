@@ -37,4 +37,16 @@ export default {
     home: "INICIO",
     share: "COMPARTIR"
   },
+  pets: {
+    paymentTitle: "¿Cómo apadrinar?",
+    step1: "1. Regístrate.",
+    step2: "2. Selecciona la mascota que deseas apadrinar.",
+    step3: "3. Elige un monto (mensualmente te enviaremos un correo para que renueves el pago).",
+    step4: "4. Una vez realices el pago, se habilitará el perfil de la mascota que apadrines en la sección 'Mis mascotas'.",
+    paymentButton: "APADRINA",
+    joinUs: "¡Únete a nosotros para promover la protección y el cuidado adecuado de los animales sin hogar!",
+    discoverFirulai: "Descubre Firulai, la nueva forma de apadrinar. El valor que dones se destina directamente a la fundación de la mascota que elijas. Recibirás actualizaciones semanales de la mascota que apadrines.",
+    transformLives: " Nuestro objetivo es transformar las vidas de las mascotas sin hogar, mejorando su bienestar y contribuyendo al bienestar general de los animales.",
+    keepInformed: "  Mantenemos a nuestros usuarios completamente informados sobre nuestras operaciones, impacto y el uso de recursos, así como el estado de la mascota que apadrinen."
+  }
 };

@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
-const CurrentPets = () => {
+const CurrentPets = ({ lang }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -84,7 +84,7 @@ const CurrentPets = () => {
                 />
               </div>
               <h3 className="text-center text-sm">
-                {selectedPet.firuData.history}
+              {selectedPet.firuData.history[lang]}
               </h3>
               <div className="w-full flex justify-center mt-2">
               <button onTouchStart={handleScrollToSection} onClick={handleScrollToSection} className="py-2 px-4 bg-darkGreen hover:scale-110  hover:bg-darkestGreen transition-all duration-700 shadow-inner rounded-lg max-sm:hidden">
