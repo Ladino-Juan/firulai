@@ -9,9 +9,6 @@ import { getlocales } from "../actions";
 import CountUp from "react-countup";
 import { useState, useEffect } from "react";
 import LoaderIcon from "@assets/loader.gif";
-import FetchHomeData from "./components/FetchHomeData";
-
-
 
 export default function Home({ params: lang }) {
   const [home, setHome] = useState(null);
@@ -37,12 +34,7 @@ export default function Home({ params: lang }) {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <Image
-            src={LoaderIcon}
-            alt="Firulais dog AI"
-            width={50}
-            height={50}
-          />
+        <Image src={LoaderIcon} alt="firulai logo" width={50} height={50} />
       </div>
     );
   }
@@ -70,54 +62,56 @@ export default function Home({ params: lang }) {
           </div>
           <Image
             src={HeroDog}
-            alt="Firulais dog AI"
+            alt="firulai animación - Ayuda a las mascotas sin hogar"
             className="lg:w-[400px] md:w-[300px] w-[170px]"
-            loading="lazy"
+            priority
           />
         </div>
       </div>
-    <div className="flex justify-center w-full">
-    <div className="flex justify-around items-center overflow-hidden flex-col lg:flex-row h-screen md:h-[90vh] w-[80vw]">
-        <div className="flex justify-center flex-col max-sm:w-[80vw] text-center space-y-4 text-darkGreen font-semibold lg:text-start text-6xl max-sm:text-5xl">
-          <h1 className="font-bold lg:w-4/5 max-sm:w-[80vw]">{home.title2}</h1>
-          <br></br>
-          <div>
-            +<CountUp end={1000} enableScrollSpy />
-            <h2 className="text-xl font-normal">{home.meta1}</h2>
-          </div>
+      <div className="flex justify-center w-full">
+        <div className="flex justify-around items-center overflow-hidden flex-col lg:flex-row h-screen md:h-[90vh] w-[80vw]">
+          <div className="flex justify-center flex-col max-sm:w-[80vw] text-center space-y-4 text-darkGreen font-semibold lg:text-start text-6xl max-sm:text-5xl">
+            <h1 className="font-bold lg:w-4/5 max-sm:w-[80vw]">
+              {home.title2}
+            </h1>
+            <br></br>
+            <div>
+              +<CountUp end={1000} enableScrollSpy />
+              <h2 className="text-xl font-normal" >{home.meta1}</h2>
+            </div>
 
-          <div>
-            +<CountUp end={100} enableScrollSpy />
-            <h2 className="text-xl font-normal">{home.meta2}</h2>
-          </div>
+            <div>
+              +<CountUp end={100} enableScrollSpy />
+              <h2 className="text-xl font-normal">{home.meta2}</h2>
+            </div>
 
-          <div>
-            +<CountUp end={10} enableScrollSpy />
-            <h2 className="text-xl font-normal">{home.meta3}</h2>
+            <div>
+              +<CountUp end={10} enableScrollSpy />
+              <h2 className="text-xl font-normal">{home.meta3}</h2>
+            </div>
           </div>
-        </div>
-        <Image
-          src={BgLanding}
-          alt="Firulais dog AI"
-          className="lg:w-[500px] md:w-[400px] w-[200px] -skew-y-12 rounded-xl"
-        ></Image>
-      </div>
-    </div>
-     <div className="w-full flex justify-center">
-      <div className="flex lg:justify-between justify-center items-center overflow-hidden max-sm:h-[90vh] flex-col-reverse lg:flex-row h-screen w-[80vw]">
-        <Image
-          src={BgLanding1}
-          alt="Firulais dog AI"
-          className="w-[400px] max-sm:w-[200px] rounded-xl"
-        ></Image>
-        <div className="flex flex-col w-full lg:w-2/4 space-y-4 text-darkGreen text-center">
-          <h1 className="font-black text-6xl text-emerald-600 max-sm:text-5xl">
-            {home.infoTitle}
-          </h1>
-          <br></br>
-          <p className="text-xl max-sm:text-sm">{home.infoText}</p>
+          <Image
+            src={BgLanding}
+            alt="mascota sin hogar Colombia - firulai"
+            className="lg:w-[500px] md:w-[400px] w-[200px] -skew-y-12 rounded-xl"
+          ></Image>
         </div>
       </div>
+      <div className="w-full flex justify-center">
+        <div className="flex lg:justify-between justify-center items-center overflow-hidden max-sm:h-[90vh] flex-col-reverse lg:flex-row h-screen w-[80vw]">
+          <Image
+            src={BgLanding1}
+            alt="Apadrina una mascota - firulai"
+            className="w-[400px] max-sm:w-[200px] rounded-xl"
+          ></Image>
+          <div className="flex flex-col w-full lg:w-2/4 space-y-4 text-darkGreen text-center">
+            <h1 className="font-black text-6xl text-emerald-600 max-sm:text-5xl">
+              {home.infoTitle}
+            </h1>
+            <br></br>
+            <p className="text-xl max-sm:text-sm">{home.infoText}</p>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -64,7 +64,7 @@ const CurrentPets = ({ lang }) => {
             <div className="absolute -top-10 md:top-0 left-0 w-full h-[35vh]">
               <Image
                 src={selectedPet.firuData.realFiru}
-                alt={`Dog ${selectedPet.firuData.name}`}
+                alt={`Ayuda a ${selectedPet.firuData.name} a conseguir un hogar`}
                 className="md:rounded-t-3xl object-cover"
                 layout="fill"
               />
@@ -76,7 +76,7 @@ const CurrentPets = ({ lang }) => {
               <div className="absolute -bottom-24 max-sm:-bottom-28 -right-36 max-sm:left-0 max-sm:-right-0">
                 <Image
                   src={selectedPet.firuData.modelFiru}
-                  alt={`Model Firu ${selectedPet.firuData.name}`}
+                  alt={`Un hogar para ${selectedPet.firuData.name}`}
                   width={220}
                   height={220}
                   quality={100}
@@ -108,7 +108,7 @@ const CurrentPets = ({ lang }) => {
             <div className="lg:w-32 lg:h-32 md:w-20 md:h-20 w-28 h-28 bg-green-500 rounded-full flex items-center justify-center relative modelFiruImage cursor-pointer">
               <Image
                 src={firu.firuData.realFiru}
-                alt={`Dog ${firu.firuData.name}`}
+                alt={`Ayuda a ${firu.firuData.name} a conseguirle un hogar`}
                 className="rounded-full object-cover z-10"
                 quality={100}
                 fill
@@ -116,7 +116,7 @@ const CurrentPets = ({ lang }) => {
               <div  ref={targetSectionRef} className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-14 md:h-16 lg:w-20 lg:h-24">
                 <Image
                   src={firu.firuData.modelFiru}
-                  alt={`Model Firu ${firu.firuData.name}`}
+                  alt={`Mascota sin hogar ${firu.firuData.name} Colombia`}
                   fill
                   className="rounded-md modelFiruImageInner"
                 />

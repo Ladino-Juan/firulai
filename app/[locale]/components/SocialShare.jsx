@@ -26,7 +26,7 @@ const SocialShare = ({ url }) => {
    
      
 
-      <span class="text-left absolute top-10 scale-0 rounded-lg bg-green-500 p-2 text-xs text-white group-hover:scale-100">
+      <span className="text-left absolute top-10 scale-0 rounded-lg bg-green-500 p-2 text-xs text-white group-hover:scale-100">
         {copied ? "Copiado!" : "Copiar"}
       </span>
     </div>

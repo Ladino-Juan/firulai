@@ -15,15 +15,22 @@ const Footer = async ({ lang }) => {
       <Link href="/">
         <Image
           src={FirulaisLogo}
-          alt="Firulais App"
+          alt="firulai logo"
           className="w-[200px] max-sm:w-[120px]"
           quality={100}
         />
       </Link>
 
-      <div className="md:w-1/3 w-[80vw] text-center space-y-2 md:mr-40 text-white opacity-80">
+      <div className="md:w-1/3 w-[80vw] text-center space-y-5 md:mr-40 text-white opacity-80">
         <h1 className=" text-base max-sm:text-sm">{footer?.missionTitle}</h1>
         <p className="text-xs">{footer?.missionDescription}</p>
+        <Link
+          href="/terms_and_conditions"
+          aria-label="firulai términos y condiciones"
+          className="text-xs block"
+        >
+          {footer?.terms_and_conditions}
+        </Link>
       </div>
 
       <div className="flex justify-center items-center md:space-y-5  flex-col max-sm:flex-row max-sm:space-x-2">
@@ -31,25 +38,24 @@ const Footer = async ({ lang }) => {
           href="https://www.instagram.com/firulai.co/"
           target="_blank"
           rel="noreferrer"
-          aria-label="firulais instagram"
+          aria-label="firulai instagram"
         >
           <Image
             src={IgIcon}
-            alt="Whatsapp Firulais"
+            alt="firulai instagram"
             width={30}
             quality={100}
           />
         </Link>
         <Link
           href="https://api.whatsapp.com/send?l=es&phone=573226646007"
-          aria-label="firulais whatsapp"
+          aria-label="firulai whatsapp"
           target="_blank"
           rel="noreferrer"
         >
           <Image
             src={WppIcon}
-            alt="Whatsapp Firulais"
-
+            alt="firulai whatsapp"
             width={30}
             quality={100}
           ></Image>

@@ -4,8 +4,11 @@ import Image from "next/image";
 import { getXataClient } from "@/src/xata";
 import Nofiru from "../components/Nofiru";
 import SocialShare from "../components/SocialShare";
+import { getlocales } from "../../actions";
 
-const page = async () => {
+
+const page = async ({params: lang}) => {
+  const { share } = await getlocales(lang.locale);
   const xataClient = getXataClient();
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
@@ -56,9 +59,6 @@ const page = async () => {
     return item[0].modelFiru.url;
   });
 
-  
-
-
 
   return (
     <>
@@ -73,7 +73,7 @@ const page = async () => {
           <SocialShare url={`firulai.co/${cleanedPathname}`} />
             <div className="flex flex-col justify-center items-center w-2/4 max-sm:w-[80vw] space-y-3">
               <h1 className="md:text-2xl text-sm text-center text-gray-500">
-                <span>{`Gracias,  `}</span>
+                <span>{`${share?.text1}  `}</span>
                 <span className="font-bold text-base md:text-3xl text-darkGreen">{`${user.username} `}</span>
                 <Image
                   src={user.imageUrl}
@@ -82,11 +82,11 @@ const page = async () => {
                   width={20}
                   height={20}
                 />
-                <span>{`  por apadrinar a ${parsedData.length} mascotas sin hogar a través de `}</span> 
+                <span>{`  ${share?.text2} ${parsedData.length} ${share?.text3} `}</span> 
                 <span className="font-bold text-darkGreen">{`Firulai.co`}</span>
                 <br />
                 <br />
-                <span className="text-xs md:text-xl">¡Su ayuda hace una gran diferencia y llena de felicidad a estos adorables animales!</span>
+                <span className="text-xs md:text-xl">{share?.gratitude}</span>
               </h1>
             </div>
 
@@ -106,7 +106,7 @@ const page = async () => {
                 </div>
               ))}
             </div>
-            <button className="px-4 py-2 shadow-inner z-10 rounded-xl text-xs md:text-xl bg-green-600 text-white">¡Descubre cómo puedes hacerlo!</button>
+            <h1 className="px-4 py-2 shadow-inner z-10 rounded-xl text-xs md:text-xl bg-green-600 text-white">{share?.learnHow}</h1>
      
 
       

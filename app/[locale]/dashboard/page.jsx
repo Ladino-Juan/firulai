@@ -1,10 +1,6 @@
-import { checkSubscription } from "@/lib/subscription";
 import { getXataClient } from "@/src/xata";
 import { auth } from "@clerk/nextjs";
 import PetsOwned from "../components/PetsOwned";
-import Image from "next/image";
-import { currentUser } from "@clerk/nextjs";
-import SocialShare from "../components/SocialShare";
 import Nofiru from "../components/Nofiru";
 const Dashboard = async ({params: lang}) => {
   try {
@@ -44,6 +40,7 @@ const Dashboard = async ({params: lang}) => {
           firuData[lang.locale].tamaño,
           firuData[lang.locale].edad,
           firuData[lang.locale].history,
+          firuData[lang.locale].fundacion
         ],
         item[0].modelFiru.url,
         item[0].realFiru.url,
@@ -59,7 +56,7 @@ const Dashboard = async ({params: lang}) => {
         {parsedData.length === 0 ? (
           <Nofiru />
         ) : (
-            <PetsOwned modelData={parsedData} />
+            <PetsOwned modelData={parsedData} lang={lang.locale}/>
         )}
       </>
     );
