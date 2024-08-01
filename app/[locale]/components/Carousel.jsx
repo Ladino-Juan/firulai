@@ -67,10 +67,10 @@ const Carousel = ({ mediaData, type }) => {
     <div className="h-full w-full m-auto relative group">
       {type === "photo" ? (
         <div
-          style={{ backgroundImage: `url(${mediaData[currentIndex]})` }}
+          style={{ backgroundImage: `url(${mediaData[0]})` }}
           className="w-full h-full cursor-pointer rounded-2xl bg-center bg-cover duration-300"
-          onClick={() =>
-            handleImageClick(mediaData[currentIndex], currentIndex)
+          onClick={ 
+            nextSlide
           }
         ></div>
       ) : (
