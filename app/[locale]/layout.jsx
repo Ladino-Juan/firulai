@@ -15,17 +15,16 @@ export const metadata = {
   description:
     "Firulai te permite apadrinar mascotas para contribuir de manera eficiente y segura a fundaciones que cuidan de animales abandonados. Juntos, podemos transformar la vida de estas mascotas, brindándoles nuevas oportunidades y promoviendo una sociedad más empática y solidaria.",
     keywords: [
-      "crowdfunding",
-      "fundaciones de mascotas",
-      "bienestar animal",
-      "ayudar a mascotas",
-      "apadrinar mascotas",
-      "apoyo a animales abandonados",
-      "donaciones para mascotas",
-      "proteger animales",
-      "mascotas sin hogar",
-      "hacer una diferencia",
-      
+      "crowdfunding para mascotas Colombia",
+      "fundaciones de mascotas Pereira",
+      "Firulai Pereira",
+      "ayuda a mascotas Colombia",
+      "apadrinar mascotas Colombia",
+      "salvar animales abandonados Colombia",
+      "donaciones para mascotas Colombia",
+      "mascotas sin hogar Colombia",
+      "rescate de mascotas Colombia",
+      "adoptar mascotas Colombia"
     ],
   icons: [{ rel: "icon", url: Favicon.src }],
 };

@@ -5,9 +5,9 @@ import { getXataClient } from "@/src/xata";
 import Nofiru from "../components/Nofiru";
 import SocialShare from "../components/SocialShare";
 import { getlocales } from "../../actions";
+import Link from "next/link";
 
-
-const page = async ({params: lang}) => {
+const page = async ({ params: lang }) => {
   const { share } = await getlocales(lang.locale);
   const xataClient = getXataClient();
   const headerList = headers();
@@ -59,18 +59,14 @@ const page = async ({params: lang}) => {
     return item[0].modelFiru.url;
   });
 
-
   return (
     <>
       {parsedData.length < 1 ? (
         <Nofiru />
       ) : (
-
         <div className="flex flex-col items-center ">
-
-         
           <div className="w-[95vw] h-screen flex flex-col justify-center items-center">
-          <SocialShare url={`firulai.co/${cleanedPathname}`} />
+            <SocialShare url={`firulai.co/${cleanedPathname}`} />
             <div className="flex flex-col justify-center items-center w-2/4 max-sm:w-[80vw] space-y-3">
               <h1 className="md:text-2xl text-sm text-center text-gray-500">
                 <span>{`${share?.text1}  `}</span>
@@ -82,7 +78,7 @@ const page = async ({params: lang}) => {
                   width={20}
                   height={20}
                 />
-                <span>{`  ${share?.text2} ${parsedData.length} ${share?.text3} `}</span> 
+                <span>{`  ${share?.text2} ${parsedData.length} ${share?.text3} `}</span>
                 <span className="font-bold text-darkGreen">{`Firulai.co`}</span>
                 <br />
                 <br />
@@ -106,12 +102,10 @@ const page = async ({params: lang}) => {
                 </div>
               ))}
             </div>
-            <h1 className="px-4 py-2 shadow-inner z-10 rounded-xl text-xs md:text-xl bg-green-600 text-white">{share?.learnHow}</h1>
-     
-
-      
+            <button className="px-4 py-2 shadow-inner z-10 rounded-xl hover:scale-110 hover:shadow-2xl text-xs md:text-xl bg-green-600 hover:bg-darkestGreen duration-500 text-white">
+              <Link href="/api/pets">{share?.learnHow}</Link>
+            </button>
           </div>
-    
         </div>
       )}
     </>
