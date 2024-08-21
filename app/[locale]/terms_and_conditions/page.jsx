@@ -4,7 +4,7 @@ import { getlocales } from "../../actions";
 const page = async ({params: lang}) => {
   const { terms_and_conditions } = await getlocales(lang.locale);
   return (
-    <div className='flex justify-center items-center w-full lg:h-[200vh] h-[150vh]'>
+    <div className='flex justify-center items-center w-full lg:h-[200vh] h-[200vh]'>
       <div className='flex flex-col justify-center items-center lg:w-[50vw] w-[80vw] space-y-2 text-gray-500 py-4'>
         <h1 className='font-bold md:text-2xl text-sm w-full text-left'>
           {terms_and_conditions?.introTitle}

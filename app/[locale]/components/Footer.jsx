@@ -10,7 +10,7 @@ const Footer = async ({ lang }) => {
 
   return (
     <footer
-      className={`bottom-0 flex justify-around items-center w-full h-[40vh] rounded-t-3xl bg-green-500 max-sm:flex-col max-sm:h-[50vh]`}
+      className={`bottom-0 mt-10 flex justify-around items-center w-full h-[40vh] rounded-t-3xl bg-green-500 max-sm:flex-col max-sm:h-[50vh]`}
     >
       <Link href="/">
         <Image
@@ -21,7 +21,7 @@ const Footer = async ({ lang }) => {
         />
       </Link>
 
-      <div className="md:w-1/3 w-[80vw] text-center space-y-5 md:mr-40 text-white opacity-80">
+      <div className="md:w-1/3 w-[80vw] text-center space-y-4 md:mr-40 text-white opacity-80">
         <h1 className=" text-base max-sm:text-sm">{footer?.missionTitle}</h1>
         <p className="text-xs">{footer?.missionDescription}</p>
         <Link

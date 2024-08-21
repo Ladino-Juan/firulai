@@ -38,18 +38,16 @@ const NavLinks = (props) => {
     <>
       <div className="px-2 w-[95vw] flex md:justify-evenly lg:justify-around items-center h-full max-sm:flex-row-reverse max-sm:w-[55%] max-sm:justify-between">
         <Link href="/">
-          <div className="flex items-center">
+       
             <Image
               src={Logo}
               alt="Firulais icon"
               className="max-sm:w-[30px]"
               width={50}
               quality={100}
+              priority
             ></Image>
-            <span className="text-sm text-darkGreen hidden md:hidden lg:block">
-              {navBar?.home}
-            </span>
-          </div>
+           
         </Link>
         <div className="max-sm:hidden space-x-3 text-darkGreen">
           <Link
@@ -60,38 +58,23 @@ const NavLinks = (props) => {
           </Link>
           <span className="text-darkGreen">|</span>
           <Link
-            href={`/api/enterprise`}
+            href={`/api/adoptions`}
             className="hover:text-darkestGreen mr-1 text-sm"
           >
-            {navBar?.enterprise}
+            {navBar?.adopt}
           </Link>
           <span className="text-darkGreen">|</span>
-          {props.isLogged ? (
-            <Link
-              href={`/sign-in`}
-              className="hover:text-darkestGreen mr-1 text-sm"
-            >
-              {navBar?.mypets}
-            </Link>
-          ) : (
-            <Link
-              href={`/dashboard`}
-              className="hover:text-darkestGreen mr-2 text-sm"
-            >
-              {navBar?.mypets}
-            </Link>
-          )}
+        
     
           {username && (
-            <>
-                   <span className="text-darkGreen">|</span>
+          
             <Link
               href={`/${username}`}
               className="hover:text-darkestGreen mr-1 text-sm"
             >
-              {navBar?.share}
+              {navBar?.mypets}
             </Link>
-            </>
+       
           )}
         </div>
         <div
@@ -126,29 +109,13 @@ const NavLinks = (props) => {
           {navBar?.pets}
         </Link>
         <Link
-          href={`/api/enterprise`}
+          href={`/api/adoptions`}
           className=" opacity-80"
           onClick={() => setNav(!nav)}
         >
-          {navBar?.enterprise}
+          {navBar?.adopt}
         </Link>
-        {props.isLogged ? (
-          <Link
-            href={`/sign-in`}
-            className=" opacity-80"
-            onClick={() => setNav(!nav)}
-          >
-            {navBar?.mypets}
-          </Link>
-        ) : (
-          <Link
-            href={`/dashboard`}
-            className=" opacity-80"
-            onClick={() => setNav(!nav)}
-          >
-            {navBar?.mypets}
-          </Link>
-        )}
+        
 
         {username && (
           <Link
@@ -156,7 +123,7 @@ const NavLinks = (props) => {
             className=" opacity-80"
             onClick={() => setNav(!nav)}
           >
-            {navBar?.share}
+            {navBar?.mypets}
           </Link>
         )}
 

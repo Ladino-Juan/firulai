@@ -65,13 +65,13 @@ export const dogs = [
     },
   },
   {
-    id: "rec_cmfcb5kq7ahacfdtc8c0",
+    id: "rec_cqr4j3s0qipt8hkdcpa0",
     url: "https://eu-west-1.storage.xata.sh/r4o8p86qf50mdf6tpi33spdlfo",
     firuData: {
-      name: "Rocky",
+      name: "Motas",
       history: {
-        es: "Rocky fue dejado atrás cuando su familia decidió partir al extranjero, sin encontrar a nadie dispuesto a cuidarlo. A pesar de su situación, Rocky es un torbellino de energía y alegría, siempre buscando amor y atención. Su naturaleza juguetona y bulliciosa lo hace único, llenando cada día con travesuras y risas. Aunque su historia refleja el abandono, su espíritu juguetón y su corazón leal siguen buscando un hogar donde su vitalidad sea apreciada y celebrada.",
-        en: "Rocky was left behind when his family decided to move abroad, unable to find anyone willing to care for him. Despite his situation, Rocky is a whirlwind of energy and joy, always seeking love and attention. His playful and boisterous nature makes him unique, filling each day with mischief and laughter. Although his story reflects abandonment, his playful spirit and loyal heart continue to search for a home where his vitality is appreciated and celebrated."
+        es: "Motas es una gata de 8 años que llegó desde Cartago después de que su cuidadora falleciera. Debido a esto, sus mascotas fueron llevadas a la Fundación Sarita Reyes. Estuvo en adopción durante un tiempo; sin embargo, al no encontrar un hogar definitivo, ahora es una de las mascotas propias de la fundación. Destaca por su carácter sociable y es cariñosa con todas las personas que la visitan, resaltando su gran tamaño y bonito pelaje.",
+        en: "Motas is an 8-year-old cat who arrived from Cartago after her caretaker passed away. Because of this, her pets were taken to the Sarita Reyes Foundation. She was up for adoption for a while; however, not finding a permanent home, she is now one of the foundation's own pets. She stands out for her sociable nature and is affectionate with everyone who visits her, with her large size and beautiful fur being especially notable."
       },
       realFiru: "/assets/firus/firu6.webp",
       modelFiru: "/assets/firus/firuModel6.webp",

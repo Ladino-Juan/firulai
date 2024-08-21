@@ -7,6 +7,10 @@ import SocialShare from "../components/SocialShare";
 import { getlocales } from "../../actions";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Mis mascotas"
+}
+
 const page = async ({ params: lang }) => {
   const { share } = await getlocales(lang.locale);
   const xataClient = getXataClient();
@@ -62,7 +66,7 @@ const page = async ({ params: lang }) => {
   return (
     <>
       {parsedData.length < 1 ? (
-        <Nofiru />
+       <Nofiru />
       ) : (
         <div className="flex flex-col items-center ">
           <div className="w-[95vw] h-screen flex flex-col justify-center items-center">

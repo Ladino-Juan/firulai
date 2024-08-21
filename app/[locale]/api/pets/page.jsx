@@ -12,6 +12,11 @@ import Link from "next/link";
 import { getlocales } from "../../../actions";
 import { currentUser } from "@clerk/nextjs/server";
 
+
+export const metadata = {
+  title: "Apadrinar"
+}
+
 async function generateUniqueReference(selected) {
   const { userId } = auth();
   // Generar una cadena única para la referencia
@@ -140,7 +145,7 @@ async function Pets({ searchParams, params: lang }) {
                   <input
                     type="hidden"
                     name="redirect-url"
-                    value={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard`}
+                    value={`${process.env.NEXT_PUBLIC_APP_URL}/${user.username}`}
                   />
                   <input
                     type="hidden"
@@ -154,7 +159,7 @@ async function Pets({ searchParams, params: lang }) {
                   />
                   {!userId ? (
                     <Link
-                      href="/sign-in"
+                      href="/sign-up"
                       className={`${getBackgroundColor(
                         index
                       )} text-white px-4 py-2 rounded-lg hover:scale-105`}

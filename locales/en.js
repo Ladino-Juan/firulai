@@ -9,30 +9,25 @@ export default {
     landingButton: "Meet Your Pet",
     title2: "Help Us Reach the Goal",
     meta1: "KG of Food Delivered",
-    meta2: "Partner Stores",
+    meta2: "Adopted Pets",
     meta3: "Sterilizations Performed",
-    infoTitle: "Who Are We?",
-    infoText: "We are a team of young entrepreneurs dedicated to improving the quality of life for homeless pets. Through our platform, we create a virtual link that allows people to contribute efficiently and safely to foundations that care for abandoned animals. Together, we can transform the lives of these pets, giving them new opportunities and promoting a more empathetic and supportive society."
-  },
-  enterprise: {
-    title: "Increase Your Company's Value",
-    description: "We help you become a company committed to animal welfare by implementing effective social responsibility strategies.",
-    enterpriseButton: "Schedule a Meeting",
-    title2: "Join Us to Bring Love to Animals",
-    description2: "With our Firus points, we offer you the opportunity to turn your business into a collection center to help animals. We handle the weekly donation pickups and deliver them to the foundation of your choice.",
-    title3: "Create Your Own 3D Corporate Pet",
-    description3: "We help you give your company an identity with a pet that represents your mission. From design to animations, we take care of everything to ensure your corporate mascot is unique and memorable. Bring your brand to life!"
-  },
+    adopt: {
+      title: "Increase Your Company's Value",
+      description: "We help you become a company committed to animal welfare by implementing effective social responsibility strategies.",
+      adoptButton: "Schedule a Meeting",
+     }
+    },
+ 
   
     footer: {
       missionTitle: "OUR MISSION",
-      missionDescription: "Firulai merges virtual pets with real-world change. Experience fun with a meaningful impact on sheltered animals' lives",
+      missionDescription: "Firulai is a platform that connects people with pets, making it easy to adopt or sponsor. Find your ideal pet and make them part of your life, whether through adoption or by supporting their well-being responsibly.",
       contact: "CONTACT",
       terms_and_conditions: "TERMS AND CONDITIONS"
     },
     navBar: {
       pets: "SPONSOR",
-      enterprise: "ENTERPRISE",
+      adopt: "ADOPT",
       mypets: "MY PETS",
       signin: "SIGN IN",
       signup: "SIGN UP",

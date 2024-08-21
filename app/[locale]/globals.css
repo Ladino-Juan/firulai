@@ -28,6 +28,10 @@
   overflow: hidden;
 }
 
+.active-scroll-spy {
+  background-color: yellowgreen;
+  border-radius: 15px;
+}
 
 /* Usa las clases responsivas de TailwindCSS */
 .embla__slide {

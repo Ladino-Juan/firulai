@@ -3,12 +3,13 @@
 import Image from "next/image";
 import HeroDog from "@assets/HeroDog.gif";
 import BgLanding from "@assets/background-landing.webp";
-import BgLanding1 from "@assets/background-landing1.webp";
+import adopt1 from "@assets/enterprise-image-firus.webp";
 import Link from "next/link";
 import { getlocales } from "../actions";
 import CountUp from "react-countup";
 import { useState, useEffect } from "react";
 import LoaderIcon from "@assets/loader.gif";
+import { motion } from "framer-motion";
 
 export default function Home({ params: lang }) {
   const [home, setHome] = useState(null);
@@ -77,11 +78,11 @@ export default function Home({ params: lang }) {
             <br></br>
             <div>
               +<CountUp end={1000} enableScrollSpy />
-              <h2 className="text-xl font-normal" >{home.meta1}</h2>
+              <h2 className="text-xl font-normal">{home.meta1}</h2>
             </div>
 
             <div>
-              +<CountUp end={100} enableScrollSpy />
+              +<CountUp end={50} enableScrollSpy />
               <h2 className="text-xl font-normal">{home.meta2}</h2>
             </div>
 
@@ -94,24 +95,42 @@ export default function Home({ params: lang }) {
             src={BgLanding}
             alt="mascota sin hogar Colombia - firulai"
             className="lg:w-[500px] md:w-[400px] w-[200px] -skew-y-12 rounded-xl"
+            priority
           ></Image>
         </div>
       </div>
-      <div className="w-full flex justify-center">
-        <div className="flex lg:justify-between justify-center items-center overflow-hidden max-sm:h-[90vh] flex-col-reverse lg:flex-row h-screen w-[80vw]">
+
+      <div className="flex justify-center w-full">
+        <motion.div
+          className="flex justify-around items-center overflow-hidden h-[80vh] mt-20 flex-col lg:flex-row bg-gradient-to-r from-red-500 to-orange-500"
+          initial={{ width: "90vw", borderRadius: "1rem" }} 
+          whileInView={{ width: "100vw", borderRadius: "0px" }} 
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeIn" }}
+        >
           <Image
-            src={BgLanding1}
-            alt="Apadrina una mascota - firulai"
-            className="w-[400px] max-sm:w-[200px] rounded-xl"
+            src={adopt1}
+            alt="Firulais dog AI"
+            className="w-[500px] max-sm:w-[250px]"
           ></Image>
-          <div className="flex flex-col w-full lg:w-2/4 space-y-4 text-darkGreen text-center">
-            <h1 className="font-black text-6xl text-emerald-600 max-sm:text-5xl">
-              {home.infoTitle}
+          <div className="flex flex-col lg:w-2/5 w-[80vw] text-center lg:text-left space-y-4">
+            <h1 className="text-6xl font-bold text-white lg:text-left max-sm:text-3xl text-center">
+              {home.adopt.title}
             </h1>
-            <br></br>
-            <p className="text-xl max-sm:text-sm">{home.infoText}</p>
+            <p className="text-xl text-white max-sm:text-sm">
+              {home.adopt.description}
+            </p>
+            <br />
+            <Link
+              href="https://api.whatsapp.com/send?l=es&phone=573226646007"
+              className="bg-orange-500 text-center hover:bg-red-500 transition-all duration-300 text-white px-4 py-2 rounded-lg hover:scale-105 shadow-xl"
+              aria-label="firulai whatsapp"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {home.adopt.adoptButton}
+            </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

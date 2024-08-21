@@ -59,7 +59,7 @@ const authMiddlewareConfig = {
     '/:locale/api/pets', 
     '/:locale/api/checkout', 
     '/:locale/api/webhook', 
-    '/:locale/api/enterprise', 
+    '/:locale/api/adoptions', 
     '/:locale/terms_and_conditions', 
     '/:locale/:username',
   ],

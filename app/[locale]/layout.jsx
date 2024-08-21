@@ -1,54 +1,47 @@
 import "./globals.css";
-import { dark } from "@clerk/themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "./components/Footer";
 import { Poppins } from "next/font/google";
-import Favicon from "../../public/favicon.ico";
 import NavBar from "./components/NavBar";
 import { getlocales } from "../actions";
 import { enUS, esES } from "@clerk/localizations";
+import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
-  title: "Firulai",
+  title: {
+    default: "Firulai",
+    template: "%s - Firulai"
+  },
   description:
-    "Firulai te permite apadrinar mascotas para contribuir de manera eficiente y segura a fundaciones que cuidan de animales abandonados. Juntos, podemos transformar la vida de estas mascotas, brindándoles nuevas oportunidades y promoviendo una sociedad más empática y solidaria.",
-    keywords: [
-      "crowdfunding para mascotas Colombia",
-      "fundaciones de mascotas Pereira",
-      "Firulai Pereira",
-      "ayuda a mascotas Colombia",
-      "apadrinar mascotas Colombia",
-      "salvar animales abandonados Colombia",
-      "donaciones para mascotas Colombia",
-      "mascotas sin hogar Colombia",
-      "rescate de mascotas Colombia",
-      "adoptar mascotas Colombia"
-    ],
-  icons: [{ rel: "icon", url: Favicon.src }],
+    "Encuentra a tu mascota ideal y hazla parte de tu vida, ya sea adoptando o apoyando su bienestar de forma responsable.",
+  keywords: [
+    "crowdfunding para mascotas",
+    "Adoptar Pereira",
+    "Firulai Pereira",
+    "Perros Pereira",
+    "apadrinar mascotas",
+    "salvar animales abandonados",
+    "donaciones para mascotas",
+    "mascotas sin hogar",
+    "rescate de mascotas",
+    "Gatos Pereira",
+  ],
+  twitter: {
+    card: "summary_large_image",
+  }
 };
 
 export default function RootLayout({ children, params }) {
   return (
-    <ClerkProvider localization={params.locale === "en" ? enUS : esES}>
+    <ClerkProvider localization={params.locale === "en" ? enUS : esES} appearance={{
+      variables: { colorPrimary: 'green' },
+    
+    }}>
+      <Analytics />
       <html lang={params.locale ?? defaultLocale}>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
-            `,
-          }}
-        />
-
-        <body className={`${poppins.className}`}>
+        <body className={poppins.className}>
           <NavBar lang={params.locale} />
           <main>
             <div>{children}</div>

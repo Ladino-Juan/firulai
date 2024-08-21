@@ -18,8 +18,7 @@ const CurrentPets = ({ lang }) => {
       targetSectionRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-
+  
   const onSelect = (petId) => {
     const current = new URLSearchParams(searchParams);
     const value = petId.trim();
@@ -67,6 +66,7 @@ const CurrentPets = ({ lang }) => {
                 alt={`Ayuda a ${selectedPet.firuData.name} a conseguir un hogar`}
                 className="md:rounded-t-3xl object-cover"
                 layout="fill"
+                priority
               />
               <h1 className="font-bold text-7xl opacity-80 p-5 md:p-10 max-sm:text-5xl">
                 {selectedPet.firuData.name}
@@ -79,7 +79,7 @@ const CurrentPets = ({ lang }) => {
                   alt={`Un hogar para ${selectedPet.firuData.name}`}
                   width={220}
                   height={220}
-                  quality={100}
+                  priority
                   className="rounded-md max-sm:w-[150px]"
                 />
               </div>
@@ -112,6 +112,7 @@ const CurrentPets = ({ lang }) => {
                 className="rounded-full object-cover z-10"
                 quality={100}
                 fill
+                priority
               />
               <div  ref={targetSectionRef} className="absolute -bottom-5 md:bottom-0 -left-7 md:-left-9 z-20 w-16 h-20 md:w-14 md:h-16 lg:w-20 lg:h-24">
                 <Image
@@ -119,6 +120,7 @@ const CurrentPets = ({ lang }) => {
                   alt={`Mascota sin hogar ${firu.firuData.name} Colombia`}
                   fill
                   className="rounded-md modelFiruImageInner"
+                  priority
                 />
               </div>
             </div>
