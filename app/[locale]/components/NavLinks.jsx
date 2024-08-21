@@ -63,17 +63,19 @@ const NavLinks = (props) => {
           >
             {navBar?.adopt}
           </Link>
-          <span className="text-darkGreen">|</span>
+        
         
     
           {username && (
-          
+            <>
+            <span className="text-darkGreen">|</span>
             <Link
               href={`/${username}`}
               className="hover:text-darkestGreen mr-1 text-sm"
             >
               {navBar?.mypets}
             </Link>
+            </>
        
           )}
         </div>

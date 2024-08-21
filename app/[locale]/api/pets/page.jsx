@@ -145,7 +145,7 @@ async function Pets({ searchParams, params: lang }) {
                   <input
                     type="hidden"
                     name="redirect-url"
-                    value={`${process.env.NEXT_PUBLIC_APP_URL}/${user.username}`}
+                    value={`${process.env.NEXT_PUBLIC_APP_URL}/${user?.username}`}
                   />
                   <input
                     type="hidden"
