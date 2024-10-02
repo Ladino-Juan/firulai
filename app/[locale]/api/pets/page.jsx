@@ -12,10 +12,9 @@ import Link from "next/link";
 import { getlocales } from "../../../actions";
 import { currentUser } from "@clerk/nextjs/server";
 
-
 export const metadata = {
-  title: "Apadrinar"
-}
+  title: "Apadrinar",
+};
 
 async function generateUniqueReference(selected) {
   const { userId } = auth();
@@ -120,63 +119,14 @@ async function Pets({ searchParams, params: lang }) {
                   {`${(price / 100).toLocaleString("es-CO")} COP`}
                 </h2>
 
-                <form
-                  action="https://checkout.wompi.co/p/"
-                  method="GET"
-                  className="md:flex md:justify-center lg:justify-start justify-start"
+                <Link
+                  href={"https://wa.link/y1roqm"}
+                  className={`${getBackgroundColor(
+                    index
+                  )} text-white px-4 py-2 rounded-lg hover:scale-105`}
                 >
-                  <input
-                    type="hidden"
-                    name="public-key"
-                    value={process.env.WOMPI_PUBLIC_KEY}
-                  />
-                  <input type="hidden" name="currency" value="COP" />
-                  <input type="hidden" name="amount-in-cents" value={price} />
-                  <input
-                    type="hidden"
-                    name="reference"
-                    value={references[index].reference}
-                  />
-                  <input
-                    type="hidden"
-                    name="signature:integrity"
-                    value={references[index].hashHex}
-                  />
-                  <input
-                    type="hidden"
-                    name="redirect-url"
-                    value={`${process.env.NEXT_PUBLIC_APP_URL}/${user?.username}`}
-                  />
-                  <input
-                    type="hidden"
-                    name="customer-data:email"
-                    value={primaryEmail}
-                  />
-                  <input
-                    type="hidden"
-                    name="customer-data:full-name"
-                    value={fullName}
-                  />
-                  {!userId ? (
-                    <Link
-                      href="/sign-up"
-                      className={`${getBackgroundColor(
-                        index
-                      )} text-white px-4 py-2 rounded-lg hover:scale-105`}
-                    >
-                      {pets?.paymentButton}
-                    </Link>
-                  ) : (
-                    <button
-                      className={`${getBackgroundColor(
-                        index
-                      )} text-white px-4 py-2 rounded-lg hover:scale-105`}
-                      type="submit"
-                    >
-                      {pets?.paymentButton}
-                    </button>
-                  )}
-                </form>
+                  {pets?.paymentButton}
+                </Link>
               </div>
             ))}
           </div>
